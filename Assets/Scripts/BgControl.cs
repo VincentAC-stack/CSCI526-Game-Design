@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BgControl : MonoBehaviour
 {
-    // Bg Speed
+    // Bg Speed 
     public float Speed = 0.5f;
 
     // Update is called once per frame
