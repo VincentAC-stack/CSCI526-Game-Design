@@ -8,7 +8,6 @@ public class ColorChange : MonoBehaviour
 
     private GameObject low;
     
-    private bool reversed = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,16 +28,6 @@ public class ColorChange : MonoBehaviour
             // print(upperColor);
             up.GetComponent<SpriteRenderer >().color = lowerColor;
             low.GetComponent<SpriteRenderer >().color = upperColor;
-            // if (reversed)
-            // {
-            //     low.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 0.2f);
-            //     // up.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
-            // }
-            // else
-            // {
-            //     low.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
-            //     // up.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 0.2f);
-            // }
         }
     }
 }
