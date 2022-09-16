@@ -2,4 +2,4 @@
 
 #### Endless runner + World switch
 
-#### Team Members: Siji Wang, Yizhou Wu
+#### Team Members: Siji Wang, Yizhou Wu, Dawei Xu
