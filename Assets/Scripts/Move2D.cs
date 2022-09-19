@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Move2D : MonoBehaviour
 {
@@ -18,6 +19,12 @@ public class Move2D : MonoBehaviour
         Jump();
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * moveSpeed;
+
+        // Reload Scene after the ball falls off
+        if (transform.position.y < -10f) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            print("Restart the game");
+        }
     }
 
     void Jump()
