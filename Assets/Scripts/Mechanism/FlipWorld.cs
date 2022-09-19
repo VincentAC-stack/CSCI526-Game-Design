@@ -34,7 +34,8 @@ public class FlipWorld : MonoBehaviour
             // if (!Flipped) 
             // else pos.y += Offset;
             Ceilings[i].transform.position = pos;
-            Ceilings[i].transform.rotation *= Quaternion.Euler(180, 0, 0);
+            float rotationZ = Ceilings[i].transform.eulerAngles.z;
+            Ceilings[i].transform.rotation *= Quaternion.Euler(0, 180, rotationZ * 2);
             // Ceilings[i].transform.position.y -= 4;
 
         }
@@ -45,7 +46,8 @@ public class FlipWorld : MonoBehaviour
             // if(!Flipped) pos.y += Offset;
             // else pos.y -= Offset;
             Grounds[i].transform.position = pos;
-            Grounds[i].transform.rotation *= Quaternion.Euler(0, -180, 0);
+            float rotationZ = Grounds[i].transform.eulerAngles.z;
+            Grounds[i].transform.rotation *= Quaternion.Euler(0, 180, rotationZ * 2);
         }
         Flipped = !Flipped;
     }
