@@ -11,7 +11,11 @@ public class Move2D : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
+    public GameObject ResetWindow;
+    public GameObject FinishWindow;
     private bool isTouchingGround;
+    
+    
     
     // Start is called before the first frame update
     void Start()
@@ -26,11 +30,9 @@ public class Move2D : MonoBehaviour
         Jump();
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * moveSpeed;
-
-        // Reload Scene after the ball falls off
-        if (transform.position.y < -10f) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            print("Restart the game");
+        if (transform.position.y < -6f)
+        {
+            ResetWindow.SetActive(true);
         }
     }
 
@@ -41,6 +43,14 @@ public class Move2D : MonoBehaviour
             // gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f,5f),ForceMode2D.Impulse);
             float jumpVelocity = 5f;
             rigidbody2d.velocity = Vector2.up * jumpVelocity;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "FinishFlag")
+        {
+            FinishWindow.SetActive(true);
         }
     }
 }
