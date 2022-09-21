@@ -13,7 +13,7 @@ public class Move2D : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     public GameObject ResetWindow;
-    public GameObject ResetWindow_2;
+    public GameObject FirstTimeFailWindow;
     public GameObject FinishWindow;
     private bool isTouchingGround;
     private static int isDeath = 0;
@@ -33,16 +33,16 @@ public class Move2D : MonoBehaviour
         transform.position += movement * Time.deltaTime * moveSpeed;
         if (transform.position.y < -6f)
         {
-            if (isDeath == 0)
-            {
-                ResetWindow_2.SetActive(true);
-                isDeath += 1;
-            }
-            else
-            {
-                ResetWindow.SetActive(true);
-                isDeath += 1;
-            }
+            // if (isDeath == 0)
+            // {
+            //     ResetWindow_2.SetActive(true);
+            //     isDeath += 1;
+            // }
+            // else
+            // {
+            ResetWindow.SetActive(true);
+            //     isDeath += 1;
+            // }
         }
     }
 
@@ -58,9 +58,13 @@ public class Move2D : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "FinishFlag")
+        if (collision.gameObject.name == "FinishFlag")
         {
             FinishWindow.SetActive(true);
+        }
+        if (collision.gameObject.name == "FirstTimeFailChecker")
+        {
+            FirstTimeFailWindow.SetActive(true);
         }
     }
 }
