@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,10 +13,10 @@ public class Move2D : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     public GameObject ResetWindow;
+    public GameObject ResetWindow_2;
     public GameObject FinishWindow;
     private bool isTouchingGround;
-    
-    
+    private static int isDeath = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,16 @@ public class Move2D : MonoBehaviour
         transform.position += movement * Time.deltaTime * moveSpeed;
         if (transform.position.y < -6f)
         {
-            ResetWindow.SetActive(true);
+            if (isDeath == 0)
+            {
+                ResetWindow_2.SetActive(true);
+                isDeath += 1;
+            }
+            else
+            {
+                ResetWindow.SetActive(true);
+                isDeath += 1;
+            }
         }
     }
 
