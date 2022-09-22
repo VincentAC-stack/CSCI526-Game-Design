@@ -6,6 +6,7 @@ public class FlipWorld : MonoBehaviour
 {
     private GameObject[] Ceilings;
     private GameObject[] Grounds;
+    private GameObject[] Grass;
     private bool Flipped = false;
 
     // public int Offset = 4;
@@ -14,6 +15,7 @@ public class FlipWorld : MonoBehaviour
     {
         Ceilings = GameObject.FindGameObjectsWithTag("Ceiling");
         Grounds = GameObject.FindGameObjectsWithTag("Ground");
+        Grass = GameObject.FindGameObjectsWithTag("grass");
     }
 
     // Update is called once per frame
@@ -49,6 +51,17 @@ public class FlipWorld : MonoBehaviour
             float rotationZ = Grounds[i].transform.eulerAngles.z;
             Grounds[i].transform.rotation *= Quaternion.Euler(0, 180, rotationZ * 2);
         }
+        for (int i = 0; i < Grass.Length; i++)
+        {
+            Vector3 pos = Grass[i].transform.position;
+            pos.y = -pos.y;
+            // if(!Flipped) pos.y += Offset;
+            // else pos.y -= Offset;
+            Grass[i].transform.position = pos;
+            float rotationZ = Grass[i].transform.eulerAngles.z;
+            Grass[i].transform.rotation *= Quaternion.Euler(180, 180, 0);
+        }
+        
         Flipped = !Flipped;
     }
 }
