@@ -7,6 +7,7 @@ public class FlipWorld : MonoBehaviour
     private GameObject[] Ceilings;
     private GameObject[] Grounds;
     private GameObject[] Grass;
+	private GameObject[] Portals;
     private bool Flipped = false;
 
     // public int Offset = 4;
@@ -16,6 +17,7 @@ public class FlipWorld : MonoBehaviour
         Ceilings = GameObject.FindGameObjectsWithTag("Ceiling");
         Grounds = GameObject.FindGameObjectsWithTag("Ground");
         Grass = GameObject.FindGameObjectsWithTag("grass");
+ 		Portals = GameObject.FindGameObjectsWithTag("Portal");
     }
 
     // Update is called once per frame
@@ -60,6 +62,16 @@ public class FlipWorld : MonoBehaviour
             Grass[i].transform.position = pos;
             float rotationZ = Grass[i].transform.eulerAngles.z;
             Grass[i].transform.rotation *= Quaternion.Euler(180, 180, 0);
+        }
+ 		for (int i = 0; i < Portals.Length; i++)
+        {
+            Vector3 pos = Portals[i].transform.position;
+            pos.y = -pos.y;
+            // if(!Flipped) pos.y += Offset;
+            // else pos.y -= Offset;
+            Portals[i].transform.position = pos;
+            float rotationZ = Portals[i].transform.eulerAngles.z;
+            Portals[i].transform.rotation *= Quaternion.Euler(180, 0, 0);
         }
         
         Flipped = !Flipped;
