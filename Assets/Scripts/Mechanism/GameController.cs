@@ -27,15 +27,14 @@ public class GameController : MonoBehaviour
         ResetWindow.SetActive(false);
         FirstTimeFailWindow.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        // print(Death);
-        print("Restart the game");
+        // print("Restart the game");
     }
 
     private void FinishClicked()
     {
         FinishWindow.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        print("Finish the game");
+        // print("Finish the game");
     }
 }
 // Update is called once per frame

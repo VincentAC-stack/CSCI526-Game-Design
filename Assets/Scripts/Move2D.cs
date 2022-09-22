@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,11 +17,13 @@ public class Move2D : MonoBehaviour
     public GameObject FirstTimeFailWindow;
     public GameObject FinishWindow;
     private bool isTouchingGround;
-    
+    public TextMeshProUGUI DeathText;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = transform.GetComponent<Rigidbody2D>();
+        DeathText.text = "Death: " + Count.totalKill;
     }
 
     // Update is called once per frame
@@ -30,10 +33,6 @@ public class Move2D : MonoBehaviour
         Jump();
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * moveSpeed;
-        if (transform.position.y < -6f)
-        {
-            ResetWindow.SetActive(true);
-        }
     }
 
     void Jump()
@@ -52,9 +51,17 @@ public class Move2D : MonoBehaviour
         {
             FinishWindow.SetActive(true);
         }
-        if (collision.gameObject.name == "FirstTimeFailChecker")
+        else if (collision.gameObject.name == "FirstTimeFailChecker")
         {
             FirstTimeFailWindow.SetActive(true);
+            Count.totalKill += 1;
+            DeathText.text = "Death: " + Count.totalKill;
+        }
+        else if (collision.gameObject.name == "DownFailChecker")
+        {
+            ResetWindow.SetActive(true);
+            Count.totalKill += 1;
+            DeathText.text = "Death: " + Count.totalKill;
         }
     }
 }
