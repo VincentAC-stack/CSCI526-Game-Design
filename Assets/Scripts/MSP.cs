@@ -11,7 +11,7 @@ public class MSP : MonoBehaviour
         foreach (Transform tran in transform)
         {
             Vector3 pos = tran.position;
-            float upperedgex = 3.5f;
+            float upperedgex = 6.0f;
             float loweredgex = 0.5f;
             float upperedgey = 0.8f;
             float loweredgey = 2.5f;
@@ -21,17 +21,13 @@ public class MSP : MonoBehaviour
             
             float speedd = 1.4f;
             var rand = new System.Random();
-            double scaled = (rand.NextDouble()*10f) + 0.75f;
-            print(tran.speed);
             if (pos.x < -loweredgex)
             {
                 if (pos.y > upperedgey){
-                    speedd = (float)scaled;
                     speedx = 0;
                     speedy = speedd;
                 }
                 else if (pos.y < -loweredgey){
-                    speedd = (float)scaled;
                     speedx = - speedd;
                     speedy = 0;
                 }
@@ -43,12 +39,10 @@ public class MSP : MonoBehaviour
             else if (pos.x > upperedgex)
             {
                 if (pos.y > upperedgey){
-                    speedd = (float)scaled;
                     speedx = speedd;
                     speedy = 0;
                 }
                 else if (pos.y < -loweredgey){
-                    speedd = (float)scaled;
                     speedx = 0;
                     speedy = -speedd;
                 }
