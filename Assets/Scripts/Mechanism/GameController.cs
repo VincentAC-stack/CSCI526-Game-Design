@@ -12,30 +12,41 @@ public class GameController : MonoBehaviour
     public Button ResetButton;
     public Button FirstTimeFailResetButton;
     public Button FinishButton;
-
+	public static bool canMove;
     // Start is called before the first frame update
     void Start()
     {
-        ResetButton.onClick.AddListener(ResetClicked);
-        FirstTimeFailResetButton.onClick.AddListener(ResetClicked);
-        FinishButton.onClick.AddListener(FinishClicked);
+		canMove = true;
+        //ResetButton.onClick.AddListener(ResetButtonesetClicked);
+        //FirstTimeFailResetButton.onClick.AddListener(ResetClicked);
+        //FinishButton.onClick.AddListener(FinishClicked);
     }
 
     private void ResetClicked()
     {
         
-        ResetWindow.SetActive(false);
-        FirstTimeFailWindow.SetActive(false);
+        
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         // print("Restart the game");
     }
 
     private void FinishClicked()
     {
-        FinishWindow.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        
         // print("Finish the game");
     }
+	void Update(){
+		if (Input.GetKeyDown(KeyCode.R))
+        {
+			FinishWindow.SetActive(false);
+			ResetWindow.SetActive(false);
+			FirstTimeFailWindow.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+			GameController.canMove = true;
+        }
+	}
 }
 // Update is called once per frame
 

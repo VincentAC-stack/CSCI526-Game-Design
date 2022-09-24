@@ -22,6 +22,7 @@ public class Move2D : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         rigidbody2d = transform.GetComponent<Rigidbody2D>();
         DeathText.text = "Death: " + Count.totalKill;
     }
@@ -29,10 +30,14 @@ public class Move2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        Jump();
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-        transform.position += movement * Time.deltaTime * moveSpeed;
+        if (GameController.canMove)
+        {
+            isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+            Jump();
+            Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+            transform.position += movement * Time.deltaTime * moveSpeed;
+        }
+        
     }
 
     void Jump()
@@ -47,18 +52,22 @@ public class Move2D : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // this.SetActive(false);
         if (collision.gameObject.name == "FinishFlag")
         {
+            GameController.canMove = false;
             FinishWindow.SetActive(true);
         }
         else if (collision.gameObject.name == "FirstTimeFailChecker")
         {
+            GameController.canMove = false;
             FirstTimeFailWindow.SetActive(true);
             Count.totalKill += 1;
             DeathText.text = "Death: " + Count.totalKill;
         }
         else if (collision.gameObject.name == "DownFailChecker")
         {
+            GameController.canMove = false;
             ResetWindow.SetActive(true);
             Count.totalKill += 1;
             DeathText.text = "Death: " + Count.totalKill;
