@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour
     public Button FirstTimeFailResetButton;
     public Button FinishButton;
 	public static bool canMove;
+	public static bool flipped;
+	
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +24,7 @@ public class GameController : MonoBehaviour
         //FirstTimeFailResetButton.onClick.AddListener(ResetClicked);
         //FinishButton.onClick.AddListener(FinishClicked);
     }
+    
 
     private void ResetClicked()
     {

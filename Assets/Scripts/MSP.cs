@@ -3,64 +3,87 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
+
+
+
+
 public class MSP : MonoBehaviour
 {
-
+    public static float upperedgex = 6.0f;
+    public static float loweredgex = -0.5f;
+    public static float upperedgey = 0.8f;
+    public static float loweredgey = -2.5f;
     void Update()
     {
+        
         foreach (Transform tran in transform)
         {
             Vector3 pos = tran.position;
-            float upperedgex = 6.0f;
-            float loweredgex = 0.5f;
-            float upperedgey = 0.8f;
-            float loweredgey = 2.5f;
             
             float speedx = 0;
             float speedy = 0;
             
-            float speedd = 1.4f;
+            float speedd = 1.1f;
             var rand = new System.Random();
-            if (pos.x < -loweredgex)
+
+            int temp = 0;
+            
+            if (pos.x < loweredgex)
             {
                 if (pos.y > upperedgey){
-                    speedx = 0;
-                    speedy = speedd;
+                    temp = 1;
                 }
-                else if (pos.y < -loweredgey){
-                    speedx = - speedd;
-                    speedy = 0;
+                else if (pos.y < loweredgey){
+                    temp = 4;
                 }
                 else{
-                    speedx = 0;
-                    speedy = speedd;
+                    temp = 1;
                 }
             }
+            
             else if (pos.x > upperedgex)
             {
                 if (pos.y > upperedgey){
-                    speedx = speedd;
-                    speedy = 0;
+                    temp = 3;
                 }
-                else if (pos.y < -loweredgey){
-                    speedx = 0;
-                    speedy = -speedd;
+                else if (pos.y < loweredgey){
+                    temp = 2;
                 }
                 else{
-                    speedx = 0;
-                    speedy = -speedd;
+                    temp = 2;
                 }
             }
+            
             else
             {
                 if (pos.y > upperedgey){
-                    speedx = speedd;
-                    speedy = 0;
+                    temp = 3;
                 }
-                else if (pos.y < -loweredgey){
-                    speedx = -speedd;
-                    speedy = 0;
+                else if (pos.y < loweredgey){
+                    temp = 4;
                 }
+            }
+
+            if (temp == 1)
+            {
+                speedx = 0;
+                speedy = speedd;
+            }
+            else if (temp == 2)
+            {
+                speedx = 0;
+                speedy = -speedd;
+            }
+            else if (temp == 3)
+            {
+                speedx = speedd;
+                speedy = 0;
+            }
+            else
+            {
+                speedx = - speedd;
+                speedy = 0;
             }
             
 
