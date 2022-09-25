@@ -24,7 +24,7 @@ public class MSP : MonoBehaviour
             float speedx = 0;
             float speedy = 0;
             
-            float speedd = 1.1f;
+            float speedd = 0.7f;
             var rand = new System.Random();
 
             int temp = 0;
