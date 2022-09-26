@@ -19,9 +19,7 @@ public class Rotate : MonoBehaviour
             
             float speedx = 0;
             float speedy = 0;
-            
-            float speedd = 1.4f;
-            
+
 
 
             pos.x -= speedx*Time.deltaTime;

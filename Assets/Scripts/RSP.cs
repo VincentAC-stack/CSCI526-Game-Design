@@ -10,7 +10,6 @@ using System;
 
 public class RSP : MonoBehaviour
 {
-    private float angle = 0;
     private float[] ABC;
     
     

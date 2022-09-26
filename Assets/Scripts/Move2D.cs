@@ -13,9 +13,6 @@ public class Move2D : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
-    public GameObject ResetWindow;
-    public GameObject FirstTimeFailWindow;
-    public GameObject FinishWindow;
     private bool isTouchingGround;
     public TextMeshProUGUI DeathText;
 
@@ -56,19 +53,12 @@ public class Move2D : MonoBehaviour
         if (collision.gameObject.name == "FinishFlag")
         {
             GameController.canMove = false;
-            FinishWindow.SetActive(true);
-        }
-        else if (collision.gameObject.name == "FirstTimeFailChecker")
-        {
-            GameController.canMove = false;
-            FirstTimeFailWindow.SetActive(true);
-            Count.totalKill += 1;
-            DeathText.text = "Death: " + Count.totalKill;
+            GameController.GameFinish = true;
         }
         else if (collision.gameObject.name == "DownFailChecker")
         {
             GameController.canMove = false;
-            ResetWindow.SetActive(true);
+            GameController.PlayerDead = true;
             Count.totalKill += 1;
             DeathText.text = "Death: " + Count.totalKill;
         }

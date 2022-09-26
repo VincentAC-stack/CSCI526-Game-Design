@@ -7,48 +7,44 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public GameObject ResetWindow;
-    public GameObject FirstTimeFailWindow;
     public GameObject FinishWindow;
-    public Button ResetButton;
-    public Button FirstTimeFailResetButton;
-    public Button FinishButton;
-	public static bool canMove;
+    public static bool canMove;
 	public static bool flipped;
-	
+	public static bool GameFinish;
+	public static bool PlayerDead;
 	
     // Start is called before the first frame update
     void Start()
     {
 		canMove = true;
-        //ResetButton.onClick.AddListener(ResetButtonesetClicked);
-        //FirstTimeFailResetButton.onClick.AddListener(ResetClicked);
-        //FinishButton.onClick.AddListener(FinishClicked);
-    }
-    
-
-    private void ResetClicked()
-    {
-        
-        
-        
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        // print("Restart the game");
+		//ResetButton.onClick.AddListener(ResetButtonesetClicked);
+		//FirstTimeFailResetButton.onClick.AddListener(ResetClicked);
+		//FinishButton.onClick.AddListener(FinishClicked);
     }
 
-    private void FinishClicked()
+    public GameObject getResetWindow()
     {
-        
-        
-        // print("Finish the game");
+	    return ResetWindow;
     }
-	void Update(){
+    void Update(){
+	    if (PlayerDead)
+	    {
+		    ResetWindow.SetActive(true);
+		    Time.timeScale = 0f;
+	    }
+	    if (GameFinish)
+	    {
+		    FinishWindow.SetActive(true);
+		    Time.timeScale = 0f;
+	    }
 		if (Input.GetKeyDown(KeyCode.R))
-        {
-			FinishWindow.SetActive(false);
+		{
+			Time.timeScale = 1f;
 			ResetWindow.SetActive(false);
-			FirstTimeFailWindow.SetActive(false);
+			PlayerDead = false;
+			GameFinish = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-			GameController.canMove = true;
+			canMove = true;
         }
 	}
 }
