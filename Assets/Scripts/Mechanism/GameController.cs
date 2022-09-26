@@ -30,14 +30,14 @@ public class GameController : MonoBehaviour
 	    if (PlayerDead)
 	    {
 		    ResetWindow.SetActive(true);
-		    Time.timeScale = 0f;
+		    Time.timeScale = 0f; //Pause
 	    }
 	    if (GameFinish)
 	    {
 		    FinishWindow.SetActive(true);
 		    Time.timeScale = 0f;
 	    }
-		if (Input.GetKeyDown(KeyCode.R))
+	    if (Input.GetKeyDown(KeyCode.R))
 		{
 			Time.timeScale = 1f;
 			ResetWindow.SetActive(false);
@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 			canMove = true;
         }
-	}
+    }
 }
 // Update is called once per frame
 

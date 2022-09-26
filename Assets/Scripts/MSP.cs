@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
-
-
-
-
 public class MSP : MonoBehaviour
 {
     public static float upperedgex = 6.0f;

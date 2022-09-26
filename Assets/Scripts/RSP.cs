@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
-
-
-
-
 public class RSP : MonoBehaviour
 {
     private float[] ABC;
