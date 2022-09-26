@@ -11,19 +11,48 @@ using System;
 public class RSP : MonoBehaviour
 {
     private float angle = 0;
-    void Update()
+    private float[] ABC;
+    
+    
+    public static float rpm = -60f;
+    private float radius = 1.5f;
+    private float centerx = 20f;
+    private float centery = 0f;
+    
+    
+    void Start()
     {
-        
+        int i = 0;
+        rpm = 60f;
+        ABC = new float[transform.childCount];
         foreach (Transform tran in transform)
         {
-            int rpm = 60;
-            tran.Rotate(0f,0f, (30f) * Time.deltaTime);
+            ABC[i] = (360 / transform.childCount) * i;
+            tran.eulerAngles = new Vector3(
+                tran.eulerAngles.x,
+                tran.eulerAngles.y,
+                ABC[i] + 30
+            );
+            i++;
+        }
+        
+    }
+    
+    void Update()
+    {
+        int i = 0;
+        foreach (Transform tran in transform)
+        {
+            
             Vector3 pos = tran.position;
-            pos.x = 17.2f;
-            pos.y = 0.7f;
-            angle += 30f * Time.deltaTime;
-            Vector3 direction = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.up;
-            tran.position = pos + direction * 1;
+            pos.x = centerx;
+            pos.y = centery;
+            
+            ABC[i] += rpm * Time.deltaTime;
+            Vector3 direction = Quaternion.AngleAxis(ABC[i], Vector3.forward) * Vector3.up;
+            tran.Rotate(0f,0f, rpm/2 * Time.deltaTime);
+            tran.position = pos + direction * radius;
+            i++;
         }
         
     }
