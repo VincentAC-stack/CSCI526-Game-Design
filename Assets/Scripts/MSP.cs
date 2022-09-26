@@ -14,6 +14,15 @@ public class MSP : MonoBehaviour
     public static float loweredgex = -0.5f;
     public static float upperedgey = 0.8f;
     public static float loweredgey = -2.5f;
+
+    void Start()
+    {
+        upperedgex = 6.0f;
+        loweredgex = -0.5f;
+        upperedgey = 0.8f;
+        loweredgey = -2.5f;
+    }
+    
     void Update()
     {
         
