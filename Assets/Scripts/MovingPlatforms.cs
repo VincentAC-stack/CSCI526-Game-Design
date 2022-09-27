@@ -11,7 +11,7 @@ public class MovingPlatforms : MonoBehaviour
     void Start()
     {
         edgey = 2.5f;
-        speed = 0.7f;
+        speed = 0.6f;
     }
     
     void Update()

@@ -42,9 +42,9 @@ public class RotatingPlatforms : MonoBehaviour
             pos.x = centerx;
             pos.y = centery;
             
-            ABC[i] += rpm * Time.deltaTime;
+            ABC[i] += 0.7f * rpm * Time.deltaTime;
             Vector3 direction = Quaternion.AngleAxis(ABC[i], Vector3.forward) * Vector3.up;
-            tran.Rotate(0f,0f, rpm/2 * Time.deltaTime);
+            tran.Rotate(0f,0f, 0.35f * rpm * Time.deltaTime);
             tran.position = pos + direction * radius;
             i++;
         }
