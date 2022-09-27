@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
 	public static bool flipped;
 	public static bool GameFinish;
 	public static bool PlayerDead;
+	// 结束关卡的Build Index
+	private static int END_SCENE_INDEX = 3;
 	
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,19 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 			canMove = true;
         }
+	    if (Input.GetKeyDown(KeyCode.N))
+	    {
+		    Time.timeScale = 1f;
+		    ResetWindow.SetActive(false);
+		    PlayerDead = false;
+		    GameFinish = false;
+		    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+		    if (currentSceneIndex != END_SCENE_INDEX)
+		    {
+			    SceneManager.LoadScene(currentSceneIndex + 1);
+		    }
+		    canMove = true;
+	    }
     }
 }
 // Update is called once per frame
