@@ -50,10 +50,11 @@ public class FlipWorld : MonoBehaviour
     // }
     void Flip()
     {
-        float temp = MSP.loweredgey;
-        MSP.loweredgey = MSP.upperedgey * (-1);
-        MSP.upperedgey = temp * (-1);
-        RSP.rpm = RSP.rpm * (-1);
+        
+        MovingPlatforms.speed = MovingPlatforms.speed * (-1);
+        MovingPlatforms.edgey = MovingPlatforms.edgey * (-1);
+        RotatingPlatforms.rpm = RotatingPlatforms.rpm * (-1);
+        
         if (RotateXArr.Length != 0)
         {
             for (int i = 0; i < RotateXArr.Length; i++)

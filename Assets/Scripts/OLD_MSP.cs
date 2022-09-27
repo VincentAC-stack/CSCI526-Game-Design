@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class MSP : MonoBehaviour
+public class OLDMSP : MonoBehaviour
 {
     public static float upperedgex = 6.0f;
     public static float loweredgex = -0.5f;

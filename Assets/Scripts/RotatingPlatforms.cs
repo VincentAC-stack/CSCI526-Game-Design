@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class RSP : MonoBehaviour
+public class RotatingPlatforms : MonoBehaviour
 {
     private float[] ABC;
     
     
     public static float rpm = -60f;
     private float radius = 1.5f;
-    private float centerx = 20f;
+    private float centerx = 16.8f;
     private float centery = 0f;
     
     
