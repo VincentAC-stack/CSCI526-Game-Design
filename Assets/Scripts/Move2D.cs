@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
 public class Move2D : MonoBehaviour
@@ -15,6 +16,10 @@ public class Move2D : MonoBehaviour
     public LayerMask groundLayer;
     private bool isTouchingGround;
     public TextMeshProUGUI DeathText;
+    
+    string URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdkW4EOt3GEJNMO_oLjj24GmgM38inU6tfZ9DDhJ36f-nDA3w/formResponse";
+    string _gameResult = "RRRR";
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +58,7 @@ public class Move2D : MonoBehaviour
         {
             GameController.canMove = false;
             GameController.GameFinish = true;
+            Send();
         }
         else if (collision.gameObject.name == "DownFailChecker")
         {
@@ -60,6 +66,30 @@ public class Move2D : MonoBehaviour
             GameController.PlayerDead = true;
             Count.totalKill += 1;
             DeathText.text = "Death: " + Count.totalKill;
+            Send();
         }
+    }
+    public void Send() 
+    {
+        StartCoroutine(Post(_gameResult));
+    }
+
+    private IEnumerator Post(string _gameResult)
+    {
+        // Create the form and enter responses
+        WWWForm form = new WWWForm(); 
+        form.AddField("entry.617275958", _gameResult); 
+        // Send responses and verify result
+        UnityWebRequest www = UnityWebRequest.Post(URL, form);
+
+        yield return www.SendWebRequest();
+        // using (UnityWebRequest www = UnityWebRequest.Post(URL, form)) 
+        // {
+        //     yield return www.SendWebRequest();
+        //     if (www.result != UnityWebRequest.Result.Success) {
+        //         Debug.Log(www.error); }
+        //     else{
+        //         Debug.Log("Form upload complete!");} 
+        // }
     }
 }
