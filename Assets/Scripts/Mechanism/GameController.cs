@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
 	public static bool GameFinish;
 	public static bool PlayerDead;
 	// 结束关卡的Build Index
-	private static int END_SCENE_INDEX = 3;
+	private static int END_SCENE_INDEX = 5;
 	
     // Start is called before the first frame update
     void Start()

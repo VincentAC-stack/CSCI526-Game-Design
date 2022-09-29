@@ -37,7 +37,7 @@ public class Move2D : MonoBehaviour
             isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
             Jump();
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-            transform.position += movement * Time.deltaTime * moveSpeed;
+            transform.position += movement * Time.unscaledDeltaTime * moveSpeed;
         }
     }
 
@@ -48,6 +48,14 @@ public class Move2D : MonoBehaviour
             // gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f,5f),ForceMode2D.Impulse);
             float jumpVelocity = 5f;
             rigidbody2d.velocity = Vector2.up * jumpVelocity;
+            if (Time.timeScale != 1f)
+            {
+                rigidbody2d.gravityScale = 3f;
+            }
+            else
+            {
+                rigidbody2d.gravityScale = 1f;
+            }
         }
     }
 

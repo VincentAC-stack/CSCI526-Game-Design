@@ -16,7 +16,6 @@ public class MovingPlatforms : MonoBehaviour
     
     void Update()
     {
-        
         foreach (Transform tran in transform)
         {
             Vector3 pos = tran.position;
