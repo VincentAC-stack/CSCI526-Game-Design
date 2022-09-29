@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -17,16 +18,25 @@ public class Move2D : MonoBehaviour
     private bool isTouchingGround;
     public TextMeshProUGUI DeathText;
     
-    string URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdkW4EOt3GEJNMO_oLjj24GmgM38inU6tfZ9DDhJ36f-nDA3w/formResponse";
-    string _gameResult = "RRRR";
+    // sending data to google form
+    string URL = "https://docs.google.com/forms/d/e/1FAIpQLSd-S6YVYOZnN_6exc5vZ5VZo5YNYqJp_lvhJsBtB9ELpxqVrQ/formResponse";
+    private long _sessionID;
+    private string _levelName;
+    private bool _gameResult;
+    private int _totalDeathTime;
 
+    private void Awake()
+    {
+        _sessionID = MenuManager._userId;
+    }
 
-    // Start is called before the first frame update
+        // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1f;
         rigidbody2d = transform.GetComponent<Rigidbody2D>();
         DeathText.text = "Death: " + Count.totalKill;
+        _levelName = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
@@ -66,6 +76,8 @@ public class Move2D : MonoBehaviour
         {
             GameController.canMove = false;
             GameController.GameFinish = true;
+            _gameResult = true;
+            _totalDeathTime = Count.totalKill;
             Send();
         }
         else if (collision.gameObject.name == "DownFailChecker")
@@ -74,23 +86,29 @@ public class Move2D : MonoBehaviour
             GameController.PlayerDead = true;
             Count.totalKill += 1;
             DeathText.text = "Death: " + Count.totalKill;
+            _gameResult = false;
+            _totalDeathTime = -1;
             Send();
         }
     }
     public void Send() 
     {
-        StartCoroutine(Post(_gameResult));
+        StartCoroutine(Post(_levelName, _sessionID.ToString(), _gameResult.ToString(), _totalDeathTime.ToString()));
     }
 
-    private IEnumerator Post(string _gameResult)
+    private IEnumerator Post(string _levelName, string _sessionID, string _gameResult, string _totalDeathTime)
     {
         // Create the form and enter responses
-        WWWForm form = new WWWForm(); 
-        form.AddField("entry.617275958", _gameResult); 
+        WWWForm form = new WWWForm();
+        form.AddField("entry.1179097589", _levelName);
+        form.AddField("entry.1585400280", _sessionID);
+        form.AddField("entry.199638597", _gameResult);
+        form.AddField("entry.820838070", _totalDeathTime);
+        
         // Send responses and verify result
         UnityWebRequest www = UnityWebRequest.Post(URL, form);
-
         yield return www.SendWebRequest();
+        www.Dispose();
         // using (UnityWebRequest www = UnityWebRequest.Post(URL, form)) 
         // {
         //     yield return www.SendWebRequest();
