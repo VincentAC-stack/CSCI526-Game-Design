@@ -10,15 +10,22 @@ using Task = System.Threading.Tasks.Task;
 public class RandomGen: MonoBehaviour {
     public GameObject[] objects;
     private float update;
+    private GameObject camera;
 
     void Start(){
         // Keep the original game object. Otherwise may have missing reference exception.
         for (int i = 0; i < objects.Length; i++) {
             objects[i].SetActive(false);
         }
+        
+        camera = GameObject.Find("Main Camera");
     }
     
     void Update(){
+        // Optimize the shooting position of the ball. Let the ball shoot from the left boundary of
+        // camera view instead of the end of finished line.
+        Vector3 dynamicPosition = new Vector3((float) (camera.transform.position.x + 3.6), -1, 0);
+        
         update += Time.deltaTime;
         
         if (update > 3.0f) {
@@ -26,10 +33,7 @@ public class RandomGen: MonoBehaviour {
             
             int randomIndex = Random.Range(0, objects.Length);
             
-            // The shooting position of the ball
-            Vector3 fixedPosition = new Vector3(20, -1, 0);
-
-            GameObject copy = Instantiate<GameObject>(objects[randomIndex]);
+            GameObject copy = Instantiate<GameObject>(objects[randomIndex], dynamicPosition, Quaternion.identity);
             copy.SetActive(true);
             
             // Instantiate(copy, fixedPosition, Quaternion.identity);
