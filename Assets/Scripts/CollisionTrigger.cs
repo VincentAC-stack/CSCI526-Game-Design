@@ -27,7 +27,8 @@ public class CollisionTrigger : MonoBehaviour
         platforms = GameObject.FindGameObjectsWithTag("RotateX");
         playerSprite = GetComponent<SpriteRenderer>();
         DeathText.text = "Death: " + Count.totalKill;
-        
+        print("Start() DeathText: " + Count.totalKill);
+        print(DeathText == null);
     }
     
     /*
@@ -45,10 +46,15 @@ public class CollisionTrigger : MonoBehaviour
             if (platformSpriteRenderer.color != playerSprite.color) {
                 // Color doesn't match. Game Over.
                 print("Color does NOT match!");
-                print("platform color: " + platformSpriteRenderer.color);
-                print("player color: " + playerSprite.color);
+                // print("platform color: " + platformSpriteRenderer.color);
+                // print("player color: " + playerSprite.color);
+                GameController.canMove = false;
+                GameController.PlayerDead = true;
+                
                 Count.totalKill += 1;
+                
                 DeathText.text = "Death: " + Count.totalKill;
+                print("Count.totalKill " + Count.totalKill);
             }
             else {
                 print("Color match!");
