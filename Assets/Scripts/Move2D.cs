@@ -34,7 +34,7 @@ public class Move2D : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-        rigidbody2d = transform.GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
         DeathText.text = "Death: " + Count.totalKill;
         _levelName = SceneManager.GetActiveScene().name;
     }
@@ -46,8 +46,10 @@ public class Move2D : MonoBehaviour
         {
             isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
             Jump();
-            Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-            transform.position += movement * Time.unscaledDeltaTime * moveSpeed;
+            float xInput = Input.GetAxis("Horizontal");
+            rigidbody2d.velocity = new Vector2(xInput * moveSpeed, rigidbody2d.velocity.y);
+            // Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+            // transform.position += movement * Time.DeltaTime * moveSpeed;
         }
     }
 

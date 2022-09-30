@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Count : MonoBehaviour
 {
-    public static int totalKill;
+    public static int totalKill = 0;
 }

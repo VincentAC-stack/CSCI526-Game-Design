@@ -10,7 +10,7 @@ public class CollisionTrigger : MonoBehaviour
     private GameObject player;
     private GameObject currentPlatform;
     private GameObject[] platforms;
-    private UnityEngine.Collision2D colli = null;
+    // private UnityEngine.Collision2D colli = null;
     private float distToGround;
     private SpriteRenderer playerSprite;
     public TextMeshProUGUI DeathText;
