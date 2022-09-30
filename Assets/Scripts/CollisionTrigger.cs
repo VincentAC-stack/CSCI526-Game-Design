@@ -13,7 +13,7 @@ public class CollisionTrigger : MonoBehaviour
     // private UnityEngine.Collision2D colli = null;
     private float distToGround;
     private SpriteRenderer playerSprite;
-    public TextMeshProUGUI DeathText;
+    // public TextMeshProUGUI DeathText;
     
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -26,9 +26,9 @@ public class CollisionTrigger : MonoBehaviour
         player = GameObject.Find("player");
         platforms = GameObject.FindGameObjectsWithTag("RotateX");
         playerSprite = GetComponent<SpriteRenderer>();
-        DeathText.text = "Death: " + Count.totalKill;
-        print("Start() DeathText: " + Count.totalKill);
-        print(DeathText == null);
+        // DeathText.text = "Death: " + Count.totalKill;
+        // print("Start() DeathText: " + Count.totalKill);
+        // print(DeathText == null);
     }
     
     /*
@@ -51,10 +51,10 @@ public class CollisionTrigger : MonoBehaviour
                 GameController.canMove = false;
                 GameController.PlayerDead = true;
                 
-                Count.totalKill += 1;
+                // Count.totalKill += 1;
                 
-                DeathText.text = "Death: " + Count.totalKill;
-                print("Count.totalKill " + Count.totalKill);
+                // DeathText.text = "Death: " + Count.totalKill;
+                // print("Count.totalKill " + Count.totalKill);
             }
             else {
                 print("Color match!");

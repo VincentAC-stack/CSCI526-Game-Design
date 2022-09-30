@@ -17,6 +17,7 @@ public class Move2D : MonoBehaviour
     public LayerMask groundLayer;
     private bool isTouchingGround;
     public TextMeshProUGUI DeathText;
+    private Vector3 respawnPoint;
     
     // sending data to google form
     string URL = "https://docs.google.com/forms/d/e/1FAIpQLSd-S6YVYOZnN_6exc5vZ5VZo5YNYqJp_lvhJsBtB9ELpxqVrQ/formResponse";
@@ -37,6 +38,7 @@ public class Move2D : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         DeathText.text = "Death: " + Count.totalKill;
         _levelName = SceneManager.GetActiveScene().name;
+        respawnPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -58,7 +60,7 @@ public class Move2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isTouchingGround)
         {
             // gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f,5f),ForceMode2D.Impulse);
-            float jumpVelocity = 5f;
+            float jumpVelocity = 5.3f;
             rigidbody2d.velocity = Vector2.up * jumpVelocity;
             if (Time.timeScale != 1f)
             {
@@ -93,6 +95,15 @@ public class Move2D : MonoBehaviour
             Send();
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.name == "Checkpoint")
+        {
+            respawnPoint = transform.position;
+        }
+    }
+
     public void Send() 
     {
         StartCoroutine(Post(_levelName, _sessionID.ToString(), _gameResult.ToString(), _totalDeathTime.ToString()));

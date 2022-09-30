@@ -59,8 +59,8 @@ public class FlipWorld : MonoBehaviour
         {
             for (int i = 0; i < RotateXArr.Length; i++)
             {
-                FlipY(RotateXArr[i]);
-                RotateX(RotateXArr[i]);
+                    FlipY(RotateXArr[i]);
+                    RotateX(RotateXArr[i]);
             }
         }
         if (RotateXAndYArr.Length  != 0)
