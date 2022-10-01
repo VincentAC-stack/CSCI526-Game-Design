@@ -16,6 +16,7 @@ public class MenuManager : MonoBehaviour
     public void LoadNextLevel(int index)
     {
         SceneManager.LoadScene(index);
+        GameController.deathCount = 0;
     }
     public void QuitGame()
     {

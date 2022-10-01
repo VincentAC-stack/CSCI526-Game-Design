@@ -8,8 +8,8 @@ public class GameController : MonoBehaviour
 {
     public GameObject ResetWindow;
     public GameObject FinishWindow;
+    public static int deathCount;
     public static bool canMove;
-	public static bool flipped;
 	public static bool GameFinish;
 	public static bool PlayerDead;
 	// 结束关卡的Build Index

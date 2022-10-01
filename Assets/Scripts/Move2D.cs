@@ -36,7 +36,7 @@ public class Move2D : MonoBehaviour
     {
         Time.timeScale = 1f;
         rigidbody2d = GetComponent<Rigidbody2D>();
-        DeathText.text = "Death: " + Count.totalKill;
+        DeathText.text = "Death: " + GameController.deathCount;
         _levelName = SceneManager.GetActiveScene().name;
         respawnPoint = transform.position;
     }
@@ -81,15 +81,15 @@ public class Move2D : MonoBehaviour
             GameController.canMove = false;
             GameController.GameFinish = true;
             _gameResult = true;
-            _totalDeathTime = Count.totalKill;
+            _totalDeathTime = GameController.deathCount;
             Send();
         }
         else if (collision.gameObject.name == "DownFailChecker")
         {
             GameController.canMove = false;
             GameController.PlayerDead = true;
-            Count.totalKill += 1;
-            DeathText.text = "Death: " + Count.totalKill;
+            GameController.deathCount += 1;
+            DeathText.text = "Death: " + GameController.deathCount;
             _gameResult = false;
             _totalDeathTime = -1;
             Send();
