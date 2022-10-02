@@ -25,13 +25,19 @@ public class FlipWorld : MonoBehaviour
     }
     void FlipY(GameObject obj)
     {
+      if(obj != null){
         Vector3 pos = obj.transform.position;
         pos.y = -pos.y;
         obj.transform.position = pos;
+      }
+
     }
     void RotateX(GameObject obj)
     {
+      if(obj != null){
         obj.transform.rotation *= Quaternion.Euler(180, 0, 0);
+      }
+
     }
     void RotateY(GameObject obj)
     {
@@ -40,9 +46,10 @@ public class FlipWorld : MonoBehaviour
 
     void RotateXAndY(GameObject obj)
     {
+
         obj.transform.rotation *= Quaternion.Euler(180, 180, 0);
     }
-    //For future use 
+    //For future use
     // void RotateZ(GameObject obj)
     // {
     //     float rotationZ = obj.transform.eulerAngles.z;
@@ -50,11 +57,11 @@ public class FlipWorld : MonoBehaviour
     // }
     void Flip()
     {
-        
+
         MovingPlatforms.speed = MovingPlatforms.speed * (-1);
         MovingPlatforms.edgey = MovingPlatforms.edgey * (-1);
         RotatingPlatforms.rpm = RotatingPlatforms.rpm * (-1);
-        
+
         if (RotateXArr.Length != 0)
         {
             for (int i = 0; i < RotateXArr.Length; i++)
@@ -72,6 +79,6 @@ public class FlipWorld : MonoBehaviour
             }
         }
     }
-    
-	
+
+
 }

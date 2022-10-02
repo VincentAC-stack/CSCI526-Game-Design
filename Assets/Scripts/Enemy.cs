@@ -14,6 +14,10 @@ public class Enemy : MonoBehaviour
     public GameObject projectile;
     public Transform player;
 
+    public int healthForEnemy;
+    public int damageFromPlayer;
+    public int maxHealthForEnemy;
+
     //private Vector2 target;
 
     // Start is called before the first frame update
@@ -40,6 +44,24 @@ public class Enemy : MonoBehaviour
         } else
         {
             timeBtwShots -= Time.deltaTime;
+        }
+    }
+
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("BulletFromPlayer"))
+        {
+            healthForEnemy = healthForEnemy - damageFromPlayer;
+        }
+
+        if (healthForEnemy <= 0)
+        {
+            // Application.LoadLevel("Death");
+            Destroy(this.gameObject);
+            // GameController.canMove = false;
+            // GameController.PlayerDead = true;
+            // GameController.deathCount += 1;
         }
     }
 }

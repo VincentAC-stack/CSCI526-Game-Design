@@ -1237,6 +1237,9 @@ MonoBehaviour:
   startTimeBtwShots: 1
   projectile: {fileID: 7994578131882523154, guid: bf16aa6e8a08e6e4780e362423665d1f, type: 3}
   player: {fileID: 0}
+  healthForEnemy: 100
+  damageFromPlayer: 50
+  maxHealthForEnemy: 100
 --- !u!61 &504965633
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2265,6 +2268,9 @@ MonoBehaviour:
   startTimeBtwShots: 1
   projectile: {fileID: 7994578131882523154, guid: bf16aa6e8a08e6e4780e362423665d1f, type: 3}
   player: {fileID: 0}
+  healthForEnemy: 100
+  damageFromPlayer: 50
+  maxHealthForEnemy: 100
 --- !u!212 &1219762228
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2485,7 +2491,7 @@ GameObject:
   - component: {fileID: 1339074824}
   m_Layer: 5
   m_Name: Count
-  m_TagString: Untagged
+  m_TagString: BulletFromPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
