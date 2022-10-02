@@ -36,9 +36,8 @@ public class HealthBarForPlayer : MonoBehaviour
         {
             // Application.LoadLevel("Death");
             Debug.Log("dead since losing blood");
-            GameController.canMove = false;
             GameController.PlayerDead = true;
-            GameController.deathCount += 1;
+            
         }
     }
 }

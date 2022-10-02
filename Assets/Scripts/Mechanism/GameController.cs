@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class GameController : MonoBehaviour
     public static bool canMove;
     public static bool GameFinish;
     public static bool PlayerDead;
-
+    public TextMeshProUGUI DeathText;
     private static int END_SCENE_INDEX = 5;
 
     // Start is called before the first frame update
@@ -23,17 +24,15 @@ public class GameController : MonoBehaviour
         //FirstTimeFailResetButton.onClick.AddListener(ResetClicked);
         //FinishButton.onClick.AddListener(FinishClicked);
     }
-
-    public GameObject getResetWindow()
-    {
-        return ResetWindow;
-    }
+    
     void Update()
     {
+        DeathText.text = "Death: " + GameController.deathCount;
+
         if (PlayerDead)
         {
+            Time.timeScale = 0f;//Pause
             ResetWindow.SetActive(true);
-            Time.timeScale = 0f; //Pause
         }
         if (GameFinish)
         {
@@ -42,6 +41,7 @@ public class GameController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
+            if (PlayerDead)deathCount++;
             Time.timeScale = 1f;
             ResetWindow.SetActive(false);
             PlayerDead = false;

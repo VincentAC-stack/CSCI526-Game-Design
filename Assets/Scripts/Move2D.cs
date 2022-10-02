@@ -16,7 +16,7 @@ public class Move2D : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
-    public TextMeshProUGUI DeathText;
+    
     private Vector3 respawnPoint;
 
     // sending data to google form
@@ -36,7 +36,6 @@ public class Move2D : MonoBehaviour
     {
         Time.timeScale = 1f;
         rigidbody2d = GetComponent<Rigidbody2D>();
-        DeathText.text = "Death: " + GameController.deathCount;
         _levelName = SceneManager.GetActiveScene().name;
         respawnPoint = transform.position;
 
@@ -94,8 +93,6 @@ public class Move2D : MonoBehaviour
         {
             GameController.canMove = false;
             GameController.PlayerDead = true;
-            GameController.deathCount += 1;
-            DeathText.text = "Death: " + GameController.deathCount;
             _gameResult = false;
             _totalDeathTime = -1;
             Send();
