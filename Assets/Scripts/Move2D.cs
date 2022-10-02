@@ -39,6 +39,7 @@ public class Move2D : MonoBehaviour
         DeathText.text = "Death: " + GameController.deathCount;
         _levelName = SceneManager.GetActiveScene().name;
         respawnPoint = transform.position;
+
     }
 
     // Update is called once per frame
@@ -50,8 +51,13 @@ public class Move2D : MonoBehaviour
             Jump();
             float xInput = Input.GetAxis("Horizontal");
             rigidbody2d.velocity = new Vector2(xInput * moveSpeed, rigidbody2d.velocity.y);
-            // Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+            Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
             // transform.position += movement * Time.DeltaTime * moveSpeed;
+            if (movement != Vector3.zero)
+            {
+                transform.forward = new Vector3(0f, 0f, movement.x);
+            }
+
         }
     }
 
