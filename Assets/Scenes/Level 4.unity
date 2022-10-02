@@ -368,11 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ResetWindow: {fileID: 1624628504}
-  FirstTimeFailWindow: {fileID: 207984797}
   FinishWindow: {fileID: 1333964442}
-  ResetButton: {fileID: 0}
-  FirstTimeFailResetButton: {fileID: 0}
-  FinishButton: {fileID: 0}
 --- !u!4 &160769152
 Transform:
   m_ObjectHideFlags: 0
@@ -3872,6 +3868,22 @@ PolygonCollider2D:
       - {x: -0.28, y: 0.29999998}
       - {x: -0.29999998, y: 0.32}
       - {x: 0.13, y: 0.88}
+--- !u!114 &2006743427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006743420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de291cd918d624abc8300920ff05cbaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  damage: 20
+  maxHealth: 100
+  DeathText: {fileID: 0}
 --- !u!1 &2034056582
 GameObject:
   m_ObjectHideFlags: 0
