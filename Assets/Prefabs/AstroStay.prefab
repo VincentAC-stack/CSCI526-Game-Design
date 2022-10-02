@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 8351185559805087101}
   - component: {fileID: 8351185559805087103}
   - component: {fileID: 8351185559805087105}
+  - component: {fileID: 279877335212373574}
   m_Layer: 0
   m_Name: AstroStay
   m_TagString: Player
@@ -157,9 +158,20 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  ResetWindow: {fileID: 0}
-  FirstTimeFailWindow: {fileID: 0}
-  FinishWindow: {fileID: 0}
   DeathText: {fileID: 0}
-  startTimeBtwShots: 0
-  projectileForPlayer: {fileID: 7994578131882523154, guid: cefce1cbea9ebc74cba34e853439b9c4, type: 3}
+--- !u!114 &279877335212373574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8351185559805087100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2dd45c274384c94a4351b1e4ecea76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  damage: 20
+  maxHealth: 100
+  DeathText: {fileID: 0}
