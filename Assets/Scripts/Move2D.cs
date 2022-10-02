@@ -18,7 +18,7 @@ public class Move2D : MonoBehaviour
     private bool isTouchingGround;
     public TextMeshProUGUI DeathText;
     private Vector3 respawnPoint;
-    
+
     // sending data to google form
     string URL = "https://docs.google.com/forms/d/e/1FAIpQLSd-S6YVYOZnN_6exc5vZ5VZo5YNYqJp_lvhJsBtB9ELpxqVrQ/formResponse";
     private long _sessionID;
@@ -31,7 +31,7 @@ public class Move2D : MonoBehaviour
         _sessionID = MenuManager._userId;
     }
 
-        // Start is called before the first frame update
+    // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1f;
@@ -104,7 +104,7 @@ public class Move2D : MonoBehaviour
         }
     }
 
-    public void Send() 
+    public void Send()
     {
         StartCoroutine(Post(_levelName, _sessionID.ToString(), _gameResult.ToString(), _totalDeathTime.ToString()));
     }
@@ -117,7 +117,7 @@ public class Move2D : MonoBehaviour
         form.AddField("entry.1585400280", _sessionID);
         form.AddField("entry.199638597", _gameResult);
         form.AddField("entry.820838070", _totalDeathTime);
-        
+
         // Send responses and verify result
         UnityWebRequest www = UnityWebRequest.Post(URL, form);
         yield return www.SendWebRequest();
