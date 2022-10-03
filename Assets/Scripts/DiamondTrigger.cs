@@ -24,7 +24,9 @@ public class DiamondTrigger: MonoBehaviour
         {
             for (int i = 0; i < bullet.Length; i++)
             {
-              bullet[i].GetComponent<Projectile>().ifPauseBullet = true;
+                    Destroy(bullet[i]);
+                    Destroy(gameObject);
+                    //bullet[i].GetComponent<Projectile>().ifPauseBullet = true;
             }
         }
 
