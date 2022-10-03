@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
         }*/
 
-        if (timeBtwShots <= 0 && transform.position.y - player.position.y > 0.5)
+        if (timeBtwShots <= 0 && transform.position.y - player.position.y > 0.5 && Vector2.Distance(transform.position, player.position) < stoppingDistance)
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
             timeBtwShots = startTimeBtwShots;

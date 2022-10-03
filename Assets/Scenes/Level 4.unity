@@ -1230,7 +1230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  stoppingDistance: 3
+  stoppingDistance: 1
   retreatDistance: 1
   startTimeBtwShots: 1
   projectile: {fileID: 7994578131882523154, guid: bf16aa6e8a08e6e4780e362423665d1f, type: 3}
@@ -2075,7 +2075,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2001663069}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1027398172
 Rigidbody2D:
@@ -3218,7 +3218,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2001663069}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1805484775 stripped
 Transform:
@@ -3983,8 +3983,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1194203340}
-  - {fileID: 1027398171}
   - {fileID: 1793217022}
+  - {fileID: 1027398171}
   - {fileID: 2102158450}
   - {fileID: 2054107589}
   - {fileID: 2124770}
