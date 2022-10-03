@@ -40,4 +40,16 @@ public class HealthBarForPlayer : MonoBehaviour
             
         }
     }
+
+    public void addHealth(int healthGainedFromEnemy)
+    {
+        if (health + healthGainedFromEnemy <= maxHealth)
+        {
+            health += healthGainedFromEnemy;
+        }
+        else
+        {
+            health = maxHealth;
+        }
+    }
 }

@@ -58,6 +58,7 @@ public class Enemy : MonoBehaviour
         if (healthForEnemy <= 0)
         {
             // Application.LoadLevel("Death");
+            player.gameObject.GetComponent<HealthBarForPlayer>().addHealth(maxHealthForEnemy);
             Destroy(this.gameObject);
             // GameController.canMove = false;
             // GameController.PlayerDead = true;
