@@ -9,19 +9,24 @@ public class Projectile : MonoBehaviour
     private Transform player;
     private Vector2 target;
 
+    public bool ifPauseBullet;
+
     // Start is called before the first frame update
     void Start()
     {
+        ifPauseBullet = false;
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        
+
        /* target = new Vector2(player.position.x, transform.position.y);*/
     }
 
     // Update is called once per frame
     void Update()
     {
+      if(!ifPauseBullet){
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-
+      }
         /*if (transform.position.x == target.x && transform.position.y == target.y)
         {
             DestroyProjectile();
@@ -45,4 +50,5 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }
