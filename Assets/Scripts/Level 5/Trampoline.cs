@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
-    public float jumpForce = 22;
+    public float jumpForceX = 10;
+    public float jumpForceY = 10;
 
     private Animator _animator;
     
@@ -26,7 +27,9 @@ public class Trampoline : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             _animator.SetTrigger("jump");
-            col.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            Rigidbody2D rigidbody2D = col.gameObject.GetComponent<Rigidbody2D>();
+            rigidbody2D.AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+            // rigidbody2D.velocity += new Vector2(1, 0) * 10;
         }
     }
 }
