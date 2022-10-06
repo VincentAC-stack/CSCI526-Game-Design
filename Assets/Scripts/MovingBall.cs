@@ -18,9 +18,12 @@ public class MovingBall: MonoBehaviour {
         horizontal = Input.GetAxis("Horizontal");
         horizontal = speed * Time.deltaTime;
         transform.Translate(new Vector3(-horizontal, 0f, 0f));
+        // This feature is to reverse the moving direction of the ball. The function is completed
+        // but not open to public until further discussion.
+        // transform.Translate(new Vector3(!CollisionTrigger.isReversed ? -horizontal : horizontal, 0f, 0f));
 
         // Destroy Control
-        if (transform.position.x < -6) {
+        if (transform.position.x < -6 || transform.position.x > 25) {
             Destroy(gameObject);
         }
     }

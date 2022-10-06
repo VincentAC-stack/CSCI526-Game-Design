@@ -19,11 +19,13 @@ public class CollisionTrigger : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
+    public static bool isReversed;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("player");
+        isReversed = false;
         platforms = GameObject.FindGameObjectsWithTag("RotateX");
         playerSprite = GetComponent<SpriteRenderer>();
         // DeathText.text = "Death: " + Count.totalKill;
@@ -45,7 +47,7 @@ public class CollisionTrigger : MonoBehaviour
             SpriteRenderer platformSpriteRenderer = currentPlatform.GetComponent<SpriteRenderer>();
             if (platformSpriteRenderer.color != playerSprite.color) {
                 // Color doesn't match. Game Over.
-                print("Color does NOT match!");
+                // print("Color does NOT match!");
                 // print("platform color: " + platformSpriteRenderer.color);
                 // print("player color: " + playerSprite.color);
                 GameController.canMove = false;
@@ -57,7 +59,7 @@ public class CollisionTrigger : MonoBehaviour
                 // print("Count.totalKill " + Count.totalKill);
             }
             else {
-                print("Color match!");
+                // print("Color match!");
             }
         }
     }
@@ -73,7 +75,10 @@ public class CollisionTrigger : MonoBehaviour
     {
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         // print("isTouchingGround: " + isTouchingGround);
-        
+
+        if (Input.GetKeyDown(KeyCode.J)) {
+            isReversed = !isReversed;
+        }
         
         // if (colli != null)
         // {
