@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     public static bool GameFinish;
     public static bool PlayerDead;
     public TextMeshProUGUI DeathText;
-    private static int END_SCENE_INDEX = 5;
+    private static int END_SCENE_INDEX = 6;
 
     // Start is called before the first frame update
     void Start()

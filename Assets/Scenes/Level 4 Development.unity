@@ -186,8 +186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Congratulations! \nYou won the game!\n\nPress \"R\" to restart.\nPress
-    \"N\" to next level."
+  m_text: "Congratulations! \nYou won the whole game!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c30286d2909712447b227590b2541816, type: 2}
   m_sharedMaterial: {fileID: -1277727159288554808, guid: c30286d2909712447b227590b2541816, type: 2}
@@ -503,9 +502,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04798ba0dd640884983af0cd0be70241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResetWindow: {fileID: 0}
-  FinishWindow: {fileID: 0}
-  DeathText: {fileID: 0}
+  ResetWindow: {fileID: 679300209}
+  FinishWindow: {fileID: 199146334}
+  DeathText: {fileID: 296208335}
 --- !u!4 &160769152
 Transform:
   m_ObjectHideFlags: 0
@@ -19402,11 +19401,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8351185559805087102, guid: 3d04b82f330c2c4479a2a2d219991db4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.989
+      value: -3.04
       objectReference: {fileID: 0}
     - target: {fileID: 8351185559805087102, guid: 3d04b82f330c2c4479a2a2d219991db4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.387
+      value: -0.91
       objectReference: {fileID: 0}
     - target: {fileID: 8351185559805087102, guid: 3d04b82f330c2c4479a2a2d219991db4, type: 3}
       propertyPath: m_LocalPosition.z
