@@ -20,6 +20,7 @@ public class FlipWorld : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J) && GameController.canMove)
         {
+            Data.FlipCounts++;
             Flip();
         }
     }

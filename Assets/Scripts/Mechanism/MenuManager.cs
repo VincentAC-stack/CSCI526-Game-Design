@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         _userId = DateTime.Now.Ticks;
+        Data.LevelDeaths = 0;
     }
     public void LoadNextLevel(int index)
     {

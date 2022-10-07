@@ -18,17 +18,11 @@ public class Move2D : MonoBehaviour
     private bool isTouchingGround;
     
     private Vector3 respawnPoint;
-
-    // sending data to google form
-    string URL = "https://docs.google.com/forms/d/e/1FAIpQLSd-S6YVYOZnN_6exc5vZ5VZo5YNYqJp_lvhJsBtB9ELpxqVrQ/formResponse";
-    private long _sessionID;
-    private string _levelName;
-    private bool _gameResult;
-    private int _totalDeathTime;
-
+    
     private void Awake()
     {
-        _sessionID = MenuManager._userId;
+        Data.SessionID = MenuManager._userId;
+        Data.FlipCounts = 0;
     }
 
     // Start is called before the first frame update
@@ -36,7 +30,7 @@ public class Move2D : MonoBehaviour
     {
         Time.timeScale = 1f;
         rigidbody2d = GetComponent<Rigidbody2D>();
-        _levelName = SceneManager.GetActiveScene().name;
+        Data.LevelName = SceneManager.GetActiveScene().name;
         respawnPoint = transform.position;
 
     }
@@ -86,16 +80,17 @@ public class Move2D : MonoBehaviour
         {
             GameController.canMove = false;
             GameController.GameFinish = true;
-            _gameResult = true;
-            _totalDeathTime = GameController.deathCount;
+            Data.GameResult = true;
+            Data.LevelDeaths++;
             Send();
+            Data.LevelDeaths = 0;
         }
         else if (collision.gameObject.name == "DownFailChecker")
         {
             GameController.canMove = false;
             GameController.PlayerDead = true;
-            _gameResult = false;
-            _totalDeathTime = -1;
+            Data.GameResult = false;
+            Data.LevelDeaths = -1;
             Send();
         }
     }
@@ -110,10 +105,11 @@ public class Move2D : MonoBehaviour
 
     public void Send()
     {
-        StartCoroutine(Post(_levelName, _sessionID.ToString(), _gameResult.ToString(), _totalDeathTime.ToString()));
+        StartCoroutine(Post(Data.LevelName, Data.SessionID.ToString(), Data.GameResult.ToString(), 
+            Data.LevelDeaths.ToString(), Data.FlipCounts.ToString()));
     }
 
-    private IEnumerator Post(string _levelName, string _sessionID, string _gameResult, string _totalDeathTime)
+    private IEnumerator Post(string _levelName, string _sessionID, string _gameResult, string _totalDeathTime, string _flipTimes)
     {
         // Create the form and enter responses
         WWWForm form = new WWWForm();
@@ -121,9 +117,10 @@ public class Move2D : MonoBehaviour
         form.AddField("entry.1585400280", _sessionID);
         form.AddField("entry.199638597", _gameResult);
         form.AddField("entry.820838070", _totalDeathTime);
+        form.AddField("entry.2003297119", _flipTimes);
 
         // Send responses and verify result
-        UnityWebRequest www = UnityWebRequest.Post(URL, form);
+        UnityWebRequest www = UnityWebRequest.Post(Data.URL, form);
         yield return www.SendWebRequest();
         www.Dispose();
         // using (UnityWebRequest www = UnityWebRequest.Post(URL, form)) 
