@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 {
     public GameObject ResetWindow;
     public GameObject FinishWindow;
+    
     public static int deathCount;
     public static bool canMove;
     public static bool GameFinish;
@@ -27,7 +28,7 @@ public class GameController : MonoBehaviour
     
     void Update()
     {
-        DeathText.text = "Death: " + GameController.deathCount;
+        DeathText.text = "Death: " + deathCount;
 
         if (PlayerDead)
         {
@@ -46,7 +47,10 @@ public class GameController : MonoBehaviour
             ResetWindow.SetActive(false);
             PlayerDead = false;
             GameFinish = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameObject Player = GameObject.Find("AstroStay");
+            Player.transform.position = PlayerStatus.respawnPos;
+            PlayerStatus.currHealth = PlayerStatus.maxHealth;
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             canMove = true;
         }
         if (Input.GetKeyDown(KeyCode.N))

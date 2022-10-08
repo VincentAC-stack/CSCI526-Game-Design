@@ -17,8 +17,6 @@ public class Move2D : MonoBehaviour
     public LayerMask groundLayer;
     private bool isTouchingGround;
     
-    private Vector3 respawnPoint;
-    
     private void Awake()
     {
         Data.SessionID = MenuManager._userId;
@@ -31,8 +29,6 @@ public class Move2D : MonoBehaviour
         Time.timeScale = 1f;
         rigidbody2d = GetComponent<Rigidbody2D>();
         Data.LevelName = SceneManager.GetActiveScene().name;
-        respawnPoint = transform.position;
-
     }
 
     // Update is called once per frame
@@ -89,17 +85,23 @@ public class Move2D : MonoBehaviour
         {
             GameController.canMove = false;
             GameController.PlayerDead = true;
+            PlayerStatus.currHealth = 0;
             Data.GameResult = false;
             Data.LevelDeaths = -1;
             Send();
         }
+ 
+        else if (collision.gameObject.name.Contains("Spike") || collision.gameObject.name.Contains("Bullet"))
+        {
+            PlayerStatus.currHealth--;
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (col.gameObject.name == "Checkpoint")
+        if (collision.gameObject.name == "Checkpoint")
         {
-            respawnPoint = transform.position;
+            PlayerStatus.respawnPos = collision.transform.position;
         }
     }
 
