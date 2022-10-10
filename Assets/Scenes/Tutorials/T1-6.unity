@@ -604,11 +604,6 @@ Transform:
   m_Father: {fileID: 2145458541}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &179429126 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1645186846019887197, guid: 6d4799cfb42aa094b900f97b803b0a56, type: 3}
-  m_PrefabInstance: {fileID: 1737936879}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &199146334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,11 +1529,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
   m_PrefabInstance: {fileID: 916893019}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &921188716 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1645186846019887197, guid: 6d4799cfb42aa094b900f97b803b0a56, type: 3}
-  m_PrefabInstance: {fileID: 1645186846868707633}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &937897240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1905,8 +1895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452710e866391fc438e5eacfee8f203e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser1: {fileID: 179429126}
-  laser2: {fileID: 921188716}
+  laser: []
 --- !u!1 &1409138767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,6 +2668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserWithParticle1
       objectReference: {fileID: 0}
+    - target: {fileID: 1645186846019887197, guid: 6d4799cfb42aa094b900f97b803b0a56, type: 3}
+      propertyPath: m_TagString
+      value: LaserWithParticle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d4799cfb42aa094b900f97b803b0a56, type: 3}
 --- !u!4 &1737936880 stripped
@@ -2878,11 +2871,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6191151506590344514, guid: 1bf6702d001c1544780fada3093997fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.8695095
+      value: -2.81
       objectReference: {fileID: 0}
     - target: {fileID: 6191151506590344514, guid: 1bf6702d001c1544780fada3093997fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0972478
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 6191151506590344514, guid: 1bf6702d001c1544780fada3093997fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3269,7 +3262,7 @@ Transform:
   - {fileID: 1940756715}
   - {fileID: 1588716676}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2006743420 stripped
 GameObject:
@@ -3560,6 +3553,10 @@ PrefabInstance:
     - target: {fileID: 1645186846019887197, guid: 6d4799cfb42aa094b900f97b803b0a56, type: 3}
       propertyPath: m_Name
       value: LaserWithParticle2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645186846019887197, guid: 6d4799cfb42aa094b900f97b803b0a56, type: 3}
+      propertyPath: m_TagString
+      value: LaserWithParticle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d4799cfb42aa094b900f97b803b0a56, type: 3}

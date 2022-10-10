@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class LaserControl : MonoBehaviour
 {
-    public GameObject laser1;
-    public GameObject laser2;
+    private GameObject[] laser;
     public static bool isAppear = true;
 
     void Start()
     {
-        laser1 = GameObject.Find("LaserWithParticle1");
-        laser2 = GameObject.Find("LaserWithParticle2");
+        laser = GameObject.FindGameObjectsWithTag("LaserWithParticle");
     }
 
     void Update()
@@ -21,15 +19,19 @@ public class LaserControl : MonoBehaviour
         {
             if (isAppear)
             {
-                laser1.SetActive(false);
-                laser2.SetActive(false);
-                isAppear = false;
+                for (int i = 0; i < laser.Length; i++)
+                {
+                    laser[i].SetActive(false);
+                    isAppear = false;
+                }
             }
             else if (!isAppear)
             {
-                laser1.SetActive(true);
-                laser2.SetActive(true);
-                isAppear = true;
+                for (int i = 0; i < laser.Length; i++)
+                {
+                    laser[i].SetActive(true);
+                    isAppear = true;
+                }
             }
         }
     }
