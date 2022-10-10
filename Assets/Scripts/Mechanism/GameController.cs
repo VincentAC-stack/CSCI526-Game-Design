@@ -47,10 +47,10 @@ public class GameController : MonoBehaviour
             ResetWindow.SetActive(false);
             PlayerDead = false;
             GameFinish = false;
-            GameObject Player = GameObject.Find("AstroStay");
-            Player.transform.position = PlayerStatus.respawnPos;
-            PlayerStatus.currHealth = PlayerStatus.maxHealth;
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            // GameObject Player = GameObject.Find("AstroStay");
+            // Player.transform.position = PlayerStatus.respawnPos;
+            // PlayerStatus.currHealth = PlayerStatus.maxHealth;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             canMove = true;
         }
         if (Input.GetKeyDown(KeyCode.N))

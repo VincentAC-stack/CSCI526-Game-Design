@@ -10,7 +10,6 @@ public class CollisionTrigger : MonoBehaviour
     private GameObject player;
     private GameObject currentPlatform;
     private GameObject[] platforms;
-    // private UnityEngine.Collision2D colli = null;
     private float distToGround;
     private SpriteRenderer playerSprite;
     // public TextMeshProUGUI DeathText;
@@ -79,12 +78,5 @@ public class CollisionTrigger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J)) {
             isReversed = !isReversed;
         }
-        
-        // if (colli != null)
-        // {
-        //     Color32 currColor = colli.gameObject.GetComponent<SpriteRenderer >().color;
-        //     player.GetComponent<SpriteRenderer>().color = currColor;
-        // }
-        
     }
 }
