@@ -337,6 +337,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1733744264713978040, guid: 2e8be4376b8e53b4f9793aaef31f5045, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1733744264713978042, guid: 2e8be4376b8e53b4f9793aaef31f5045, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -389,7 +393,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalIn white off
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1733744264713978040, guid: 2e8be4376b8e53b4f9793aaef31f5045, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e8be4376b8e53b4f9793aaef31f5045, type: 3}
 --- !u!1 &109663675
 GameObject:
@@ -8720,6 +8725,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1733744264713978040, guid: 2e8be4376b8e53b4f9793aaef31f5045, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1733744264713978041, guid: 2e8be4376b8e53b4f9793aaef31f5045, type: 3}
       propertyPath: m_Color.b
       value: 0.08235294
@@ -8784,7 +8793,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalIn
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1733744264713978040, guid: 2e8be4376b8e53b4f9793aaef31f5045, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e8be4376b8e53b4f9793aaef31f5045, type: 3}
 --- !u!1 &1419668956
 GameObject:
@@ -11183,7 +11193,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalIn (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1733744264713978040, guid: 2e8be4376b8e53b4f9793aaef31f5045, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e8be4376b8e53b4f9793aaef31f5045, type: 3}
 --- !u!1001 &2008274435190116389
 PrefabInstance:
