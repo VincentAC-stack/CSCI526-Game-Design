@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         canMove = true;
+        PlayerStatus.respawnPos = GameObject.Find("AstroStay").transform.position;
         //ResetButton.onClick.AddListener(ResetButtonesetClicked);
         //FirstTimeFailResetButton.onClick.AddListener(ResetClicked);
         //FinishButton.onClick.AddListener(FinishClicked);
