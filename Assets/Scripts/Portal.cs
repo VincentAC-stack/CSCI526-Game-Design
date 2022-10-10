@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class Portal : MonoBehaviour
 {
     public Transform goToPos;
     private Transform playerPos;
+    public bool isTeleport = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +20,18 @@ public class Portal : MonoBehaviour
         
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        playerPos.transform.position = goToPos.transform.position;
+        if (isTeleport == false)
+        {
+            isTeleport = true;
+            playerPos.transform.position = goToPos.transform.position;
+            StartCoroutine(TeleportCountDownRoutine());
+        }
+    }
+    
+    IEnumerator TeleportCountDownRoutine() {
+        yield return new WaitForSeconds(1);
+        isTeleport = false;
     }
 }
