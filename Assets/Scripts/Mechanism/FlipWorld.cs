@@ -8,11 +8,13 @@ public class FlipWorld : MonoBehaviour
 {
     private GameObject[] RotateXArr;
     private GameObject[] RotateXAndYArr;
+    private GameObject[] FinishFlag;
 
     void Start()
     {
         RotateXArr = GameObject.FindGameObjectsWithTag("RotateX");
         RotateXAndYArr = GameObject.FindGameObjectsWithTag("RotateXAndY");
+        FinishFlag = GameObject.FindGameObjectsWithTag("FinishFlag");
     }
 
     // Update is called once per frame
@@ -71,12 +73,21 @@ public class FlipWorld : MonoBehaviour
                     RotateX(RotateXArr[i]);
             }
         }
-        if (RotateXAndYArr.Length  != 0)
+        if (RotateXAndYArr.Length != 0)
         {
             for (int i = 0; i < RotateXAndYArr.Length; i++)
             {
                 FlipY(RotateXAndYArr[i]);
                 RotateXAndY(RotateXAndYArr[i]);
+            }
+        }
+
+        if (FinishFlag.Length != 0)
+        {
+            for (int i = 0; i < FinishFlag.Length; i++)
+            {
+                FlipY(FinishFlag[i]);
+                RotateXAndY(FinishFlag[i]);
             }
         }
     }
