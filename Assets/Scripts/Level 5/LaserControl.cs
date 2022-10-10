@@ -5,21 +5,28 @@ using UnityEngine;
 
 public class LaserControl : MonoBehaviour
 {
-    private float timeTilSpawn;
-    
-    public float startTimeTilSpawn;
-    public GameObject lazer;
-    public Transform whereToSpawn;
-    private void Update()
+    public GameObject laser;
+    public static bool isAppear = true;
+
+    void Start()
     {
-        if(timeTilSpawn <= 0)
+        laser = GameObject.Find("LaserWithParticle");
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            Instantiate(lazer, whereToSpawn.position, whereToSpawn.rotation);
-            timeTilSpawn = startTimeTilSpawn;
-        }
-        else
-        {
-            timeTilSpawn -= Time.deltaTime;
+            if (isAppear)
+            {
+                laser.SetActive(false);
+                isAppear = false;
+            }
+            else if (!isAppear)
+            {
+                laser.SetActive(true);
+                isAppear = true;
+            }
         }
     }
 }
