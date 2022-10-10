@@ -30,7 +30,7 @@ public class RandomGen: MonoBehaviour {
         }
         // Optimize the shooting position of the ball. Let the ball shoot from the left boundary of
         // camera view instead of the end of finished line.
-        Vector3 dynamicPosition = new Vector3((float)(camera.transform.position.x + 3.6), -1, 0);
+        Vector3 dynamicPosition = new Vector3((float)(camera.transform.position.x + 3.6), 0, 0);
         
         // This feature is to reverse the moving direction of the ball. The function is completed
         // but not open to public until further discussion.
