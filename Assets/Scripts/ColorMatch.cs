@@ -12,7 +12,7 @@ public class ColorMatch : MonoBehaviour
     private GameObject[] platforms;
     private float distToGround;
     private SpriteRenderer playerSprite;
-    private string currColor;
+    public static string currColor;
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
@@ -40,9 +40,9 @@ public class ColorMatch : MonoBehaviour
 
             if (!collision.gameObject.name.Contains(currColor) && collision.gameObject.GetComponent<SpriteRenderer>().color != Color.white)
             {
-                print(currColor);
-                GameController.canMove = false;
-                GameController.PlayerDead = true;
+                gameObject.GetComponent<HealthBarForPlayer>().decreaseHealth(2);
+                // print(currHealth);
+                // gameObject.GetComponent<HealthBarBackup>().SetHealth(0);
             }
         }
         //
@@ -62,12 +62,6 @@ public class ColorMatch : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
         else if (collision.gameObject.name.Contains("Circle")){
-            // SpriteRenderer platformSpriteRenderer = currentPlatform.GetComponent<SpriteRenderer>();
-            // if (platformSpriteRenderer.color != playerSprite.color && platformSpriteRenderer.color != Color.white) {
-            //     // Color doesn't match. Game Over.
-            //     GameController.canMove = false;
-            //     GameController.PlayerDead = true;
-            // } 
             string temp = collision.gameObject.name.Substring(collision.gameObject.name.IndexOf('-') + 1);
             string ballColor = temp.Substring(0, temp.IndexOf('('));
             currColor = ballColor;

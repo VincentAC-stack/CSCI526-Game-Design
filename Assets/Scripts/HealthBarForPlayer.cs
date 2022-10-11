@@ -13,7 +13,7 @@ public class HealthBarForPlayer : MonoBehaviour
     public int damage;
     public int maxHealth;
     public TextMeshProUGUI DeathText;
-
+    
     public HealthBarBackup healthBarBackup;
 
     void Start()
@@ -62,5 +62,18 @@ public class HealthBarForPlayer : MonoBehaviour
             health = maxHealth;
             healthBarBackup.SetMaxHealth(maxHealth);
         }
+    }
+
+
+    public void decreaseHealth(int dmg)
+    {
+        health -= dmg;
+        healthBarBackup.SetHealth(health);
+        if (health <= 0)
+        {
+            GameController.PlayerDead = true;
+            GameController.canMove = false;
+        }
+        
     }
 }
