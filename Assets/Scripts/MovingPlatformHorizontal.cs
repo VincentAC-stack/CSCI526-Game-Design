@@ -14,7 +14,7 @@ public class MovingPlatformHorizontal : MonoBehaviour
     {
        
         originX = transform.position.x;
-        edgey = originX - 1f;
+        edgey = originX - 1.5f;
         edgey2 = originX + 0.5f;
     }
     

@@ -21,11 +21,16 @@ public class LeverTrigger : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("Collide!");
-        Debug.Log(col.gameObject.tag);
+        // Debug.Log("Collide!");
+        // Debug.Log(col.gameObject.tag);
+
+        Vector3 lTemp = transform.localScale;
+        lTemp.y *= -1;
+        transform.localScale = lTemp;
      
         if (isAppear)
         {
+      
             plats.GetComponent<MovingPlatformHorizontal>().enabled = false;
             // plats.SetActive(false);
             isAppear = false;
@@ -33,6 +38,7 @@ public class LeverTrigger : MonoBehaviour
         }
         else if (!isAppear)
         {
+         
             plats.GetComponent<MovingPlatformHorizontal>().enabled = true;
             // plats.SetActive(true);
             isAppear = true;
