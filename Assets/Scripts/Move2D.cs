@@ -72,16 +72,8 @@ public class Move2D : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // this.SetActive(false);
-        if (collision.gameObject.name == "FinishFlag")
-        {
-            GameController.canMove = false;
-            GameController.GameFinish = true;
-            Data.GameResult = true;
-            Data.LevelDeaths++;
-            Send();
-            Data.LevelDeaths = 0;
-        }
-        else if (collision.gameObject.name == "DownFailChecker")
+        
+        if (collision.gameObject.name == "DownFailChecker")
         {
             GameController.canMove = false;
             GameController.PlayerDead = true;
@@ -91,7 +83,7 @@ public class Move2D : MonoBehaviour
             Send();
         }
  
-        else if (collision.gameObject.name.Contains("Spike") || collision.gameObject.name.Contains("Bullet") || collision.gameObject.name.Contains("Saw"))
+        else if (collision.gameObject.name.Contains("Spike")  || collision.gameObject.name.Contains("Saw"))
         {
             PlayerStatus.currHealth--;
         }
@@ -99,9 +91,23 @@ public class Move2D : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.name == "FinishFlag")
+        {
+            GameController.canMove = false;
+            GameController.GameFinish = true;
+            Data.GameResult = true;
+            Data.LevelDeaths++;
+            Send();
+            Data.LevelDeaths = 0;
+        }
         if (collision.gameObject.name == "Checkpoint")
         {
             PlayerStatus.respawnPos = collision.transform.position;
+        }
+
+        if (collision.gameObject.name.Contains("Bullet"))
+        {
+            PlayerStatus.currHealth--;
         }
     }
 
