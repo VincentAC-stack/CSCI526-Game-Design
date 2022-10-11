@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class DiamondTrigger: MonoBehaviour
 {
-  public GameObject[] bullet;
+  public GameObject[] rotateX;
 
 
 
@@ -16,18 +16,22 @@ public class DiamondTrigger: MonoBehaviour
 
   {
 
-       bullet = GameObject.FindGameObjectsWithTag("Bullet");
+       rotateX = GameObject.FindGameObjectsWithTag("RotateX");
 
       if (collision.CompareTag("Player"))
       {
-        if (bullet.Length != 0)
+        if (rotateX.Length != 0)
         {
-            for (int i = 0; i < bullet.Length; i++)
+            for (int i = 0; i < rotateX.Length; i++)
             {
-                    Destroy(bullet[i]);
-                    Destroy(gameObject);
+                    if(rotateX[i].name=="Bullet(Clone)"){
+                      Destroy(rotateX[i]);
+
+                    }
                     //bullet[i].GetComponent<Projectile>().ifPauseBullet = true;
             }
+            Destroy(gameObject);
+
         }
 
 
