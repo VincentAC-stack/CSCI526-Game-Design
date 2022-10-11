@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8730324343519835970}
   - component: {fileID: 8730324343519835969}
-  - component: {fileID: 8730324343519835971}
   - component: {fileID: 8730324343519835972}
+  - component: {fileID: 4815072492999536971}
   m_Layer: 0
   m_Name: 'PortalOff '
   m_TagString: RotateX
@@ -86,20 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8730324343519835971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8730324343519835968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8429153f7dc4ddb4c87deb658232d7d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goToPos: {fileID: 0}
-  isTeleport: 0
 --- !u!70 &8730324343519835972
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -116,3 +102,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0.19927107, y: 0}
   m_Size: {x: 1.0160561, y: 5.590859}
   m_Direction: 0
+--- !u!114 &4815072492999536971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8730324343519835968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8429153f7dc4ddb4c87deb658232d7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goToPos: {fileID: 0}
+  isTeleport: 0
