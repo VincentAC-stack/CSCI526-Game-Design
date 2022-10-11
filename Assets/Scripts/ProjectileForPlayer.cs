@@ -27,7 +27,7 @@ public class ProjectileForPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (isFacingRight)
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
@@ -41,15 +41,18 @@ public class ProjectileForPlayer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("collide: "+ other.gameObject.name);
-        if (other.gameObject.name.Contains("Enemy"))
+        Debug.Log("trigger enter: "+ other.gameObject.name);
+        if (other.gameObject.name.Contains("Enemy")||other.gameObject.name =="SpiderMan")
         {
             DestroyProjectile();
         }
+
     }
+
 
     void DestroyProjectile()
     {
         Destroy(gameObject);
     }
+
 }
