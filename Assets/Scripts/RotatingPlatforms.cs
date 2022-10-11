@@ -10,7 +10,7 @@ public class RotatingPlatforms : MonoBehaviour
     
     public static float rpm = -60f;
     private float radius = 1.5f;
-    private float centerx = 40.95f;
+    private float centerx = 7.66f;
     private float centery = 0f;
     
     
