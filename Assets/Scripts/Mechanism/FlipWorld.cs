@@ -7,12 +7,14 @@ using UnityEngine.UIElements;
 public class FlipWorld : MonoBehaviour
 {
     private GameObject[] RotateXArr;
+    private GameObject[] RotateYArr;
     private GameObject[] RotateXAndYArr;
     private GameObject[] FinishFlag;
 
     void Start()
     {
         RotateXArr = GameObject.FindGameObjectsWithTag("RotateX");
+        RotateYArr = GameObject.FindGameObjectsWithTag("RotateY");
         RotateXAndYArr = GameObject.FindGameObjectsWithTag("RotateXAndY");
         FinishFlag = GameObject.FindGameObjectsWithTag("FinishFlag");
     }
@@ -79,6 +81,15 @@ public class FlipWorld : MonoBehaviour
             {
                 FlipY(RotateXAndYArr[i]);
                 RotateXAndY(RotateXAndYArr[i]);
+            }
+        }
+        
+        if (RotateYArr.Length != 0)
+        {
+            for (int i = 0; i < RotateYArr.Length; i++)
+            {
+                FlipY(RotateYArr[i]);
+                RotateY(RotateYArr[i]);
             }
         }
 
