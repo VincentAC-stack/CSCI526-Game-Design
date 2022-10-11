@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 8351185559805087101}
   - component: {fileID: 8351185559805087103}
   - component: {fileID: 8351185559805087105}
+  - component: {fileID: -3073473760373418647}
   m_Layer: 0
   m_Name: AstroStay
   m_TagString: Player
@@ -157,4 +158,16 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  DeathText: {fileID: 0}
+--- !u!114 &-3073473760373418647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8351185559805087100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa1fabe9d4cf1b48b8da81266b91235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
