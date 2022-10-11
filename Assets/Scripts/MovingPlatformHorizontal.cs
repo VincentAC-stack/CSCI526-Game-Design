@@ -8,14 +8,14 @@ public class MovingPlatformHorizontal : MonoBehaviour
     public static float edgey2;
     public static float speed = 0.7f;
     public static float originX;
-    public static float range = 0.5f;
+    // public static float range = 1f;
     
     void Start()
     {
        
         originX = transform.position.x;
-        edgey = originX - range;
-        edgey2 = originX + range;
+        edgey = originX - 1f;
+        edgey2 = originX + 0.5f;
     }
     
     void Update()
