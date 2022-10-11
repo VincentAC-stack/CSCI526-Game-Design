@@ -35,7 +35,7 @@ public class ColorPortal : MonoBehaviour
             Player.gameObject.transform.position = BlueOut.transform.position;
             StartCoroutine(TeleportCountDownRoutine());
         }
-        else
+        else if (ColorMatch.currColor == "Yellow")
         {
             isTeleport = true;
             Player.gameObject.transform.position = YellowOut.transform.position;
