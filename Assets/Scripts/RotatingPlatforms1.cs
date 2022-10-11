@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class MovingPlatforms1 : MonoBehaviour
+public class RotatingPlatforms1 : MonoBehaviour
 {
     
+    
     private float[] ABC;
-    public static float edgey = 0;
-    public static float speed = 0;
+    public static float dr = 1;
     public static float movement = 2f;
     public static float timer = 0f;
-
+    
+    
     void Start()
     {
         int i = 0;
-        edgey = 2.5f;
-        speed = 45f/48f;
         movement = 2f;
         timer = 0f;
+        dr = 1;
         ABC = new float[transform.childCount];
         foreach (Transform tran in transform)
         {
@@ -29,47 +29,31 @@ public class MovingPlatforms1 : MonoBehaviour
             tran.position = pos;
             i++;
         }
+        
     }
     
     void Update()
     {
+        int i = 0;
         if (timer > 0f)
         {
-            timer -= 0.5f*Time.deltaTime;
+            timer -= 1.5f*Time.deltaTime;
             return;
         }
         if (movement > 0f)
         {
-            movement -= 0.25f*Time.deltaTime;
+            movement -= 0.75f*Time.deltaTime;
         }
         else
         {
             movement += 2f;
             timer = 2f;
-            return;
         }
         foreach (Transform tran in transform)
         {
-            Vector3 pos = tran.position;
-
-            if (speed < 0f)
-            {
-                if (pos.y > -edgey)
-                {
-                    pos.y = edgey;
-                }
-            }
-            else
-            {
-                if (pos.y < -edgey)
-                {
-                    pos.y = edgey;
-                }
-            }
             
-            
-            pos.y -= speed*Time.deltaTime;
-            tran.position = pos;
+            tran.Rotate(0f,0f, dr * 90 * 3f/8f * Time.deltaTime);
+            i++;
         }
         
     }

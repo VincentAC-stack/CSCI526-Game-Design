@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class MovingPlatforms1 : MonoBehaviour
+public class MovingPlatforms2 : MonoBehaviour
 {
-    
     private float[] ABC;
     public static float edgey = 0;
     public static float speed = 0;
@@ -15,8 +14,8 @@ public class MovingPlatforms1 : MonoBehaviour
     void Start()
     {
         int i = 0;
-        edgey = 2.5f;
-        speed = 45f/48f;
+        edgey = -2.5f;
+        speed = -45f/48f;
         movement = 2f;
         timer = 0f;
         ABC = new float[transform.childCount];

@@ -63,9 +63,14 @@ public class FlipWorld : MonoBehaviour
     void Flip()
     {
 
-        MovingPlatforms.speed = MovingPlatforms.speed * (-1);
-        MovingPlatforms.edgey = MovingPlatforms.edgey * (-1);
-        RotatingPlatforms.rpm = RotatingPlatforms.rpm * (-1);
+        MovingPlatforms.speed *= (-1);
+        MovingPlatforms.edgey *= (-1);
+        RotatingPlatforms.rpm *= (-1);
+        MovingPlatforms1.speed *= (-1);
+        MovingPlatforms1.edgey *= (-1);
+        MovingPlatforms2.speed *= (-1);
+        MovingPlatforms2.edgey *= (-1);
+        RotatingPlatforms1.dr *= (-1);
 
         if (RotateXArr.Length != 0)
         {
