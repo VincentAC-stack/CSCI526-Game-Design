@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class MovingPlatforms : MonoBehaviour
+public class MovingPlatforms1 : MonoBehaviour
 {
     public static float edgey = 2.5f;
     public static float speed = 0.7f;
-    public static float temp = 1f;
 
     void Start()
     {
@@ -17,12 +16,6 @@ public class MovingPlatforms : MonoBehaviour
     
     void Update()
     {
-        temp -= Time.deltaTime;
-        if (temp < -1f)
-        {
-            temp = 1f;
-        }
-        
         foreach (Transform tran in transform)
         {
             Vector3 pos = tran.position;
