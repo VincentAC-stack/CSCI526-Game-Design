@@ -14,6 +14,14 @@ public class HealthBarForPlayer : MonoBehaviour
     public int maxHealth;
     public TextMeshProUGUI DeathText;
 
+    public HealthBarBackup healthBarBackup;
+
+    void Start()
+    {
+        health = maxHealth;
+        healthBarBackup.SetMaxHealth(maxHealth);
+    }
+
     void Update()
     {
         // Doesn't let the health go above Max Health
@@ -30,6 +38,7 @@ public class HealthBarForPlayer : MonoBehaviour
         if (collision.gameObject.name.Contains("Bullet"))
         {
             health = health - damage;
+            healthBarBackup.SetHealth(health);
         }
 
         if (health <= 0)
@@ -46,10 +55,12 @@ public class HealthBarForPlayer : MonoBehaviour
         if (health + healthGainedFromEnemy <= maxHealth)
         {
             health += healthGainedFromEnemy;
+            healthBarBackup.SetHealth(health);
         }
         else
         {
             health = maxHealth;
+            healthBarBackup.SetMaxHealth(maxHealth);
         }
     }
 }
