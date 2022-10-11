@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     public int damageFromPlayer;
     public int maxHealthForEnemy;
 
+    public HealthBarBackup healthBarBackup;
+
     //private Vector2 target;
 
     // Start is called before the first frame update
@@ -53,6 +55,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.name.Contains("BulletForPlayer"))
         {
             healthForEnemy = healthForEnemy - damageFromPlayer;
+
         }
 
         if (healthForEnemy <= 0)

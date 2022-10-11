@@ -18,4 +18,9 @@ public class HealthBarBackup : MonoBehaviour
     {
         slider.value = health;
     }
+
+    void Update()
+    {
+        transform.forward = new Vector3(0f, 0f, 1f);
+    }
 }
