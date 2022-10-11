@@ -91,7 +91,7 @@ public class Move2D : MonoBehaviour
             Send();
         }
  
-        else if (collision.gameObject.name.Contains("Spike") || collision.gameObject.name.Contains("Bullet"))
+        else if (collision.gameObject.name.Contains("Spike") || collision.gameObject.name.Contains("Bullet") || collision.gameObject.name.Contains("Saw"))
         {
             PlayerStatus.currHealth--;
         }
