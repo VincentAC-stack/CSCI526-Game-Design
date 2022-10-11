@@ -27,7 +27,7 @@ public class HealthBarForPlayer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet"))
+        if (collision.gameObject.name.Contains("Bullet"))
         {
             health = health - damage;
         }

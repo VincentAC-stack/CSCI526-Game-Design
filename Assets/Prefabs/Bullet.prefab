@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -119986888506882131}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Bullet
+  m_TagString: RotateX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  ifPauseBullet: 0
 --- !u!50 &-119986888506882131
 Rigidbody2D:
   serializedVersion: 4

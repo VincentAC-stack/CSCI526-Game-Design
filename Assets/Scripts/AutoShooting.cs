@@ -4,28 +4,13 @@ using UnityEngine;
 
 public class AutoShooting : MonoBehaviour
 {
-    private float timeBtwShots;
-    public float startTimeBtwShots;
-    public GameObject projectileForPlayer;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        timeBtwShots = startTimeBtwShots;
-    }
+    public GameObject projectileForPlayer;
 
     // Update is called once per frame
     void Update()
     {
-        if (timeBtwShots <= 0)
-        {
-            //TODO: Recenter player
+        if (Input.GetKeyDown(KeyCode.K))
             Instantiate(projectileForPlayer, transform.GetComponent<Renderer>().bounds.center, Quaternion.identity);
-            timeBtwShots = startTimeBtwShots;
-        }
-        else
-        {
-            timeBtwShots -= Time.deltaTime;
-        }
     }
 }
