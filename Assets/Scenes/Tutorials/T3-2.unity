@@ -1236,7 +1236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  stoppingDistance: 5
+  stoppingDistance: 6.5
   retreatDistance: 1
   startTimeBtwShots: 0.3
   projectile: {fileID: 7994578131882523154, guid: bf16aa6e8a08e6e4780e362423665d1f, type: 3}
@@ -2016,7 +2016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  stoppingDistance: 5
+  stoppingDistance: 6.5
   retreatDistance: 1
   startTimeBtwShots: 0.3
   projectile: {fileID: 7994578131882523154, guid: bf16aa6e8a08e6e4780e362423665d1f, type: 3}
@@ -3732,6 +3732,10 @@ PrefabInstance:
     - target: {fileID: 8351185559805087103, guid: 3d04b82f330c2c4479a2a2d219991db4, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351185559805087103, guid: 3d04b82f330c2c4479a2a2d219991db4, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8351185559805087103, guid: 3d04b82f330c2c4479a2a2d219991db4, type: 3}
       propertyPath: m_GravityScale
