@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         timeBtwShots = startTimeBtwShots;
+        healthForEnemy = maxHealthForEnemy;
+        healthBarBackup.SetMaxHealth(maxHealthForEnemy);
     }
 
     // Update is called once per frame
@@ -55,7 +57,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.name.Contains("BulletForPlayer"))
         {
             healthForEnemy = healthForEnemy - damageFromPlayer;
-
+            healthBarBackup.SetHealth(healthForEnemy);
         }
 
         if (healthForEnemy <= 0)
