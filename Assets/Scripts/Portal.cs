@@ -6,12 +6,12 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     public Transform goToPos;
-    private Transform playerPos;
+    private Transform playerTransform;
     public bool isTeleport = false;
     // Start is called before the first frame update
     void Start()
     {
-        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -25,13 +25,20 @@ public class Portal : MonoBehaviour
         if (isTeleport == false)
         {
             isTeleport = true;
-            playerPos.transform.position = goToPos.transform.position;
+            if (playerTransform.rotation.y == 0)
+            {
+                playerTransform.transform.position = goToPos.transform.position + new Vector3(0.35f, 0, 0);
+            }
+            else
+            {
+                playerTransform.transform.position = goToPos.transform.position + new Vector3(-0.35f, 0, 0);
+            }
             StartCoroutine(TeleportCountDownRoutine());
         }
     }
     
     IEnumerator TeleportCountDownRoutine() {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(4);
         isTeleport = false;
     }
 }
