@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class LeverTrigger : MonoBehaviour
 {
-    private GameObject[] plats;
+    private GameObject plats;
     public static bool isAppear = false;
     
     // Start is called before the first frame update
     void Start()
     {
-        plats = GameObject.FindGameObjectsWithTag("MovingPlat");
+        plats = GameObject.Find("Plat");
     }
 
     // Update is called once per frame
@@ -26,21 +26,17 @@ public class LeverTrigger : MonoBehaviour
      
         if (isAppear)
         {
-            for (int i = 0; i < plats.Length; i++)
-            {
-                plats[i].GetComponent<MovingPlatformHorizontal>().enabled = false;
-                // plats[i].SetActive(false);
-                isAppear = false;
-            }
+            plats.GetComponent<MovingPlatformHorizontal>().enabled = false;
+            // plats.SetActive(false);
+            isAppear = false;
+            
         }
         else if (!isAppear)
         {
-            for (int i = 0; i < plats.Length; i++)
-            {
-                plats[i].GetComponent<MovingPlatformHorizontal>().enabled = true;
-                // plats[i].SetActive(true);
-                isAppear = true;
-            }
+            plats.GetComponent<MovingPlatformHorizontal>().enabled = true;
+            // plats.SetActive(true);
+            isAppear = true;
+            
         }
         
     }
