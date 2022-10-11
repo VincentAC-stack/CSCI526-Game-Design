@@ -21,10 +21,10 @@ public class PlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currHealth == 0)
-        {
-            GameController.PlayerDead = true;
-        }
+        // if (currHealth == 0)
+        // {
+        //     GameController.PlayerDead = true;
+        // }
     }
 
     public void resetHealth()
