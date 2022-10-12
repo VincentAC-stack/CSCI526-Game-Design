@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
         ResetWindow.SetActive(false);
         FinishWindow.SetActive(false);
         PlayerDead = false;
+        GameFinish = false;
         //ResetButton.onClick.AddListener(ResetButtonesetClicked);
         //FirstTimeFailResetButton.onClick.AddListener(ResetClicked);
         //FinishButton.onClick.AddListener(FinishClicked);
