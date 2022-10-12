@@ -12,7 +12,8 @@ public class HealthBarForPlayer : MonoBehaviour
     public int health;
     public int damage;
     public int maxHealth;
-    public TextMeshProUGUI DeathText;
+    public float jumpForceX = 0;
+    public float jumpForceY = 3;
 
     public HealthBarBackup healthBarBackup;
 
@@ -49,6 +50,38 @@ public class HealthBarForPlayer : MonoBehaviour
 
         }
     }
+    
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.name.Contains("Spike"))
+        {
+            health = health - damage;
+            healthBarBackup.SetHealth(health);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+        }
+        
+        if (col.gameObject.name.Contains("Saw"))
+        {
+            health = health - damage;
+            healthBarBackup.SetHealth(health);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+        }
+        
+        if (col.gameObject.name.Contains("Crystal"))
+        {
+            health = health - damage;
+            healthBarBackup.SetHealth(health);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+        }
+        
+        if (health <= 0)
+        {
+            // Application.LoadLevel("Death");
+            Debug.Log("dead since losing blood");
+            GameController.PlayerDead = true;
+        }
+    }
+    
 
     public void addHealth(int healthGainedFromEnemy)
     {
