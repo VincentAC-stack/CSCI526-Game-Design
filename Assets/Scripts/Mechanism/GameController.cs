@@ -9,14 +9,14 @@ public class GameController : MonoBehaviour
 {
     public GameObject ResetWindow;
     public GameObject FinishWindow;
-    public GameObject SpiderWindow;
+    // public GameObject SpiderWindow;
 
     public static int deathCount;
     public static bool canMove;
     public static bool GameFinish;
     public static bool PlayerDead;
 
-    public static bool ifTriggerSpider;
+    // public static bool ifTriggerSpider;
     public TextMeshProUGUI DeathText;
     private static int END_SCENE_INDEX = 6;
 
@@ -44,10 +44,10 @@ public class GameController : MonoBehaviour
             FinishWindow.SetActive(true);
             Time.timeScale = 0f;
         }
-        if (ifTriggerSpider){
-           Time.timeScale = 0f;
-           SpiderWindow.SetActive(true);
-        }
+        // if (ifTriggerSpider){
+        //    Time.timeScale = 0f;
+        //    SpiderWindow.SetActive(true);
+        // }
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (PlayerDead)deathCount++;

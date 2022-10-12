@@ -19,6 +19,8 @@ public class Spider : MonoBehaviour
 
     public int maxHealthForSpider;
 
+    public GameObject SpiderWindow;
+
     public HealthBarBackup healthBarBackup;
 
 
@@ -37,6 +39,12 @@ public class Spider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+      if (Input.GetKeyDown(KeyCode.C)){
+        SpiderWindow.SetActive(false);
+        GameController.canMove = true;
+      }
+
         if(transform.position.y< -2.3)
         {
             Destroy(this.gameObject);
@@ -60,10 +68,14 @@ public class Spider : MonoBehaviour
         int curHealthForPlayer = player.gameObject.GetComponent<HealthBarForPlayer>().getCurrentHealth();
         player.gameObject.GetComponent<HealthBarForPlayer>().decreaseHealth(curHealthForPlayer/2);
 
-        GameController.ifTriggerSpider = true;
+        SpiderWindow.SetActive(true);
+        GameController.canMove = false;
 
       }
+
     }
+
+
 
 
 
