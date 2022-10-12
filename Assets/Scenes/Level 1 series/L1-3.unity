@@ -2688,7 +2688,7 @@ PrefabInstance:
     - target: {fileID: 4815072492999536971, guid: 696d0b4aabffb004e9167b9cc89eab18, type: 3}
       propertyPath: goToPos
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1968599223}
     - target: {fileID: 8730324343519835968, guid: 696d0b4aabffb004e9167b9cc89eab18, type: 3}
       propertyPath: m_Name
       value: PortalOff  (1)
@@ -4497,6 +4497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b68f2840542c2439a977741b194419, type: 3}
+--- !u!4 &1968599223 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1716817186689530164, guid: 2e8be4376b8e53b4f9793aaef31f5045, type: 3}
+  m_PrefabInstance: {fileID: 94607157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2001663068
 GameObject:
   m_ObjectHideFlags: 0
