@@ -37,7 +37,10 @@ public class Spider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(transform.position.y< -2.3)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 
