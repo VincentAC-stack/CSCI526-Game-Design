@@ -73,7 +73,7 @@ public class Move2D : MonoBehaviour
     {
         // this.SetActive(false);
         
-        if (collision.gameObject.name == "DownFailChecker")
+        if (collision.gameObject.name == "DownFailChecker" || collision.gameObject.name == "DownFailChecker2") 
         {
             GameController.canMove = false;
             GameController.PlayerDead = true;
