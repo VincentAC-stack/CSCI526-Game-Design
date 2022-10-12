@@ -62,27 +62,34 @@ public class Spider : MonoBehaviour
         }
         if (healthForSpider <= 0)
         {
+
             Destroy(this.gameObject);
+
         }
 
     }
 
     void OnCollisionEnter2D(Collision2D collison){
 
+
+
       if(collison.gameObject.CompareTag("Player")){
+
         player.gameObject.GetComponent<HealthBarForPlayer>().decreaseHealth(damage);
-        
-        SpiderWindow.SetActive(true);
-        GameController.canMove = false;
+
+        int playerHealth = player.gameObject.GetComponent<HealthBarForPlayer>().getCurrentHealth();
+
+        if(playerHealth > 0){
+          SpiderWindow.SetActive(true);
+          GameController.canMove = false;
+        }
+
+
+
 
       }
 
     }
-
-
-
-
-
 
 
 
