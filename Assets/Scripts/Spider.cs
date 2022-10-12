@@ -16,6 +16,7 @@ public class Spider : MonoBehaviour
 
     public int healthForSpider;
     public int damageFromPlayer;
+    public int damage;
 
     public int maxHealthForSpider;
 
@@ -59,15 +60,18 @@ public class Spider : MonoBehaviour
             healthForSpider = healthForSpider - damageFromPlayer;
             healthBarBackup.SetHealth(healthForSpider);
         }
+        if (healthForSpider <= 0)
+        {
+            Destroy(this.gameObject);
+        }
 
     }
 
     void OnCollisionEnter2D(Collision2D collison){
 
       if(collison.gameObject.CompareTag("Player")){
-        int curHealthForPlayer = player.gameObject.GetComponent<HealthBarForPlayer>().getCurrentHealth();
-        player.gameObject.GetComponent<HealthBarForPlayer>().decreaseHealth(curHealthForPlayer/2);
-
+        player.gameObject.GetComponent<HealthBarForPlayer>().decreaseHealth(damage);
+        
         SpiderWindow.SetActive(true);
         GameController.canMove = false;
 
