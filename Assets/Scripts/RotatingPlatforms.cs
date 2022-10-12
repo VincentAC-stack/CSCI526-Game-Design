@@ -21,12 +21,20 @@ public class RotatingPlatforms : MonoBehaviour
         ABC = new float[transform.childCount];
         foreach (Transform tran in transform)
         {
-            ABC[i] = (360 / transform.childCount) * i;
+            ABC[i] = (360 / (transform.childCount)) * i;
             tran.eulerAngles = new Vector3(
                 tran.eulerAngles.x,
                 tran.eulerAngles.y,
                 ABC[i] + 30
             );
+            if (i > 4)
+            {
+                tran.eulerAngles = new Vector3(
+                    tran.eulerAngles.x,
+                    tran.eulerAngles.y,
+                    0
+                );
+            }
             i++;
         }
         
@@ -44,7 +52,10 @@ public class RotatingPlatforms : MonoBehaviour
             
             ABC[i] += 0.7f * rpm * Time.deltaTime;
             Vector3 direction = Quaternion.AngleAxis(ABC[i], Vector3.forward) * Vector3.up;
-            tran.Rotate(0f,0f, 0.35f * rpm * Time.deltaTime);
+            if (i < 5)
+            {
+                tran.Rotate(0f,0f, 0.35f * rpm * Time.deltaTime);
+            }
             tran.position = pos + direction * radius;
             i++;
         }
