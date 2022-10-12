@@ -860,7 +860,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResetWindow: {fileID: 2120194870}
   FinishWindow: {fileID: 1911584519}
-  SpiderWindow: {fileID: 0}
   DeathText: {fileID: 1858609853}
 --- !u!4 &160769152
 Transform:
@@ -1145,15 +1144,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.11794
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.05
+      value: -1.07
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5126
+      value: -0.39
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1207,7 +1206,8 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6725124249364984949, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
 --- !u!1 &424298975 stripped
 GameObject:
@@ -2728,7 +2728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370850, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370850, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Color.g
@@ -2736,11 +2736,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370850, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
-      value: Platform-Green(1)
+      value: Platform-Blue(12)
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_TagString
@@ -9491,6 +9491,11 @@ Transform:
   m_Father: {fileID: 2145458541}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1811209393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6725124249364984950, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
+  m_PrefabInstance: {fileID: 424096049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1826643345
 GameObject:
   m_ObjectHideFlags: 0
@@ -10977,6 +10982,43 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
   m_PrefabInstance: {fileID: 424096049}
   m_PrefabAsset: {fileID: 0}
+--- !u!60 &2147289712
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811209393}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.4, y: 5.4}
+    newSize: {x: 5.4, y: 5.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.57, y: 0.48}
+      - {x: 2.4099998, y: 0.64}
+      - {x: 2.1, y: 0.91999996}
+      - {x: -2.1, y: 0.91999996}
+      - {x: -2.28, y: 0.79999995}
+      - {x: -2.57, y: 0.48}
+      - {x: -2.57, y: -0.32}
+      - {x: -2.29, y: -0.63}
+      - {x: -2.1, y: -0.77}
+      - {x: 2.19, y: -0.77}
+      - {x: 2.48, y: -0.48}
+      - {x: 2.57, y: -0.29999998}
 --- !u!1001 &6725124249367060374
 PrefabInstance:
   m_ObjectHideFlags: 0
