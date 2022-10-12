@@ -205,6 +205,7 @@ MonoBehaviour:
   healthForEnemy: 100
   damageFromPlayer: 50
   maxHealthForEnemy: 100
+  healthBarBackup: {fileID: 0}
 --- !u!212 &37179919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -710,6 +711,7 @@ MonoBehaviour:
   healthForEnemy: 100
   damageFromPlayer: 50
   maxHealthForEnemy: 100
+  healthBarBackup: {fileID: 0}
 --- !u!212 &107247134
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1415,6 +1417,7 @@ MonoBehaviour:
   healthForEnemy: 100
   damageFromPlayer: 50
   maxHealthForEnemy: 100
+  healthBarBackup: {fileID: 0}
 --- !u!212 &276433240
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2088,7 +2091,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504965628}
   m_LocalRotation: {x: -0, y: -0, z: 1.04705564e-10, w: 1}
-  m_LocalPosition: {x: -2.842, y: -1.388, z: 0}
+  m_LocalPosition: {x: -2.75, y: -1.37, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2116,6 +2119,7 @@ MonoBehaviour:
   healthForEnemy: 100
   damageFromPlayer: 50
   maxHealthForEnemy: 100
+  healthBarBackup: {fileID: 0}
 --- !u!50 &504965634
 Rigidbody2D:
   serializedVersion: 4
@@ -2180,6 +2184,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2268,6 +2273,39 @@ MonoBehaviour:
   player: {fileID: 2006743420}
   offset: 1.74
   offsetSmoothing: 2
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &566000643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2565,6 +2603,7 @@ MonoBehaviour:
   healthForEnemy: 100
   damageFromPlayer: 50
   maxHealthForEnemy: 100
+  healthBarBackup: {fileID: 0}
 --- !u!212 &703404160
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2725,6 +2764,7 @@ MonoBehaviour:
   healthForEnemy: 100
   damageFromPlayer: 50
   maxHealthForEnemy: 100
+  healthBarBackup: {fileID: 0}
 --- !u!212 &705963108
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3562,6 +3602,7 @@ MonoBehaviour:
   healthForEnemy: 100
   damageFromPlayer: 50
   maxHealthForEnemy: 100
+  healthBarBackup: {fileID: 0}
 --- !u!212 &1027398175
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3942,6 +3983,7 @@ MonoBehaviour:
   healthForEnemy: 100
   damageFromPlayer: 50
   maxHealthForEnemy: 100
+  healthBarBackup: {fileID: 0}
 --- !u!212 &1194203344
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4081,6 +4123,7 @@ MonoBehaviour:
   healthForEnemy: 100
   damageFromPlayer: 50
   maxHealthForEnemy: 100
+  healthBarBackup: {fileID: 0}
 --- !u!212 &1219762228
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4262,6 +4305,7 @@ MonoBehaviour:
   healthForEnemy: 100
   damageFromPlayer: 50
   maxHealthForEnemy: 100
+  healthBarBackup: {fileID: 0}
 --- !u!212 &1244274980
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5624,7 +5668,9 @@ MonoBehaviour:
   health: 100
   damage: 20
   maxHealth: 100
-  DeathText: {fileID: 0}
+  jumpForceX: 0
+  jumpForceY: 3
+  healthBarBackup: {fileID: 0}
 --- !u!114 &2006743432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5747,6 +5793,7 @@ MonoBehaviour:
   healthForEnemy: 100
   damageFromPlayer: 50
   maxHealthForEnemy: 100
+  healthBarBackup: {fileID: 0}
 --- !u!212 &2054107593
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5907,6 +5954,7 @@ MonoBehaviour:
   healthForEnemy: 100
   damageFromPlayer: 50
   maxHealthForEnemy: 100
+  healthBarBackup: {fileID: 0}
 --- !u!212 &2102158454
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6041,15 +6089,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.20319356
+      value: 0.56816983
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.3089
+      value: -3.35
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.59
+      value: -1.67
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalPosition.z
