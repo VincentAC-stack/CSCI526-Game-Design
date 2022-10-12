@@ -27,7 +27,7 @@ public class RotatingPlatforms : MonoBehaviour
                 tran.eulerAngles.y,
                 ABC[i] + 30
             );
-            if (i > 4)
+            if (i > 3)
             {
                 tran.eulerAngles = new Vector3(
                     tran.eulerAngles.x,
@@ -52,7 +52,7 @@ public class RotatingPlatforms : MonoBehaviour
             
             ABC[i] += 0.7f * rpm * Time.deltaTime;
             Vector3 direction = Quaternion.AngleAxis(ABC[i], Vector3.forward) * Vector3.up;
-            if (i < 5)
+            if (i < 4)
             {
                 tran.Rotate(0f,0f, 0.35f * rpm * Time.deltaTime);
             }

@@ -34,12 +34,12 @@ public class MovingPlatforms2 : MonoBehaviour
     {
         if (timer > 0f)
         {
-            timer -= 0.5f*Time.deltaTime;
+            timer -= 1f*Time.deltaTime;
             return;
         }
         if (movement > 0f)
         {
-            movement -= 0.25f*Time.deltaTime;
+            movement -= 0.5f*Time.deltaTime;
         }
         else
         {
