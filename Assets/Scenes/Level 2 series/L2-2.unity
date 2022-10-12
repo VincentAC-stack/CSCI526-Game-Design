@@ -154,7 +154,7 @@ Transform:
   - {fileID: 2120194871}
   - {fileID: 1911584520}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &10732147 stripped
 Transform:
@@ -270,7 +270,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResetWindow: {fileID: 2120194870}
   FinishWindow: {fileID: 1911584519}
-  SpiderWindow: {fileID: 0}
   DeathText: {fileID: 1858609853}
 --- !u!4 &160769152
 Transform:
@@ -1877,7 +1876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &841448553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2187,7 +2186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &890565940
 RectTransform:
   m_ObjectHideFlags: 0

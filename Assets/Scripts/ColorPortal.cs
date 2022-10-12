@@ -23,28 +23,59 @@ public class ColorPortal : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        print((ColorMatch.currColor));
-        if (ColorMatch.currColor == "Red")
+        if (isTeleport == false)
         {
-            isTeleport = true;
-            Player.gameObject.transform.position = RedOut.transform.position;
-            StartCoroutine(TeleportCountDownRoutine());
+            if (ColorMatch.currColor == "Red")
+            {
+                isTeleport = true;
+                Player.gameObject.transform.position = RedOut.transform.position;
+                
+                if (Player.gameObject.transform.rotation.y == 0)
+                {
+                    Player.transform.position = RedOut.transform.position + new Vector3(0.35f, 0, 0);
+                }
+                else
+                {
+                    Player.transform.position = RedOut.transform.position + new Vector3(-0.35f, 0, 0);
+                }
+                StartCoroutine(TeleportCountDownRoutine());
+            }
+            else if (ColorMatch.currColor == "Blue"){
+                isTeleport = true;
+                Player.gameObject.transform.position = RedOut.transform.position;
+                
+                if (Player.gameObject.transform.rotation.y == 0)
+                {
+                    Player.transform.position = BlueOut.transform.position + new Vector3(0.35f, 0, 0);
+                }
+                else
+                {
+                    Player.transform.position = BlueOut.transform.position + new Vector3(-0.35f, 0, 0);
+                }
+                StartCoroutine(TeleportCountDownRoutine());
+            }
+            else if (ColorMatch.currColor == "Yellow")
+            {
+                isTeleport = true;
+                Player.gameObject.transform.position = RedOut.transform.position;
+                
+                if (Player.gameObject.transform.rotation.y == 0)
+                {
+                    Player.transform.position = YellowOut.transform.position + new Vector3(0.35f, 0, 0);
+                }
+                else
+                {
+                    Player.transform.position = YellowOut.transform.position + new Vector3(-0.35f, 0, 0);
+                }
+                StartCoroutine(TeleportCountDownRoutine());
+            }
+            
         }
-        else if (ColorMatch.currColor == "Blue"){
-            isTeleport = true;
-            Player.gameObject.transform.position = BlueOut.transform.position;
-            StartCoroutine(TeleportCountDownRoutine());
-        }
-        else if (ColorMatch.currColor == "Yellow")
-        {
-            isTeleport = true;
-            Player.gameObject.transform.position = YellowOut.transform.position;
-            StartCoroutine(TeleportCountDownRoutine());
-        }
+       
     }
     
     IEnumerator TeleportCountDownRoutine() {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(4);
         isTeleport = false;
     }
 }
