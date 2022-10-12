@@ -224,7 +224,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResetWindow: {fileID: 1624628504}
   FinishWindow: {fileID: 1333964442}
-  SpiderWindow: {fileID: 0}
   DeathText: {fileID: 498372599}
 --- !u!4 &160769152
 Transform:
@@ -1886,6 +1885,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d0750d3ad4a8e4aa353a0e94069cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResetWindow: {fileID: 1624628504}
+  FinishWindow: {fileID: 1333964442}
 --- !u!1 &885328353
 GameObject:
   m_ObjectHideFlags: 0
