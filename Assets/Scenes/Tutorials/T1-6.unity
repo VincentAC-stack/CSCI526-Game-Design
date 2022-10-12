@@ -319,6 +319,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_Size.x
+      value: 9.258911
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.08548379
+      objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
       value: Platform-2 (14)
@@ -389,6 +397,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_Size.x
+      value: 9.220215
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.092960596
+      objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
       value: Platform-2 (15)
@@ -435,7 +451,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResetWindow: {fileID: 679300209}
   FinishWindow: {fileID: 199146334}
-  SpiderWindow: {fileID: 0}
   DeathText: {fileID: 296208335}
 --- !u!4 &160769152
 Transform:
@@ -821,6 +836,14 @@ PrefabInstance:
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_Size.x
+      value: 9.316788
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.09838486
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
@@ -2772,7 +2795,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.696121, y: 1.5691191}
+  m_Size: {x: 9.283724, y: 1.5691191}
   m_EdgeRadius: 0
 --- !u!212 &1793217021
 SpriteRenderer:
@@ -3467,6 +3490,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6725124249364984949, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
+      propertyPath: m_Size.x
+      value: 4.563936
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725124249364984949, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.01725638
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725124249364984949, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.08699405
+      objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984950, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_Name
       value: Platform-1
@@ -3484,6 +3519,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2001663069}
     m_Modifications:
+    - target: {fileID: 7078094641976449112, guid: b192c23cbb4ef3342bd43ba3ba1534fc, type: 3}
+      propertyPath: m_Size.x
+      value: 9.283724
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078094641976449112, guid: b192c23cbb4ef3342bd43ba3ba1534fc, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.05096841
+      objectReference: {fileID: 0}
     - target: {fileID: 7078094641976449114, guid: b192c23cbb4ef3342bd43ba3ba1534fc, type: 3}
       propertyPath: m_RootOrder
       value: 1
