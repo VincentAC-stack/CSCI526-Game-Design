@@ -40,7 +40,7 @@ public class ColorMatch : MonoBehaviour
 
             if (!collision.gameObject.name.Contains(currColor) && collision.gameObject.GetComponent<SpriteRenderer>().color != Color.white)
             {
-                gameObject.GetComponent<HealthBarForPlayer>().decreaseHealth(2);
+                gameObject.GetComponent<HealthBarForPlayer>().decreaseHealth(20);
                 // print(currHealth);
                 // gameObject.GetComponent<HealthBarBackup>().SetHealth(0);
             }
