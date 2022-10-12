@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,13 +19,16 @@ public class GameController : MonoBehaviour
 
     // public static bool ifTriggerSpider;
     public TextMeshProUGUI DeathText;
-    private static int END_SCENE_INDEX = 6;
-
+    private static int END_SCENE_INDEX = 29;
+    
     // Start is called before the first frame update
     void Start()
     {
         canMove = true;
         PlayerStatus.respawnPos = GameObject.Find("AstroStay").transform.position;
+        ResetWindow.SetActive(false);
+        FinishWindow.SetActive(false);
+        PlayerDead = false;
         //ResetButton.onClick.AddListener(ResetButtonesetClicked);
         //FirstTimeFailResetButton.onClick.AddListener(ResetClicked);
         //FinishButton.onClick.AddListener(FinishClicked);
