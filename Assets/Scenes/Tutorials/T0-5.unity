@@ -319,6 +319,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_Size.x
+      value: 8.896121
+      objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
       value: Platform-2 (14)
@@ -537,6 +541,10 @@ PrefabInstance:
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_Size.x
+      value: 8.996121
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
@@ -1671,7 +1679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Switch on to trigger the slippy platform
+  m_text: Switch on to trigger the special platform
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2177,6 +2185,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_Size.x
+      value: 9.196121
+      objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
       value: TriggeredPlatform
@@ -2947,7 +2959,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: special slippy platform could be triggered
+  m_text: special platform could be triggered
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3066,7 +3078,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.696121, y: 1.5691191}
+  m_Size: {x: 8.896121, y: 1.5691191}
   m_EdgeRadius: 0
 --- !u!212 &1793217021
 SpriteRenderer:
@@ -3527,6 +3539,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6725124249364984949, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
+      propertyPath: m_Size.x
+      value: 4.301586
+      objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984950, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_Name
       value: Platform-1
@@ -3544,6 +3560,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2001663069}
     m_Modifications:
+    - target: {fileID: 7078094641976449112, guid: b192c23cbb4ef3342bd43ba3ba1534fc, type: 3}
+      propertyPath: m_Size.x
+      value: 8.896121
+      objectReference: {fileID: 0}
     - target: {fileID: 7078094641976449114, guid: b192c23cbb4ef3342bd43ba3ba1534fc, type: 3}
       propertyPath: m_RootOrder
       value: 1
