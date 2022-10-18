@@ -30,8 +30,7 @@ public class SendToGoogle : MonoBehaviour
     private static bool[] jumpCountAtEachCheckPointRecord;
     
     private static int startTime;
-    private static int deathCount;
-    
+
     // Http链接
     private String _sessionID;
     private int _testInt;
@@ -74,8 +73,16 @@ public class SendToGoogle : MonoBehaviour
     private int _jCountC5;
     
     // 数据 吴奕宙 负责部分
-    private int _losePointsReason;
-    
+    private int _fallCount;
+    private int _spikeCount;
+    private int _sawCount;
+    private int _crystalCount;
+    private int _laserCount;
+    private int _bulletrCount;
+    private int _colorMismatchCount;
+
+
+
     private void Awake()
     {
         // 用当前的时间创建唯一的会话ID
@@ -92,12 +99,12 @@ public class SendToGoogle : MonoBehaviour
         
         // 初始化数据
         initializeData();
+        InitializePublicData();
         GetLevelInfo();
         _attempt = 1;
-        
+
         // 创建起始时间
         startTime = (int)Time.time;
-        deathCount = 0;
     }
 
     // Update is called once per frame
@@ -108,12 +115,7 @@ public class SendToGoogle : MonoBehaviour
         {
             ++_jCount;
         }
-        
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            ++deathCount;
-        }
-        
+
         // check一下是否在检查点周围，如果是就统计数据
         CalDataAtEachCheckpoint();
         
@@ -136,16 +138,18 @@ public class SendToGoogle : MonoBehaviour
         if (collision.gameObject.name == "FinishFlag")
         {
             DataAtFinishFlag();
+            _complete = 1;
             Send();
-            deathCount = 0;
+            ReduceHealthData.fallCount = 0;
         }
     }
     
     // 每次死亡时发送表单
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "DownFailChecker" || collision.gameObject.name == "DownFailChecker2" || GameObject.FindWithTag("Player").GetComponent<HealthBarForPlayer>().health == 0) 
+        if (collision.gameObject.name == "DownFailChecker" || collision.gameObject.name == "DownFailChecker2" || GameObject.FindWithTag("Player").GetComponent<HealthBarForPlayer>().health <= 0)
         {
+            DataAtFinishFlag();
             Send();
         }
     }
@@ -164,7 +168,7 @@ public class SendToGoogle : MonoBehaviour
                 // 统计一下当前死亡次数
                 if (!surviveAtEachCheckPointRecord[i - 1])
                 {
-                    surviveAtEachCheckPoint[i - 1] = GameController.deathCount;
+                    surviveAtEachCheckPoint[i - 1] = GameController.deathCount + 1;
                     surviveAtEachCheckPointRecord[i - 1] = true;
                 }
                 // 统计一下当前花费的时间
@@ -239,8 +243,7 @@ public class SendToGoogle : MonoBehaviour
     private void DataAtFinishFlag()
     {
         _timeSpent = (int)Time.time - startTime;
-        _retriesNumber = deathCount;
-        _complete = 1;
+        _retriesNumber = GameController.deathCount + 1;
     }
 
     // 初始化数据
@@ -266,12 +269,35 @@ public class SendToGoogle : MonoBehaviour
         surviveAtEachCheckPointRecord = new[] { false, false, false, false, false };
         timeSpentAtEachCheckPointRecord = new[] { false, false, false, false, false };
         jumpCountAtEachCheckPointRecord = new[] { false, false, false, false, false };
+        
+    }
+
+    public void InitializePublicData()
+    {
+        ReduceHealthData.spikeCount = 0;
+        ReduceHealthData.sawCount = 0;
+        ReduceHealthData.crystalCount = 0;
+        ReduceHealthData.laserCount = 0;
+        ReduceHealthData.bulletCount = 0;
+        ReduceHealthData.colorMismatchCount = 0;
+    }
+
+    public void GetHealthReduceCount()
+    {
+        _fallCount = ReduceHealthData.fallCount;
+        _spikeCount = ReduceHealthData.spikeCount;
+        _sawCount = ReduceHealthData.sawCount;
+        _crystalCount = ReduceHealthData.crystalCount;
+        _laserCount = ReduceHealthData.laserCount;
+        _bulletrCount = ReduceHealthData.bulletCount;
+        _colorMismatchCount = ReduceHealthData.colorMismatchCount;
     }
     
     // 发送数据
     private void Send()
     {
         PutDataAtEachCheckpoint();
+        GetHealthReduceCount();
         StartCoroutine(Post());
     }
     
@@ -301,7 +327,13 @@ public class SendToGoogle : MonoBehaviour
         form.AddField("entry.1301255164", _remainingHealthC3);
         form.AddField("entry.529486672", _remainingHealthC4);
         form.AddField("entry.588232958", _remainingHealthC5);
-        form.AddField("entry.1530851387", _losePointsReason);
+        form.AddField("entry.1043884661", _fallCount);
+        form.AddField("entry.358961457", _spikeCount);
+        form.AddField("entry.1460548763", _sawCount);
+        form.AddField("entry.878896610", _crystalCount);
+        form.AddField("entry.168853577", _laserCount);
+        form.AddField("entry.301012492", _bulletrCount);
+        form.AddField("entry.31906817", _colorMismatchCount);
         form.AddField("entry.107226697", _jCount);
         form.AddField("entry.2003297119", _jCountC1);
         form.AddField("entry.1767977406", _jCountC2);
