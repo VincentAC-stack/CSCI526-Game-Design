@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 public class SendToGoogle : MonoBehaviour
 {
@@ -15,11 +16,19 @@ public class SendToGoogle : MonoBehaviour
     private float finishFlagPosX; // 结束标识的位置
     private float distanceBetweenCheckpoint; // 相邻两个检查点之间的距离
     private float rangeAtEachCheckpoint = 0.5f; // 每个检查点前后正负的范围，默认为正负0.5
-    private int[] surviveAtEachCheckPoint;
-    private int[] timeSpentAtEachCheckPoint;
-    private int[] remainingHealthAtEachCheckPoint;
-    private int[] jumpCountAtEachCheckPoint;
-    private int startTime;
+    
+    // 检查点数据的数组
+    private static int[] surviveAtEachCheckPoint;
+    private static int[] timeSpentAtEachCheckPoint;
+    private static int[] remainingHealthAtEachCheckPoint;
+    private static int[] jumpCountAtEachCheckPoint;
+    
+    // 检查点数据的锁
+    private static bool[] surviveAtEachCheckPointRecord;
+    private static bool[] timeSpentAtEachCheckPointRecord;
+    private static bool[] jumpCountAtEachCheckPointRecord;
+    
+    private static int startTime;
     
     // Http链接
     private String _sessionID;
@@ -55,7 +64,7 @@ public class SendToGoogle : MonoBehaviour
     private int _remainingHealthC4;
     private int _remainingHealthC5;
     // 第一次
-    private int _jCount;
+    private static int _jCount;
     private int _jCountC1;
     private int _jCountC2;
     private int _jCountC3;
@@ -74,14 +83,14 @@ public class SendToGoogle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // 初始化数据
-        initializeData();
-        
         // 初始化检查点相关的变量
         playerRespawnPosX = GameObject.Find("AstroStay").transform.position.x;
         finishFlagPosX = GameObject.FindWithTag("FinishFlag").transform.position.x;
         distanceBetweenCheckpoint = (finishFlagPosX - playerRespawnPosX) / 5f;
-
+        
+        // 初始化数据
+        initializeData();
+        
         // 创建起始时间
         startTime = (int)Time.time;
     }
@@ -99,25 +108,23 @@ public class SendToGoogle : MonoBehaviour
         CalDataAtEachCheckpoint();
         
         // 测试用，按P发送数据
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            PutDataAtEachCheckpoint();
-            Send();
-        }
+        // 两位可以用这个来测试
+        // 数据表格是 https://docs.google.com/spreadsheets/d/1Z2gvKMsN287wGSLa7DW8BbaGF2K0u2nop29Y86-fMbA/edit?resourcekey#gid=1659411542
+        // if (Input.GetKeyDown(KeyCode.P))
+        // {
+        //     Send();
+        // }
         
         // 监听选关按钮
-        // Button btn = GameObject.Find("menu_btn").GetComponent<Button>();
-        // btn.onClick.add
-        
+        // TODO: 存在bug 会一次性发送几百个，Yizhou可以帮我看看这个bug
+        // GameObject.Find("menu_btn").GetComponent<Button>().onClick.AddListener(() => Send());
     }
     
-    void OnCollisionEnter2D(Collision2D collision)
+    // 碰到Finish flag的时候发送表单
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // this.SetActive(false);
-
-        if (collision.gameObject.tag == "Player")
-        { 
-            PutDataAtEachCheckpoint();
+        if (collision.gameObject.name == "FinishFlag")
+        {
             Send();
         }
     }
@@ -133,21 +140,26 @@ public class SendToGoogle : MonoBehaviour
             if (currPlayerPos >= playerRespawnPosX + i * distanceBetweenCheckpoint - 0.5 &&
                 currPlayerPos < playerRespawnPosX + i * distanceBetweenCheckpoint + 0.5)
             {
-                // 统计一下当前死没死过
-                if (GameController.deathCount > 0)
+                // 统计一下当前死亡次数
+                if (!surviveAtEachCheckPointRecord[i - 1])
                 {
-                    surviveAtEachCheckPoint[i - 1] = 0;
-                }
-                else
-                {
-                    surviveAtEachCheckPoint[i - 1] = 1;
+                    surviveAtEachCheckPoint[i - 1] = GameController.deathCount;
+                    surviveAtEachCheckPointRecord[i - 1] = true;
                 }
                 // 统计一下当前花费的时间
-                timeSpentAtEachCheckPoint[i - 1] = (int)Time.time - startTime;
+                if (!timeSpentAtEachCheckPointRecord[i - 1])
+                {
+                    timeSpentAtEachCheckPoint[i - 1] = (int)Time.time - startTime;
+                    timeSpentAtEachCheckPointRecord[i - 1] = true;
+                }
                 // 统计一下当前的生命值
                 remainingHealthAtEachCheckPoint[i - 1] = GameObject.FindWithTag("Player").GetComponent<HealthBarForPlayer>().health;
                 // 统计一下当前按J的次数
-                jumpCountAtEachCheckPoint[i - 1] = _jCount;
+                if (!jumpCountAtEachCheckPointRecord[i - 1])
+                {
+                    jumpCountAtEachCheckPoint[i - 1] = _jCount;
+                    jumpCountAtEachCheckPointRecord[i - 1] = true;
+                }
                 break;
             }
         }
@@ -189,11 +201,17 @@ public class SendToGoogle : MonoBehaviour
         timeSpentAtEachCheckPoint = new[] { -2, -2, -2, -2, -2 };
         remainingHealthAtEachCheckPoint = new[] { -2, -2, -2, -2, -2 };
         jumpCountAtEachCheckPoint = new[] { -2, -2, -2, -2, -2 };
+        
+        // 初始化各个检查点数据的锁
+        surviveAtEachCheckPointRecord = new[] { false, false, false, false, false };
+        timeSpentAtEachCheckPointRecord = new[] { false, false, false, false, false };
+        jumpCountAtEachCheckPointRecord = new[] { false, false, false, false, false };
     }
     
     // 发送数据
     private void Send()
     {
+        PutDataAtEachCheckpoint();
         StartCoroutine(Post());
     }
     
