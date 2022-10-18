@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
+using UnityEngine.SceneManagement;
 
 public class SendToGoogle : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class SendToGoogle : MonoBehaviour
     private static bool[] jumpCountAtEachCheckPointRecord;
     
     private static int startTime;
+    private static int deathCount;
     
     // Http链接
     private String _sessionID;
@@ -38,7 +40,7 @@ public class SendToGoogle : MonoBehaviour
     
     // 数据 何瑛琪 负责部分
     private int _mechanismSection;
-    private int _level;
+    private String _level;
     private int _attempt;
     private int _complete;
     private int _timeSpent;
@@ -90,9 +92,12 @@ public class SendToGoogle : MonoBehaviour
         
         // 初始化数据
         initializeData();
+        GetLevelInfo();
+        _attempt = 1;
         
         // 创建起始时间
         startTime = (int)Time.time;
+        deathCount = 0;
     }
 
     // Update is called once per frame
@@ -102,6 +107,11 @@ public class SendToGoogle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             ++_jCount;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            ++deathCount;
         }
         
         // check一下是否在检查点周围，如果是就统计数据
@@ -125,7 +135,9 @@ public class SendToGoogle : MonoBehaviour
     {
         if (collision.gameObject.name == "FinishFlag")
         {
+            DataAtFinishFlag();
             Send();
+            deathCount = 0;
         }
     }
 
@@ -191,9 +203,48 @@ public class SendToGoogle : MonoBehaviour
         _jCountC5 = jumpCountAtEachCheckPoint[4];
     }
 
+    //hyq
+    private void GetLevelInfo()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        _level = scene.name;
+        int sceneID = scene.buildIndex;
+        if (sceneID >= 7 && sceneID <= 12)
+        {
+            _mechanismSection = 1;
+        }
+        else if (sceneID >= 13 && sceneID <= 20)
+        {
+            _mechanismSection = 2;
+        }
+        else if (sceneID >= 21 && sceneID <= 25)
+        {
+            _mechanismSection = 3;
+        }
+        else if (sceneID >= 26)
+        {
+            _mechanismSection = 4;
+        }
+    }
+    
+    private void DataAtFinishFlag()
+    {
+        _timeSpent = (int)Time.time - startTime;
+        _retriesNumber = deathCount;
+        _complete = 1;
+    }
+
     // 初始化数据
     private void initializeData()
     {
+        // hyq
+        _mechanismSection = 0;
+        _level = "0";
+        _attempt = 0;
+        _complete = 0;
+        _timeSpent = -2;
+        _retriesNumber = -1;
+        
         // 数据 王思极 & 徐通负责部分
         _jCount = 0;
         // 初始化各个检查点的数组
