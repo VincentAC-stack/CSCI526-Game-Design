@@ -80,7 +80,7 @@ public class Move2D : MonoBehaviour
             PlayerStatus.currHealth = 0;
             Data.GameResult = false;
             Data.LevelDeaths = -1;
-            Send();
+            // Send();
         }
  
         // else if (collision.gameObject.name.Contains("Spike")  || collision.gameObject.name.Contains("Saw"))
@@ -97,7 +97,7 @@ public class Move2D : MonoBehaviour
             GameController.GameFinish = true;
             Data.GameResult = true;
             Data.LevelDeaths++;
-            Send();
+            // Send();
             Data.LevelDeaths = 0;
         }
         if (collision.gameObject.name == "Checkpoint")
