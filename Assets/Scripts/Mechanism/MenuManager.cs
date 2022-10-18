@@ -15,7 +15,8 @@ public class MenuManager : MonoBehaviour
     {
         _userId = DateTime.Now.Ticks;
         Data.LevelDeaths = 0;
-
+        Time.timeScale = 1f;
+        
         // int levelAt = PlayerPrefs.GetInt("levelAt", 2);
         //
         // for (int i = 0; i < levelBtns.Length; i++)
