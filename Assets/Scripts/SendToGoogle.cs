@@ -147,7 +147,7 @@ public class SendToGoogle : MonoBehaviour
     // 每次死亡时发送表单
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "DownFailChecker" || collision.gameObject.name == "DownFailChecker2" || GameObject.FindWithTag("Player").GetComponent<HealthBarForPlayer>().health == 0)
+        if (collision.gameObject.name == "DownFailChecker" || collision.gameObject.name == "DownFailChecker2" || GameObject.FindWithTag("Player").GetComponent<HealthBarForPlayer>().health <= 0)
         {
             DataAtFinishFlag();
             Send();
