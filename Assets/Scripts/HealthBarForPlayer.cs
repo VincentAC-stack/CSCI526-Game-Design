@@ -40,6 +40,7 @@ public class HealthBarForPlayer : MonoBehaviour
         {
             health = health - damage;
             healthBarBackup.SetHealth(health);
+            ReduceHealthData.bulletCount++;
         }
 
         if (health <= 0)
@@ -58,6 +59,7 @@ public class HealthBarForPlayer : MonoBehaviour
             health = health - damage;
             healthBarBackup.SetHealth(health);
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+            ReduceHealthData.spikeCount++;
         }
         
         if (col.gameObject.name.Contains("Saw"))
@@ -65,6 +67,7 @@ public class HealthBarForPlayer : MonoBehaviour
             health = health - damage;
             healthBarBackup.SetHealth(health);
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+            ReduceHealthData.sawCount++;
         }
         
         if (col.gameObject.name.Contains("Crystal"))
@@ -72,6 +75,7 @@ public class HealthBarForPlayer : MonoBehaviour
             health = health - damage;
             healthBarBackup.SetHealth(health);
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+            ReduceHealthData.crystalCount++;
         }
         
         if (col.gameObject.name.Contains("Laser") && !col.gameObject.name.Contains("Up") && !col.gameObject.name.Contains("Down"))
@@ -79,6 +83,7 @@ public class HealthBarForPlayer : MonoBehaviour
             health = health - damage;
             healthBarBackup.SetHealth(health);
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+            ReduceHealthData.laserCount++;
         }
         
         if (col.gameObject.name.Equals("LaserWithParticleDown"))
@@ -86,6 +91,7 @@ public class HealthBarForPlayer : MonoBehaviour
             health = health - damage;
             healthBarBackup.SetHealth(health);
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, -jumpForceY), ForceMode2D.Impulse);
+            ReduceHealthData.laserCount++;
         }
         
         if (col.gameObject.name.Equals("LaserWithParticleUp"))
@@ -93,6 +99,7 @@ public class HealthBarForPlayer : MonoBehaviour
             health = health - damage;
             healthBarBackup.SetHealth(health);
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+            ReduceHealthData.laserCount++;
         }
         
         if (health <= 0)
