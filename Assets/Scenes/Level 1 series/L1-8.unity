@@ -4631,11 +4631,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Size.x
-      value: 9.274414
+      value: 8.8599205
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Offset.x
-      value: -0.108474016
+      value: -0.08190465
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
@@ -4716,11 +4716,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Size.x
-      value: 9.066055
+      value: 8.906513
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Offset.x
-      value: 0.03904152
+      value: -0.04072976
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
@@ -4900,11 +4900,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Size.x
-      value: 9.186863
+      value: 8.8489685
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Offset.x
-      value: -0.15282083
+      value: -0.06834531
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
@@ -5234,11 +5234,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Size.x
-      value: 9.369802
+      value: 8.897987
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Offset.x
-      value: -0.10535455
+      value: -0.0872066
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
@@ -5548,11 +5548,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Size.x
-      value: 9.230705
+      value: 8.854026
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Offset.x
-      value: -0.025110245
+      value: -0.087889194
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
@@ -5809,7 +5809,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022161722, y: 0.07182449}
+  m_Offset: {x: -0.07498932, y: 0.080824524}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5820,7 +5820,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.292826, y: 1.5691191}
+  m_Size: {x: 8.915483, y: 1.5511191}
   m_EdgeRadius: 0
 --- !u!212 &1793217021
 SpriteRenderer:
@@ -6102,6 +6102,14 @@ PrefabInstance:
     - target: {fileID: 1020209033809370850, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Color.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_Size.x
+      value: 9.295706
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020209033809370851, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.14923954
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370852, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_Name
@@ -6713,32 +6721,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8351185559805087100, guid: 3d04b82f330c2c4479a2a2d219991db4, type: 3}
   m_PrefabInstance: {fileID: 8351185560686146560}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &2006743431
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006743420}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.1310516, y: 2.4}
-  m_SpriteTilingProperty:
-    border: {x: 1.1999999, y: 0, z: 1.35, w: 0.14999999}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 4.8, y: 4.8}
-    newSize: {x: 4.8, y: 4.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.50659, y: 4.8}
-  m_EdgeRadius: 0
 --- !u!1 &2034056582
 GameObject:
   m_ObjectHideFlags: 0
@@ -6956,11 +6938,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984949, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_Size.x
-      value: 4.710134
+      value: 4.217598
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984949, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_Offset.x
-      value: -0.020637274
+      value: 0.0083351135
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984949, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_Offset.y
@@ -6985,11 +6967,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7078094641976449112, guid: b192c23cbb4ef3342bd43ba3ba1534fc, type: 3}
       propertyPath: m_Size.x
-      value: 9.292826
+      value: 8.915483
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078094641976449112, guid: b192c23cbb4ef3342bd43ba3ba1534fc, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5511191
       objectReference: {fileID: 0}
     - target: {fileID: 7078094641976449112, guid: b192c23cbb4ef3342bd43ba3ba1534fc, type: 3}
       propertyPath: m_Offset.x
-      value: -0.022161722
+      value: -0.07498932
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078094641976449112, guid: b192c23cbb4ef3342bd43ba3ba1534fc, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.080824524
       objectReference: {fileID: 0}
     - target: {fileID: 7078094641976449114, guid: b192c23cbb4ef3342bd43ba3ba1534fc, type: 3}
       propertyPath: m_RootOrder
@@ -7234,3 +7224,54 @@ MonoBehaviour:
   jumpForceX: 0
   jumpForceY: 3
   healthBarBackup: {fileID: 1968116798}
+--- !u!60 &8351185560686146563
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006743420}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 1.1999999, y: 0, z: 1.35, w: 0.14999999}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 4.8, y: 4.8}
+    newSize: {x: 4.8, y: 4.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.13, y: 0}
+      - {x: 0.62, y: 0}
+      - {x: 0.62, y: 0.32999998}
+      - {x: 0.68, y: 2.52}
+      - {x: 1.06, y: 2.7}
+      - {x: 1.0699999, y: 2.84}
+      - {x: 1.0699999, y: 4.11}
+      - {x: 0.93, y: 4.2799997}
+      - {x: 0.69, y: 4.56}
+      - {x: 0.39, y: 4.67}
+      - {x: -0.5, y: 4.67}
+      - {x: -0.75, y: 4.52}
+      - {x: -0.91999996, y: 4.39}
+      - {x: -1.0699999, y: 4.24}
+      - {x: -1.22, y: 3.8999999}
+      - {x: -1.22, y: 3.1499999}
+      - {x: -1.1999999, y: 3.1299999}
+      - {x: -1.09, y: 2.76}
+      - {x: -1.22, y: 2.3999999}
+      - {x: -1.22, y: 1.3199999}
+      - {x: -0.90999997, y: 1.15}
+      - {x: -0.77, y: 0}
+      - {x: -0.28, y: 0}
+      - {x: -0.28, y: 0.29999998}
+      - {x: -0.29999998, y: 0.32}
+      - {x: 0.13, y: 0.88}
