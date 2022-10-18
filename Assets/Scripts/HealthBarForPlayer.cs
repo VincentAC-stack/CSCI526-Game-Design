@@ -74,11 +74,25 @@ public class HealthBarForPlayer : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
         }
         
-        if (col.gameObject.name.Contains("Laser"))
+        if (col.gameObject.name.Contains("Laser") && !col.gameObject.name.Contains("Up") && !col.gameObject.name.Contains("Down"))
+        {
+            health = health - damage;
+            healthBarBackup.SetHealth(health);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+        }
+        
+        if (col.gameObject.name.Equals("LaserWithParticleDown"))
         {
             health = health - damage;
             healthBarBackup.SetHealth(health);
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, -jumpForceY), ForceMode2D.Impulse);
+        }
+        
+        if (col.gameObject.name.Equals("LaserWithParticleUp"))
+        {
+            health = health - damage;
+            healthBarBackup.SetHealth(health);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
         }
         
         if (health <= 0)
