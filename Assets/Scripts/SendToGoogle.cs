@@ -47,7 +47,7 @@ public class SendToGoogle : MonoBehaviour
     
     // 数据 王思极 & 徐通负责部分
     // 第一次
-    private int _surviveC1; // 改成累计死亡次数，这个checkpoint前的死亡次数
+    private int _surviveC1;
     private int _surviveC2;
     private int _surviveC3;
     private int _surviveC4;
@@ -168,7 +168,10 @@ public class SendToGoogle : MonoBehaviour
                 // 统计一下当前死亡次数
                 if (!surviveAtEachCheckPointRecord[i - 1])
                 {
-                    surviveAtEachCheckPoint[i - 1] = GameController.deathCount + 1;
+                    if (GameObject.FindWithTag("Player").GetComponent<HealthBarForPlayer>().health > 0)
+                    {
+                        surviveAtEachCheckPoint[i - 1] = 1;
+                    }
                     surviveAtEachCheckPointRecord[i - 1] = true;
                 }
                 // 统计一下当前花费的时间
@@ -260,7 +263,7 @@ public class SendToGoogle : MonoBehaviour
         // 数据 王思极 & 徐通负责部分
         _jCount = 0;
         // 初始化各个检查点的数组
-        surviveAtEachCheckPoint = new[] { -2, -2, -2, -2, -2 };
+        surviveAtEachCheckPoint = new[] { 0, 0, 0, 0, 0 };
         timeSpentAtEachCheckPoint = new[] { -2, -2, -2, -2, -2 };
         remainingHealthAtEachCheckPoint = new[] { -2, -2, -2, -2, -2 };
         jumpCountAtEachCheckPoint = new[] { -2, -2, -2, -2, -2 };
