@@ -9,18 +9,20 @@ public class SendToGoogle : MonoBehaviour
     [SerializeField] private string URL = "https://docs.google.com/forms/d/e/1FAIpQLSd-S6YVYOZnN_6exc5vZ5VZo5YNYqJp_lvhJsBtB9ELpxqVrQ/formResponse";
     
     // Http链接
+    private String _sessionID;
     private int _testInt;
     private bool _testBool;
     private float _testFloat;
     
-    // 数据 王思极 & 徐通负责部分
+    // 数据 何瑛琪 负责部分
     private int _mechanismSection;
     private int _level;
-    private String _sessionID;
     private int _attempt;
     private int _complete;
     private int _timeSpent;
     private int _retriesNumber;
+    
+    // 数据 王思极 & 徐通负责部分
     private int _surviveC1;
     private int _surviveC2;
     private int _surviveC3;
@@ -36,14 +38,16 @@ public class SendToGoogle : MonoBehaviour
     private int _remainingHealthC3;
     private int _remainingHealthC4;
     private int _remainingHealthC5;
-    private int _losePointsReason;
     private int _jCount;
     private int _jCountC1;
     private int _jCountC2;
     private int _jCountC3;
     private int _jCountC4;
     private int _jCountC5;
-
+    
+    // 数据 吴奕宙 负责部分
+    private int _losePointsReason;
+    
     private void Awake()
     {
         // Assign sessionID to identify playtests
