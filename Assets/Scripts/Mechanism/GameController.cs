@@ -77,6 +77,11 @@ public class GameController : MonoBehaviour
             {
                 SceneManager.LoadScene(currentSceneIndex + 1);
             }
+
+            // if (currentSceneIndex + 1 > PlayerPrefs.GetInt("levelAt"))
+            // {
+            //     PlayerPrefs.SetInt("levelAt", currentSceneIndex + 1);
+            // }
             canMove = true;
         }
     }
