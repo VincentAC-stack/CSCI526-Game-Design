@@ -30,6 +30,9 @@ public class SendToGoogle : MonoBehaviour
     private static bool[] jumpCountAtEachCheckPointRecord;
     
     private static int startTime;
+    
+    // 血量归零检测的lock
+    private bool healthLock = true;
 
     // Http链接
     private String _sessionID;
@@ -80,6 +83,7 @@ public class SendToGoogle : MonoBehaviour
     private int _laserCount;
     private int _bulletrCount;
     private int _colorMismatchCount;
+    
 
 
 
@@ -130,6 +134,14 @@ public class SendToGoogle : MonoBehaviour
         // 监听选关按钮
         // TODO: 存在bug 会一次性发送几百个，Yizhou可以帮我看看这个bug
         // GameObject.Find("menu_btn").GetComponent<Button>().onClick.AddListener(() => Send());
+        
+        // 血量归零检测
+        if (GameObject.FindWithTag("Player").GetComponent<HealthBarForPlayer>().health <= 0 && healthLock)
+        {
+            Send();
+            healthLock = false;
+            StartCoroutine(HealthCheckRoutine());
+        }
     }
     
     // 碰到Finish flag的时候发送表单
@@ -294,6 +306,12 @@ public class SendToGoogle : MonoBehaviour
         _laserCount = ReduceHealthData.laserCount;
         _bulletrCount = ReduceHealthData.bulletCount;
         _colorMismatchCount = ReduceHealthData.colorMismatchCount;
+    }
+    
+    // 用于血量检测的lock失活
+    IEnumerator HealthCheckRoutine() {
+        yield return new WaitForSeconds(4);
+        healthLock = true;
     }
     
     // 发送数据
