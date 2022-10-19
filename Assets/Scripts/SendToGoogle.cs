@@ -30,7 +30,7 @@ public class SendToGoogle : MonoBehaviour
     private static bool[] jumpCountAtEachCheckPointRecord;
     
     private static int startTime;
-    
+
     // 血量归零检测的lock
     private bool healthLock = true;
 
@@ -138,6 +138,7 @@ public class SendToGoogle : MonoBehaviour
         // 血量归零检测
         if (GameObject.FindWithTag("Player").GetComponent<HealthBarForPlayer>().health <= 0 && healthLock)
         {
+            ReduceHealthData.deathCount++;
             Send();
             healthLock = false;
             StartCoroutine(HealthCheckRoutine());
@@ -149,10 +150,10 @@ public class SendToGoogle : MonoBehaviour
     {
         if (collision.gameObject.name == "FinishFlag")
         {
-            DataAtFinishFlag();
             _complete = 1;
+            _retriesNumber = ReduceHealthData.deathCount;
             Send();
-            ReduceHealthData.fallCount = 0;
+            ReduceHealthData.deathCount = 0;
         }
     }
     
@@ -161,7 +162,8 @@ public class SendToGoogle : MonoBehaviour
     {
         if (collision.gameObject.name == "DownFailChecker" || collision.gameObject.name == "DownFailChecker2" || GameObject.FindWithTag("Player").GetComponent<HealthBarForPlayer>().health <= 0)
         {
-            DataAtFinishFlag();
+            _fallCount = 1;
+            ReduceHealthData.deathCount++;
             Send();
         }
     }
@@ -258,7 +260,6 @@ public class SendToGoogle : MonoBehaviour
     private void DataAtFinishFlag()
     {
         _timeSpent = (int)Time.time - startTime;
-        _retriesNumber = GameController.deathCount + 1;
     }
 
     // 初始化数据
@@ -271,6 +272,7 @@ public class SendToGoogle : MonoBehaviour
         _complete = 0;
         _timeSpent = -2;
         _retriesNumber = -1;
+        _fallCount = 0;
         
         // 数据 王思极 & 徐通负责部分
         _jCount = 0;
@@ -299,7 +301,6 @@ public class SendToGoogle : MonoBehaviour
 
     public void GetHealthReduceCount()
     {
-        _fallCount = ReduceHealthData.fallCount;
         _spikeCount = ReduceHealthData.spikeCount;
         _sawCount = ReduceHealthData.sawCount;
         _crystalCount = ReduceHealthData.crystalCount;
@@ -319,6 +320,7 @@ public class SendToGoogle : MonoBehaviour
     {
         PutDataAtEachCheckpoint();
         GetHealthReduceCount();
+        DataAtFinishFlag();
         StartCoroutine(Post());
     }
     
