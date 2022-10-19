@@ -921,7 +921,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Now, let's try a simple level
+  m_text: Now, try something different
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4586,10 +4586,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1535299680}
   - component: {fileID: 1535299685}
-  - component: {fileID: 1535299684}
   - component: {fileID: 1535299683}
   - component: {fileID: 1535299682}
   - component: {fileID: 1535299681}
+  - component: {fileID: 1535299686}
   m_Layer: 0
   m_Name: SpiderMan
   m_TagString: RotateX
@@ -4682,26 +4682,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!114 &1535299684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535299679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c3da465f2e1b4d8c85164a9a64fb25a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  player: {fileID: 0}
-  healthForSpider: 1000
-  damageFromPlayer: 20
-  damage: 25
-  maxHealthForSpider: 1000
-  SpiderWindow: {fileID: 1977582265}
-  healthBarBackup: {fileID: 1736922803}
 --- !u!212 &1535299685
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4754,6 +4734,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1535299686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535299679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07db0167b1fa34e2497bfee503e477fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  player: {fileID: 0}
+  healthForSpider: 1000
+  damageFromPlayer: 20
+  damage: 25
+  maxHealthForSpider: 1000
+  healthBarBackup: {fileID: 1736922803}
 --- !u!1001 &1536107040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5028,10 +5027,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1572402119}
   - component: {fileID: 1572402124}
-  - component: {fileID: 1572402123}
   - component: {fileID: 1572402122}
   - component: {fileID: 1572402121}
   - component: {fileID: 1572402120}
+  - component: {fileID: 1572402125}
   m_Layer: 0
   m_Name: SpiderMan
   m_TagString: RotateX
@@ -5124,26 +5123,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!114 &1572402123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572402118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c3da465f2e1b4d8c85164a9a64fb25a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  player: {fileID: 0}
-  healthForSpider: 1000
-  damageFromPlayer: 20
-  damage: 25
-  maxHealthForSpider: 1000
-  SpiderWindow: {fileID: 1977582265}
-  healthBarBackup: {fileID: 2039927429}
 --- !u!212 &1572402124
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5196,6 +5175,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1572402125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572402118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07db0167b1fa34e2497bfee503e477fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  player: {fileID: 2006743437}
+  healthForSpider: 1000
+  damageFromPlayer: 20
+  damage: 25
+  maxHealthForSpider: 1000
+  healthBarBackup: {fileID: 2039927429}
 --- !u!1 &1646727453
 GameObject:
   m_ObjectHideFlags: 0
