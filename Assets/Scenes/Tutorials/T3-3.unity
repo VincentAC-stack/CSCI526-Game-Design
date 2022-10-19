@@ -1889,6 +1889,7 @@ GameObject:
   - component: {fileID: 1192046394}
   - component: {fileID: 1192046395}
   - component: {fileID: 1192046396}
+  - component: {fileID: 1192046397}
   m_Layer: 0
   m_Name: SpiderMan
   m_TagString: RotateX
@@ -1962,7 +1963,7 @@ Transform:
   m_Children:
   - {fileID: 735664487}
   m_Father: {fileID: 2001663069}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1192046394
 MonoBehaviour:
@@ -2038,6 +2039,21 @@ PolygonCollider2D:
       - {x: 0.13, y: -0.14999999}
       - {x: 0.13, y: 0.12}
       - {x: 0.06, y: 0.14999999}
+--- !u!114 &1192046397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192046391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6beb218cf4763489bf542d84bd5239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletsAmount: 20
+  startAngle: -120
+  endAngle: 120
 --- !u!1001 &1236655099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2047,7 +2063,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalScale.x
@@ -2063,11 +2079,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.32
+      value: -4.01
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3997,6 +4013,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912214192}
   m_CullTransparentMesh: 1
+--- !u!1 &1969176660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1969176661}
+  - component: {fileID: 1969176662}
+  m_Layer: 0
+  m_Name: BulletPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1969176661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969176660}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.6055415, y: -0.14071906, z: 0.99323845}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2001663069}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1969176662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969176660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a922ff31f89070f49afafa9da6a2aed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledBullet: {fileID: 7994578131882523154, guid: e0b14c0b5bad0ea41af594393861cbdc, type: 3}
 --- !u!1 &2001663068
 GameObject:
   m_ObjectHideFlags: 0
@@ -4026,6 +4087,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1646727456}
+  - {fileID: 1969176661}
   - {fileID: 1192046393}
   - {fileID: 2124770}
   - {fileID: 1236655100}
@@ -4486,7 +4548,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalScale.x

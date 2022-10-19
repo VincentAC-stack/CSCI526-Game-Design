@@ -36,7 +36,7 @@ public class HealthBarForPlayer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name=="Bullet(Clone)")
+        if (collision.gameObject.name=="Bullet(Clone)"|| collision.gameObject.name == "BulletForMonster(Clone)")
         {
             health = health - damage;
             healthBarBackup.SetHealth(health);
