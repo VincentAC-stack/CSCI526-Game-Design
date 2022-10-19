@@ -1538,18 +1538,20 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.57, y: 0.48}
-      - {x: 2.4099998, y: 0.64}
-      - {x: 2.1, y: 0.91999996}
-      - {x: -2.1, y: 0.91999996}
-      - {x: -2.28, y: 0.79999995}
-      - {x: -2.57, y: 0.48}
-      - {x: -2.57, y: -0.32}
-      - {x: -2.29, y: -0.63}
-      - {x: -2.1, y: -0.77}
-      - {x: 2.19, y: -0.77}
-      - {x: 2.48, y: -0.48}
-      - {x: 2.57, y: -0.29999998}
+    - - {x: 2.557426, y: 0.23479421}
+      - {x: 2.095633, y: 0.753172}
+      - {x: -1.3706105, y: 0.75967306}
+      - {x: -2.2005973, y: 0.6653629}
+      - {x: -2.3365855, y: 0.49820787}
+      - {x: -2.3470685, y: 0.4788363}
+      - {x: -2.3499434, y: 0.272518}
+      - {x: -2.3499436, y: -0.23512119}
+      - {x: -2.151679, y: -0.469673}
+      - {x: 1.9616189, y: -0.58137995}
+      - {x: 2.0705404, y: -0.5813799}
+      - {x: 2.2347932, y: -0.47056803}
+      - {x: 2.3165293, y: -0.38568994}
+      - {x: 2.3185065, y: -0.3660169}
 --- !u!4 &417125471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
@@ -3764,15 +3766,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6725124249364984948, guid: 70f5b017a187203479b2521b1df5ca50, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11529,12 +11531,20 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.159624
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.17876361
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.71
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.64
+      value: -1.63
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12499,18 +12509,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.57, y: 0.48}
-      - {x: 2.4099998, y: 0.64}
-      - {x: 2.1, y: 0.91999996}
-      - {x: -2.1, y: 0.91999996}
+    - - {x: 2.4756622, y: 0.30892956}
+      - {x: 2.4450953, y: 0.51271677}
+      - {x: 2.1117666, y: 0.8346502}
+      - {x: -2.0058665, y: 0.813313}
       - {x: -2.28, y: 0.79999995}
-      - {x: -2.57, y: 0.48}
-      - {x: -2.57, y: -0.32}
+      - {x: -2.394522, y: 0.47999993}
+      - {x: -2.4120698, y: -0.22453761}
       - {x: -2.29, y: -0.63}
       - {x: -2.1, y: -0.77}
-      - {x: 2.19, y: -0.77}
-      - {x: 2.48, y: -0.48}
-      - {x: 2.57, y: -0.29999998}
+      - {x: 2.19, y: -0.71297634}
+      - {x: 2.4406927, y: -0.40872103}
+      - {x: 2.482261, y: -0.14089592}
 --- !u!1001 &6725124249367060374
 PrefabInstance:
   m_ObjectHideFlags: 0
