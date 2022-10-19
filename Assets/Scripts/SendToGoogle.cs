@@ -86,7 +86,7 @@ public class SendToGoogle : MonoBehaviour
     private void Awake()
     {
         // 用当前的时间创建唯一的会话ID
-        _sessionID = DateTime.Now.Ticks.ToString();
+        _sessionID = SystemInfo.deviceUniqueIdentifier;
     }
     
     // Start is called before the first frame update
