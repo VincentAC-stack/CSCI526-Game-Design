@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ReduceHealthData : MonoBehaviour
 {
-    public static int fallCount = 0;
+    public static int deathCount = 0;
     public static int spikeCount;
     public static int sawCount;
     public static int crystalCount;

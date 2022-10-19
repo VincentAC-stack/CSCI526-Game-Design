@@ -80,7 +80,6 @@ public class Move2D : MonoBehaviour
             PlayerStatus.currHealth = 0;
             Data.GameResult = false;
             Data.LevelDeaths = -1;
-            ReduceHealthData.fallCount++;
             // Send();
         }
  
