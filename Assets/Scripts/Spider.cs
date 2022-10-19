@@ -46,10 +46,16 @@ public class Spider : MonoBehaviour
         GameController.canMove = true;
       }
 
-        if(transform.position.y< -2.3)
+      if (Input.GetKeyDown(KeyCode.J))
+        {
+            transform.Rotate(180f, 0f, 0f, Space.Self);
+        }
+
+        if (transform.position.y< -2.1)
         {
             Destroy(this.gameObject);
         }
+
     }
 
 

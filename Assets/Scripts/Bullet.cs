@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.gameObject.name.Contains("SpiderMan") && !other.gameObject.name.Contains("Bullet"))
         {
             Destroy();
         }
