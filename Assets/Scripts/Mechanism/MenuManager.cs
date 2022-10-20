@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         _userId = DateTime.Now.Ticks;
+        ReduceHealthData.deathCount = 0;
         Data.LevelDeaths = 0;
 
         // int levelAt = PlayerPrefs.GetInt("levelAt", 2);
