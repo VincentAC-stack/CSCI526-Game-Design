@@ -89,8 +89,8 @@ public class SendToGoogle : MonoBehaviour
 
     private void Awake()
     {
-        // 用当前的时间创建唯一的会话ID
-        _sessionID = SystemInfo.deviceUniqueIdentifier;
+        // 用最开始场景load创建的uuid作为session ID
+        _sessionID = UniqueID.uuid;
     }
     
     // Start is called before the first frame update
@@ -136,11 +136,7 @@ public class SendToGoogle : MonoBehaviour
         // {
         //     Send();
         // }
-        
-        // 监听选关按钮
-        // TODO: 存在bug 会一次性发送几百个，Yizhou可以帮我看看这个bug
-        // GameObject.Find("menu_btn").GetComponent<Button>().onClick.AddListener(() => Send());
-        
+
         // 血量归零检测
         if (GameObject.FindWithTag("Player").GetComponent<HealthBarForPlayer>().health <= 0 && healthLock)
         {
