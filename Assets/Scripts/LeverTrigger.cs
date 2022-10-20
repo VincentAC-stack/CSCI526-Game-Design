@@ -61,7 +61,7 @@ public class LeverTrigger : MonoBehaviour
     }
     
     IEnumerator TriggerRoutine() {
-        yield return new WaitForSeconds(0.5);
+        yield return new WaitForSeconds(0.5f);
         canActivate = true;
     }
 }
