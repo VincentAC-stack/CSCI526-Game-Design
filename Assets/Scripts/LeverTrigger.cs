@@ -8,6 +8,7 @@ public class LeverTrigger : MonoBehaviour
     private Transform lever;
     public bool isAppear = false;
     private GameObject MovingPlats;
+    private bool isActivate = false;
     
     // Start is called before the first frame update
     void Start()
@@ -36,23 +37,33 @@ public class LeverTrigger : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D col)
     {
+        
 
         Vector3 lTemp = lever.localScale;
         lTemp.y *= -1;
         lever.localScale = lTemp;
-     
-        
-        if (isAppear)
+
+        if (!isActivate)
         {
-            plats.GetComponent<MovingPlatformHorizontal>().enabled = false;
-            isAppear = false;
-        }
-        else if (!isAppear)
-        {
-            plats.GetComponent<MovingPlatformHorizontal>().enabled = true;
-            isAppear = true;
+            isActivate = true;
+            if (isAppear )
+            {
+                plats.GetComponent<MovingPlatformHorizontal>().enabled = false;
+                isAppear = false;
+            }
+            else if (!isAppear)
+            {
+                plats.GetComponent<MovingPlatformHorizontal>().enabled = true;
+                isAppear = true;
+            }
         }
         
+        StartCoroutine(TriggerRoutine());
+    }
+    
+    IEnumerator TriggerRoutine() {
+        yield return new WaitForSeconds(1);
+        isActivate = false;
     }
 }
 
