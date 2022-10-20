@@ -8,7 +8,7 @@ public class LeverTrigger : MonoBehaviour
     private Transform lever;
     public bool isAppear = false;
     private GameObject MovingPlats;
-    private bool isActivate = false;
+    private bool canActivate = true;
     
     // Start is called before the first frame update
     void Start()
@@ -39,13 +39,12 @@ public class LeverTrigger : MonoBehaviour
     {
         
 
-        Vector3 lTemp = lever.localScale;
-        lTemp.y *= -1;
-        lever.localScale = lTemp;
-
-        if (!isActivate)
+        if (canActivate)
         {
-            isActivate = true;
+            canActivate = false;
+            Vector3 lTemp = lever.localScale;
+            lTemp.y *= -1;
+            lever.localScale = lTemp;
             if (isAppear )
             {
                 plats.GetComponent<MovingPlatformHorizontal>().enabled = false;
@@ -62,8 +61,8 @@ public class LeverTrigger : MonoBehaviour
     }
     
     IEnumerator TriggerRoutine() {
-        yield return new WaitForSeconds(1);
-        isActivate = false;
+        yield return new WaitForSeconds(0.5);
+        canActivate = true;
     }
 }
 
