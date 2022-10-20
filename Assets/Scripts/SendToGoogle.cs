@@ -122,6 +122,7 @@ public class SendToGoogle : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.N))
         {
+            Debug.Log("next level");
             ReduceHealthData.deathCount = 0;
         }
 
@@ -157,6 +158,7 @@ public class SendToGoogle : MonoBehaviour
         {
             _complete = 1;
             _retriesNumber = ReduceHealthData.deathCount;
+            Debug.Log(ReduceHealthData.deathCount);
             Send();
             ReduceHealthData.deathCount = 0;
         }
@@ -169,6 +171,7 @@ public class SendToGoogle : MonoBehaviour
         {
             _fallCount = 1;
             ReduceHealthData.deathCount++;
+            Debug.Log(ReduceHealthData.deathCount);
             Send();
         }
     }
