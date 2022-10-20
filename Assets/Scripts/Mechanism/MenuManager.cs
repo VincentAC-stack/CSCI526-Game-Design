@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.SceneManagement.SceneManager;
 
 public class MenuManager : MonoBehaviour
 {
@@ -14,8 +14,12 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         _userId = DateTime.Now.Ticks;
-        ReduceHealthData.deathCount = 0;
-        Data.LevelDeaths = 0;
+        
+        if (GetActiveScene().buildIndex == 1)
+        {
+            ReduceHealthData.deathCount = 0;
+        }
+        
 
         // int levelAt = PlayerPrefs.GetInt("levelAt", 2);
         //
@@ -29,7 +33,7 @@ public class MenuManager : MonoBehaviour
     }
     public void LoadNextLevel(int index)
     {
-        SceneManager.LoadScene(index);
+        LoadScene(index);
         GameController.deathCount = 0;
     }
     public void QuitGame()
