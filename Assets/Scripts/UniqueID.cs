@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UniqueID : MonoBehaviour
 {
-    public static String uuid;
+    public static String uuid = "Local Debug";
 
     private void Awake()
     {

@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 
     // public static bool ifTriggerSpider;
     public TextMeshProUGUI DeathText;
-    private static int END_SCENE_INDEX = 29;
+    private static int END_SCENE_INDEX = 31;
     
     // Start is called before the first frame update
     void Start()

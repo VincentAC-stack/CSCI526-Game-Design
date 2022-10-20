@@ -77,30 +77,48 @@ public class HealthBarForPlayer : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
             ReduceHealthData.crystalCount++;
         }
-        
-        if (col.gameObject.name.Contains("Laser") && !col.gameObject.name.Contains("Up") && !col.gameObject.name.Contains("Down"))
+
+        if (col.gameObject.name.Contains("Laser"))
         {
-            health = health - damage;
-            healthBarBackup.SetHealth(health);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
-            ReduceHealthData.laserCount++;
+            if (col.gameObject.transform.position.y > this.transform.position.y)
+            {
+                health = health - damage;
+                healthBarBackup.SetHealth(health);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, -jumpForceY), ForceMode2D.Impulse);
+                ReduceHealthData.laserCount++;
+            }
+            else
+            {
+                health = health - damage;
+                healthBarBackup.SetHealth(health);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+                ReduceHealthData.laserCount++;
+            }
         }
         
-        if (col.gameObject.name.Equals("LaserWithParticleDown"))
-        {
-            health = health - damage;
-            healthBarBackup.SetHealth(health);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, -jumpForceY), ForceMode2D.Impulse);
-            ReduceHealthData.laserCount++;
-        }
-        
-        if (col.gameObject.name.Equals("LaserWithParticleUp"))
-        {
-            health = health - damage;
-            healthBarBackup.SetHealth(health);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
-            ReduceHealthData.laserCount++;
-        }
+        // if (col.gameObject.name.Contains("Laser") && !col.gameObject.name.Contains("Up") && !col.gameObject.name.Contains("Down"))
+        // {
+        //     health = health - damage;
+        //     healthBarBackup.SetHealth(health);
+        //     gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+        //     ReduceHealthData.laserCount++;
+        // }
+        //
+        // if (col.gameObject.name.Equals("LaserWithParticleDown"))
+        // {
+        //     health = health - damage;
+        //     healthBarBackup.SetHealth(health);
+        //     gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, -jumpForceY), ForceMode2D.Impulse);
+        //     ReduceHealthData.laserCount++;
+        // }
+        //
+        // if (col.gameObject.name.Equals("LaserWithParticleUp"))
+        // {
+        //     health = health - damage;
+        //     healthBarBackup.SetHealth(health);
+        //     gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForceX, jumpForceY), ForceMode2D.Impulse);
+        //     ReduceHealthData.laserCount++;
+        // }
         
         if (health <= 0)
         {
