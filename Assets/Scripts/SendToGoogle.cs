@@ -119,6 +119,11 @@ public class SendToGoogle : MonoBehaviour
         {
             ++_jCount;
         }
+        
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            ReduceHealthData.deathCount = 0;
+        }
 
         // check一下是否在检查点周围，如果是就统计数据
         CalDataAtEachCheckpoint();
