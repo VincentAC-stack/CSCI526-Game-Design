@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpiderL : MonoBehaviour
 {
     public float speed;
+    float countDown = 1.5f;
     // public float stoppingDistance;
     // public float retreatDistance;
 
@@ -23,7 +24,7 @@ public class SpiderL : MonoBehaviour
     // public GameObject SpiderWindow;
 
     public HealthBarBackup healthBarBackup;
-
+    public Rigidbody2D rigidbody2d;
 
     //private Vector2 target;
 
@@ -41,17 +42,38 @@ public class SpiderL : MonoBehaviour
     void Update()
     {
 
-      // if (Input.GetKeyDown(KeyCode.C)){
-      //   SpiderWindow.SetActive(false);
-      //   GameController.canMove = true;
-      // }
+        // if (Input.GetKeyDown(KeyCode.C)){
+        //   SpiderWindow.SetActive(false);
+        //   GameController.canMove = true;
+        // }
 
-      if (Input.GetKeyDown(KeyCode.J))
+        
+        // rigidbody2d.AddForce(new Vector2(xInput * moveSpeed, 0), ForceMode2D.Force);
+        Vector3 movement = new Vector3(0.8f * Time.deltaTime, 0f, 0f);
+        // transform.position += movement * Time.DeltaTime * moveSpeed;
+        countDown -= Time.deltaTime;
+
+        if (countDown > 0.0f)
+        {
+            rigidbody2d.velocity = new Vector2(1.8f, 0);
+            transform.forward = new Vector3(0f, 0f, movement.x);
+        }
+        else if (countDown > -1.5f)
+        {
+            rigidbody2d.velocity = new Vector2(-1.8f, 0);
+            transform.forward = new Vector3(0f, 0f, -movement.x);
+        }
+        else
+        {
+            countDown = 1.5f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
         {
             transform.Rotate(180f, 0f, 0f, Space.Self);
         }
 
-        if (transform.position.y< -2.1)
+        if (transform.position.y < -2.1)
         {
             Destroy(this.gameObject);
         }
@@ -75,25 +97,28 @@ public class SpiderL : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D collison){
+    void OnCollisionEnter2D(Collision2D collison)
+    {
 
 
 
-      if(collison.gameObject.CompareTag("Player")){
+        if (collison.gameObject.CompareTag("Player"))
+        {
 
-        player.gameObject.GetComponent<HealthBarForPlayer>().decreaseHealth(damage);
+            player.gameObject.GetComponent<HealthBarForPlayer>().decreaseHealth(damage);
 
-        int playerHealth = player.gameObject.GetComponent<HealthBarForPlayer>().getCurrentHealth();
+            int playerHealth = player.gameObject.GetComponent<HealthBarForPlayer>().getCurrentHealth();
 
-        if(playerHealth <= 0){
-          // SpiderWindow.SetActive(true);
-          GameController.canMove = false;
+            if (playerHealth <= 0)
+            {
+                // SpiderWindow.SetActive(true);
+                GameController.canMove = false;
+            }
+
+
+
+
         }
-
-
-
-
-      }
 
     }
 

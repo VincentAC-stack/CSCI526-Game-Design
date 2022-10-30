@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spider : MonoBehaviour
 {
     public float speed;
+    float countDown = 1.5f;
     // public float stoppingDistance;
     // public float retreatDistance;
 
@@ -23,7 +24,7 @@ public class Spider : MonoBehaviour
     public GameObject SpiderWindow;
 
     public HealthBarBackup healthBarBackup;
-
+    public Rigidbody2D rigidbody2d;
 
     //private Vector2 target;
 
@@ -40,6 +41,27 @@ public class Spider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // rigidbody2d.AddForce(new Vector2(xInput * moveSpeed, 0), ForceMode2D.Force);
+        Vector3 movement = new Vector3(0.8f * Time.deltaTime, 0f, 0f);
+        // transform.position += movement * Time.DeltaTime * moveSpeed;
+        countDown -= Time.deltaTime;
+
+        if (countDown > 0.0f)
+        {
+            rigidbody2d.velocity = new Vector2(1.8f, 0);
+            //rigidbody2d.AddForce(new Vector2(0.04f, 0), ForceMode2D.Impulse);
+            transform.forward = new Vector3(0f, 0f, movement.x);
+        }
+        else if (countDown > -1.5f)
+        {
+            rigidbody2d.velocity = new Vector2(-1.8f, 0);
+            //rigidbody2d.AddForce(new Vector2(-0.04f, 0), ForceMode2D.Impulse);
+            transform.forward = new Vector3(0f, 0f, -movement.x);
+        }
+        else
+        {
+            countDown = 1.5f;
+        }
 
       if (Input.GetKeyDown(KeyCode.C)){
         SpiderWindow.SetActive(false);
