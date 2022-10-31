@@ -5,7 +5,6 @@ using UnityEngine;
 public class Spider : MonoBehaviour
 {
     public float speed;
-    float countDown = 1.5f;
     // public float stoppingDistance;
     // public float retreatDistance;
 
@@ -24,13 +23,24 @@ public class Spider : MonoBehaviour
     public GameObject SpiderWindow;
 
     public HealthBarBackup healthBarBackup;
-    public Rigidbody2D rigidbody2d;
+
+    public Transform groundCheckPos;
+    public LayerMask groundLayer;
+    public LayerMask wallLayer;
+    public Collider2D bodyCollider;
+
+    public bool mustPatrol;
+    public Rigidbody2D rb;
+    public float walkSpeed;
+
+    private bool mustTurn;
 
     //private Vector2 target;
 
     // Start is called before the first frame update
     void Start()
     {
+        mustPatrol = true;
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         // timeBtwShots = startTimeBtwShots;
@@ -41,29 +51,12 @@ public class Spider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // rigidbody2d.AddForce(new Vector2(xInput * moveSpeed, 0), ForceMode2D.Force);
-        Vector3 movement = new Vector3(0.8f * Time.deltaTime, 0f, 0f);
-        // transform.position += movement * Time.DeltaTime * moveSpeed;
-        countDown -= Time.deltaTime;
-
-        if (countDown > 0.0f)
+        if (mustPatrol)
         {
-            rigidbody2d.velocity = new Vector2(1.8f, 0);
-            //rigidbody2d.AddForce(new Vector2(0.04f, 0), ForceMode2D.Impulse);
-            transform.forward = new Vector3(0f, 0f, movement.x);
-        }
-        else if (countDown > -1.5f)
-        {
-            rigidbody2d.velocity = new Vector2(-1.8f, 0);
-            //rigidbody2d.AddForce(new Vector2(-0.04f, 0), ForceMode2D.Impulse);
-            transform.forward = new Vector3(0f, 0f, -movement.x);
-        }
-        else
-        {
-            countDown = 1.5f;
+            patrol();
         }
 
-      if (Input.GetKeyDown(KeyCode.C)){
+        if (Input.GetKeyDown(KeyCode.C)){
         SpiderWindow.SetActive(false);
         GameController.canMove = true;
       }
@@ -80,6 +73,32 @@ public class Spider : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+        if (mustPatrol)
+        {
+            mustTurn = !Physics2D.OverlapCircle(groundCheckPos.position, 0.1f, groundLayer);
+
+        }
+    }
+
+    void patrol()
+    {
+        if (mustTurn || bodyCollider.IsTouchingLayers(wallLayer))
+        {
+            Flip();
+        }
+        rb.velocity = new Vector2(walkSpeed, rb.velocity.y);
+
+    }
+
+    void Flip()
+    {
+        mustPatrol = false;
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        walkSpeed *= -1;
+        mustPatrol = true;
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {

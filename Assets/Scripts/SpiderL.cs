@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpiderL : MonoBehaviour
 {
     public float speed;
-    float countDown = 1.5f;
 
     // public float stoppingDistance;
     // public float retreatDistance;
@@ -29,6 +28,8 @@ public class SpiderL : MonoBehaviour
 
     public Transform groundCheckPos;
     public LayerMask groundLayer;
+    public LayerMask wallLayer;
+    public Collider2D bodyCollider;
 
     public bool mustPatrol;
     public Rigidbody2D rb;
@@ -120,7 +121,7 @@ public class SpiderL : MonoBehaviour
     }
 
     void patrol(){
-      if(mustTurn){
+      if(mustTurn || bodyCollider.IsTouchingLayers(wallLayer)){
         Flip();
       }
 

@@ -24,7 +24,8 @@ public class DiamondTrigger: MonoBehaviour
         {
             for (int i = 0; i < rotateX.Length; i++)
             {
-                    if(rotateX[i].name=="Bullet(Clone)"){
+                    if(rotateX[i].name=="Bullet(Clone)")
+                    {
                       Destroy(rotateX[i]);
 
                     }
