@@ -42,7 +42,13 @@ public class Projectile : MonoBehaviour
     {
         if (!other.gameObject.name.Contains("Enemy"))
         {
-            DestroyProjectile();
+        if(!other.gameObject.name.Contains("BulletForPlayer") ){
+
+          DestroyProjectile();
+        }
+
+
+
         }
     }
 

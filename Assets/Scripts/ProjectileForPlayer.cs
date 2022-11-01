@@ -44,7 +44,10 @@ public class ProjectileForPlayer : MonoBehaviour
         //Debug.Log("trigger enter: "+ other.gameObject.name);
         if (!other.CompareTag("Player"))
         {
+          if(!other.gameObject.name.Contains("Bullet") ){
             DestroyProjectile();
+          }
+
         }
 
     }
