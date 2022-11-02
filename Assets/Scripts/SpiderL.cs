@@ -54,47 +54,9 @@ public class SpiderL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        // if (Input.GetKeyDown(KeyCode.C)){
-        //   SpiderWindow.SetActive(false);
-        //   GameController.canMove = true;
-        // }
         if(mustPatrol){
           patrol();
         }
-
-        // rigidbody2d.AddForce(new Vector2(xInput * moveSpeed, 0), ForceMode2D.Force);
-        // Vector3 movement = new Vector3(0.8f * Time.deltaTime, 0f, 0f);
-        //
-        // // transform.position += movement * Time.DeltaTime * moveSpeed;
-        // countDown -= Time.deltaTime;
-        //
-        // if (countDown > 0.0f)
-        // {
-        //   if(mustTurn){
-        //     rigidbody2d.velocity = new Vector2(-1.8f, 0);
-        //     transform.forward = new Vector3(0f, 0f, -movement.x);
-        //   }else{
-        //     rigidbody2d.velocity = new Vector2(1.8f, 0);
-        //     transform.forward = new Vector3(0f, 0f, movement.x);
-        //   }
-        //
-        // }
-        // else if (countDown > -1.5f)
-        // {
-        //     rigidbody2d.velocity = new Vector2(-1.8f, 0);
-        //     transform.forward = new Vector3(0f, 0f, -movement.x);
-        //     if(mustTurn){
-        //       rigidbody2d.velocity = new Vector2(1.8f, 0);
-        //       transform.forward = new Vector3(0f, 0f, movement.x);
-        //     }
-        // }
-        // else
-        // {
-        //     countDown = 1.5f;
-        // }
-
-
 
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -111,12 +73,8 @@ public class SpiderL : MonoBehaviour
     private void FixedUpdate(){
 
       if(mustPatrol){
-        mustTurn = !Physics2D.OverlapCircle(groundCheckPos.position, 0.1f, groundLayer);
-
+        mustTurn = (!Physics2D.OverlapCircle(groundCheckPos.position, 0.1f, groundLayer))&&(Physics2D.OverlapCircle(groundCheckPos.position, 0.5f, groundLayer));
       }
-
-
-
 
     }
 
@@ -127,59 +85,14 @@ public class SpiderL : MonoBehaviour
 
       rb.velocity = new Vector2(walkSpeed, rb.velocity.y);
 
-       // Vector3 movement = new Vector3(0.8f * Time.deltaTime, 0f, 0f);
-       //
-       //   countDown -= Time.deltaTime;
-       //
-       //   if (countDown > 0.0f)
-       //   {
-       //       rb.velocity = new Vector2(1.8f, 0);
-       //
-       //       transform.forward = new Vector3(0f, 0f, movement.x);
-       //   }
-       //   else if (countDown > -1.5f)
-       //   {
-       //       rb.velocity = new Vector2(-1.8f, 0);
-       //
-       //       transform.forward = new Vector3(0f, 0f, -movement.x);
-       //   }
-       //   else
-       //   {
-       //       countDown = 1.5f;
-       //   }
-
     }
 
     void Flip(){
-      mustPatrol = false;
-      transform.localScale = new Vector2(transform.localScale.x * -1,transform.localScale.y );
-      walkSpeed *= -1;
-
-
-      //
-      // Vector3 movement = new Vector3(0.8f * Time.deltaTime, 0f, 0f);
-      //
-      //   countDown -= Time.deltaTime;
-      //
-      //   if (countDown > 0.0f)
-      //   {
-      //     rb.velocity = new Vector2(-1.8f, 0);
-      //
-      //     transform.forward = new Vector3(0f, 0f, -movement.x);
-      //   }
-      //   else if (countDown > -1.5f)
-      //   {
-      //     rb.velocity = new Vector2(1.8f, 0);
-      //
-      //     transform.forward = new Vector3(0f, 0f, movement.x);
-      //
-      //   }
-      //   else
-      //   {
-      //       countDown = 1.5f;
-      //   }
-
-          mustPatrol = true;
+        mustPatrol = false;
+        transform.forward = new Vector3(0f, 0f, -transform.forward.z);
+        //transform.localScale = new Vector2(transform.localScale.x * -1,transform.localScale.y );
+        walkSpeed *= -1;
+        mustPatrol = true;
     }
 
 

@@ -77,7 +77,7 @@ public class Spider : MonoBehaviour
     {
         if (mustPatrol)
         {
-            mustTurn = !Physics2D.OverlapCircle(groundCheckPos.position, 0.1f, groundLayer);
+            mustTurn = (!Physics2D.OverlapCircle(groundCheckPos.position, 0.1f, groundLayer)) && (Physics2D.OverlapCircle(groundCheckPos.position, 0.5f, groundLayer));
 
         }
     }

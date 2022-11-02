@@ -1232,14 +1232,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418199081}
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 4.7, y: 1.36, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.19, y: -1.1, z: 0}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2001663069}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &418199083
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1690,15 +1690,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.23422566
+      value: 0.25640604
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.38
+      value: 7.4241
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.82
+      value: 0.97
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2398,11 +2398,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.42111424
+      value: 0.4460524
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.1039
+      value: 5.2273
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2608,11 +2608,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.36508444
+      value: 0.35040805
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.72
+      value: 0.6473
       objectReference: {fileID: 0}
     - target: {fileID: 1020209033809370849, guid: 1b198762284f05e408b3e059c9fe4d87, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4539,8 +4539,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572402118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.96, y: -0.98, z: 0}
-  m_LocalScale: {x: 2.5281458, y: 2.9960485, z: 1}
+  m_LocalPosition: {x: 3.99, y: -1.02, z: 0}
+  m_LocalScale: {x: 2.5281458, y: 2.9868443, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2003847316}
@@ -4591,10 +4591,11 @@ PolygonCollider2D:
     - - {x: -0.11, y: 0.14999999}
       - {x: -0.13, y: 0.08}
       - {x: -0.13, y: -0.14}
-      - {x: -0.089999996, y: -0.17999999}
-      - {x: 0.099999994, y: -0.17999999}
-      - {x: 0.16616794, y: -0.17034632}
-      - {x: 0.1601399, y: 0.13017318}
+      - {x: -0.09685196, y: -0.17730059}
+      - {x: 0.05418896, y: -0.17969733}
+      - {x: 0.1432088, y: -0.15797952}
+      - {x: 0.130679, y: -0.15699582}
+      - {x: 0.14042377, y: 0.11014733}
       - {x: 0.06, y: 0.14999999}
 --- !u!50 &1572402122
 Rigidbody2D:
@@ -4694,11 +4695,11 @@ MonoBehaviour:
     m_Bits: 64
   wallLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 768
   bodyCollider: {fileID: 1572402121}
   mustPatrol: 0
   rb: {fileID: 1572402122}
-  walkSpeed: 1
+  walkSpeed: 0.52
 --- !u!1 &1646727453
 GameObject:
   m_ObjectHideFlags: 0
@@ -6281,7 +6282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975825500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.113, y: -0.203, z: 0}
+  m_LocalPosition: {x: 0.158, y: -0.207, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

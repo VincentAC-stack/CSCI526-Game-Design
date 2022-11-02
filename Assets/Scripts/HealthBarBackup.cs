@@ -7,7 +7,6 @@ public class HealthBarBackup : MonoBehaviour
 {
     public Slider slider;
 
-    
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;
