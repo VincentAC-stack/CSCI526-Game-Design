@@ -14,7 +14,7 @@ public class GravitationalSourceSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             _areaEffector2D.forceAngle = (_areaEffector2D.forceAngle + 180) % 360;
         }

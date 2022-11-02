@@ -36,7 +36,7 @@ public class RandomGen: MonoBehaviour {
     }
     
     void Update(){
-        if (Input.GetKeyDown(KeyCode.J)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             reverse = !reverse;
         }
         // Optimize the shooting position of the ball. Let the ball shoot from the left boundary of

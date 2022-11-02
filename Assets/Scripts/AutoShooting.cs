@@ -10,7 +10,7 @@ public class AutoShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetMouseButtonDown(0))
             Instantiate(projectileForPlayer, transform.GetComponent<Renderer>().bounds.center, Quaternion.identity);
     }
 }

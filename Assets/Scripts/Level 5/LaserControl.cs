@@ -15,7 +15,7 @@ public class LaserControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J) && GameController.canMove)
+        if (Input.GetKeyDown(KeyCode.Space) && GameController.canMove)
         {
             if (isAppear)
             {

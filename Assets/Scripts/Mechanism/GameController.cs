@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour
         //    Time.timeScale = 0f;
         //    SpiderWindow.SetActive(true);
         // }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R)) //Change to button click
         {
             if (PlayerDead)deathCount++;
             Time.timeScale = 1f;
@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             canMove = true;
         }
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.N)) //Change to button click
         {
             Time.timeScale = 1f;
             ResetWindow.SetActive(false);

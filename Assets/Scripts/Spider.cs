@@ -61,7 +61,7 @@ public class Spider : MonoBehaviour
         GameController.canMove = true;
       }
 
-      if (Input.GetKeyDown(KeyCode.J))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             transform.Rotate(180f, 0f, 0f, Space.Self);
         }

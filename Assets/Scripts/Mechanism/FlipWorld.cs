@@ -17,12 +17,44 @@ public class FlipWorld : MonoBehaviour
         RotateYArr = GameObject.FindGameObjectsWithTag("RotateY");
         RotateXAndYArr = GameObject.FindGameObjectsWithTag("RotateXAndY");
         FinishFlag = GameObject.FindGameObjectsWithTag("FinishFlag");
+        
+        if (RotateXArr.Length != 0)
+        {
+            for (int i = 0; i < RotateXArr.Length; i++)
+            {
+                if (RotateXArr[i].transform.position.y > 0)
+                {
+                    RotateXArr[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f,0.2f);
+                }
+            }
+        }
+        if (RotateXAndYArr.Length != 0)
+        {
+            for (int i = 0; i < RotateXAndYArr.Length; i++)
+            {
+                if (RotateXAndYArr[i].transform.position.y > 0)
+                {
+                    RotateXAndYArr[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f,0.2f);
+                }
+            }
+        }
+        
+        if (RotateYArr.Length != 0)
+        {
+            for (int i = 0; i < RotateYArr.Length; i++)
+            {
+                if (RotateYArr[i].transform.position.y > 0)
+                {
+                    RotateYArr[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f,0.2f);
+                }
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J) && GameController.canMove)
+        if (Input.GetKeyDown(KeyCode.Space) && GameController.canMove)
         {
             Data.FlipCounts++;
             Flip();
@@ -54,6 +86,18 @@ public class FlipWorld : MonoBehaviour
 
         obj.transform.rotation *= Quaternion.Euler(180, 180, 0);
     }
+
+    void ChangeOpacity(GameObject obj)
+    {
+        if (obj != null && obj.transform.position.y > 0)
+        {
+            obj.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f, 0.2f);
+        }
+        if (obj != null && obj.transform.position.y < 0)
+        {
+            obj.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f, 1f);
+        }
+    }
     //For future use
     // void RotateZ(GameObject obj)
     // {
@@ -78,6 +122,7 @@ public class FlipWorld : MonoBehaviour
             {
                     FlipY(RotateXArr[i]);
                     RotateX(RotateXArr[i]);
+                    ChangeOpacity(RotateXArr[i]);
             }
         }
         if (RotateXAndYArr.Length != 0)
@@ -86,6 +131,7 @@ public class FlipWorld : MonoBehaviour
             {
                 FlipY(RotateXAndYArr[i]);
                 RotateXAndY(RotateXAndYArr[i]);
+                ChangeOpacity(RotateXAndYArr[i]);
             }
         }
         
@@ -95,6 +141,7 @@ public class FlipWorld : MonoBehaviour
             {
                 FlipY(RotateYArr[i]);
                 RotateY(RotateYArr[i]);
+                ChangeOpacity(RotateYArr[i]);
             }
         }
 
