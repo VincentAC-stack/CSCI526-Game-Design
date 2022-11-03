@@ -17,7 +17,7 @@ public class FlipWorld : MonoBehaviour
         RotateYArr = GameObject.FindGameObjectsWithTag("RotateY");
         RotateXAndYArr = GameObject.FindGameObjectsWithTag("RotateXAndY");
         FinishFlag = GameObject.FindGameObjectsWithTag("FinishFlag");
-        
+
         if (RotateXArr.Length != 0)
         {
             for (int i = 0; i < RotateXArr.Length; i++)
@@ -38,7 +38,7 @@ public class FlipWorld : MonoBehaviour
                 }
             }
         }
-        
+
         if (RotateYArr.Length != 0)
         {
             for (int i = 0; i < RotateYArr.Length; i++)
@@ -133,7 +133,7 @@ public class FlipWorld : MonoBehaviour
                 ChangeOpacity(RotateXAndYArr[i]);
             }
         }
-        
+
         if (RotateYArr.Length != 0)
         {
             for (int i = 0; i < RotateYArr.Length; i++)

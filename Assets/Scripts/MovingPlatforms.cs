@@ -14,7 +14,7 @@ public class MovingPlatforms : MonoBehaviour
         edgey = 2.5f;
         speed = 0.6f;
     }
-    
+
     void Update()
     {
         temp -= Time.deltaTime;
@@ -22,7 +22,7 @@ public class MovingPlatforms : MonoBehaviour
         {
             temp = 1f;
         }
-        
+
         foreach (Transform tran in transform)
         {
             Vector3 pos = tran.position;
@@ -41,11 +41,11 @@ public class MovingPlatforms : MonoBehaviour
                     pos.y = edgey;
                 }
             }
-            
-            
+
+
             pos.y -= speed*Time.deltaTime;
             tran.position = pos;
         }
-        
+
     }
 }
