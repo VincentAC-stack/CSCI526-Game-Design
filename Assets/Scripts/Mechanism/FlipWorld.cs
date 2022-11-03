@@ -22,7 +22,7 @@ public class FlipWorld : MonoBehaviour
         {
             for (int i = 0; i < RotateXArr.Length; i++)
             {
-                if (RotateXArr[i].transform.position.y > 0)
+                if (RotateXArr[i].GetComponent<Renderer>() != null && RotateXArr[i].transform.position.y > 0)
                 {
                     RotateXArr[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f,0.2f);
                 }
@@ -32,7 +32,7 @@ public class FlipWorld : MonoBehaviour
         {
             for (int i = 0; i < RotateXAndYArr.Length; i++)
             {
-                if (RotateXAndYArr[i].transform.position.y > 0)
+                if (RotateXAndYArr[i].GetComponent<Renderer>() != null && RotateXAndYArr[i].transform.position.y > 0)
                 {
                     RotateXAndYArr[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f,0.2f);
                 }
@@ -43,7 +43,7 @@ public class FlipWorld : MonoBehaviour
         {
             for (int i = 0; i < RotateYArr.Length; i++)
             {
-                if (RotateYArr[i].transform.position.y > 0)
+                if (RotateYArr[i].GetComponent<Renderer>() != null && RotateYArr[i].transform.position.y > 0)
                 {
                     RotateYArr[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f,0.2f);
                 }
@@ -84,7 +84,6 @@ public class FlipWorld : MonoBehaviour
 
     static void RotateXAndY(GameObject obj)
     {
-
         obj.transform.rotation *= Quaternion.Euler(180, 180, 0);
     }
     static void ChangeOpacity(GameObject obj)

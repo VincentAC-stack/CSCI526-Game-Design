@@ -160,11 +160,11 @@ public class Move2D : MonoBehaviour
         {
             anim.SetBool("isRunning",true);
         }
-        if (Mathf.Approximately(rigidbody2d.velocity.y, 0.0f)) 
+        if (isTouchingGround) 
         {
             anim.SetBool("isJumping",false);
         }
-        if (!Mathf.Approximately(rigidbody2d.velocity.y, 0.0f)) 
+        if (!isTouchingGround) 
         {
             anim.SetBool("isJumping",true);
         }
