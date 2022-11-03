@@ -17,7 +17,9 @@ public class Move2D : MonoBehaviour
     public LayerMask groundLayer;
     private bool isTouchingGround;
     public static Vector3 respawnPoint;
-    
+    private Animator anim;
+    private float xInput;
+
     private void Awake()
     {
         Data.SessionID = MenuManager._userId;
@@ -31,6 +33,7 @@ public class Move2D : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         Data.LevelName = SceneManager.GetActiveScene().name;
         respawnPoint = transform.position;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,7 +43,7 @@ public class Move2D : MonoBehaviour
         {
             isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
             Jump();
-            float xInput = Input.GetAxis("Horizontal");
+            xInput = Input.GetAxis("Horizontal");
             rigidbody2d.velocity = new Vector2(xInput * moveSpeed, rigidbody2d.velocity.y);
             // rigidbody2d.AddForce(new Vector2(xInput * moveSpeed, 0), ForceMode2D.Force);
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
@@ -49,7 +52,7 @@ public class Move2D : MonoBehaviour
             {
                 transform.forward = new Vector3(0f, 0f, movement.x);
             }
-
+            UpdateState();
         }
     }
 
@@ -145,5 +148,25 @@ public class Move2D : MonoBehaviour
         //     else{
         //         Debug.Log("Form upload complete!");} 
         // }
+    }
+
+    private void UpdateState()
+    {
+        if (Mathf.Approximately(xInput, 0.0f))
+        {
+            anim.SetBool("isRunning",false);
+        }
+        if (!Mathf.Approximately(xInput, 0.0f))
+        {
+            anim.SetBool("isRunning",true);
+        }
+        if (Mathf.Approximately(rigidbody2d.velocity.y, 0.0f)) 
+        {
+            anim.SetBool("isJumping",false);
+        }
+        if (!Mathf.Approximately(rigidbody2d.velocity.y, 0.0f)) 
+        {
+            anim.SetBool("isJumping",true);
+        }
     }
 }
