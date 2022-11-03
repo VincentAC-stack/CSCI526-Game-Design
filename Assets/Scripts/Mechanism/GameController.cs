@@ -63,18 +63,12 @@ public class GameController : MonoBehaviour
             ResetWindow.SetActive(false);
             PlayerDead = false;
             GameFinish = false;
-            GameObject Player = GameObject.Find("AstroStay");
-            Player.transform.position = Move2D.respawnPoint;
-            Player.GetComponent<HealthBarForPlayer>().addHealth(100);
+            
+            // Player.GetComponent<HealthBarForPlayer>().addHealth(100);
             // PlayerStatus.currHealth = PlayerStatus.maxHealth;
             // Reset the world if the world has been flipped
-            if (isWorldFlipped) {
-                FlipWorld.Flip();
-                flipFan = true;
-                // _areaEffector2D.forceAngle = (_areaEffector2D.forceAngle + 180) % 360;
-                isWorldFlipped = !isWorldFlipped;
-            }
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             canMove = true;
         }
         if (Input.GetKeyDown(KeyCode.N)) //Change to button click

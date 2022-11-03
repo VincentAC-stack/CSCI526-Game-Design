@@ -95,7 +95,21 @@ public class HealthBarForPlayer : MonoBehaviour
                 ReduceHealthData.laserCount++;
             }
         }
-        
+        if (col.gameObject.name == "DownFailChecker" || col.gameObject.name == "DownFailChecker2") 
+        {
+            health = health - damage;
+            healthBarBackup.SetHealth(health);
+            if (health > 0)
+            {
+                if (GameController.isWorldFlipped) {
+                    FlipWorld.Flip();
+                    GameController.flipFan = true;
+                    GameController.isWorldFlipped = !GameController.isWorldFlipped;
+                }
+                GameObject Player = GameObject.Find("AstroStay");
+                Player.transform.position = Move2D.respawnPoint;
+            }
+        }
         // if (col.gameObject.name.Contains("Laser") && !col.gameObject.name.Contains("Up") && !col.gameObject.name.Contains("Down"))
         // {
         //     health = health - damage;

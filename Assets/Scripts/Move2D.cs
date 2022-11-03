@@ -75,15 +75,15 @@ public class Move2D : MonoBehaviour
     {
         // this.SetActive(false);
         
-        if (collision.gameObject.name == "DownFailChecker" || collision.gameObject.name == "DownFailChecker2") 
-        {
-            GameController.canMove = false;
-            GameController.PlayerDead = true;
-            PlayerStatus.currHealth = 0;
-            Data.GameResult = false;
-            Data.LevelDeaths = -1;
-            // Send();
-        }
+        // if (collision.gameObject.name == "DownFailChecker" || collision.gameObject.name == "DownFailChecker2") 
+        // {
+        //     GameController.canMove = false;
+        //     GameController.PlayerDead = true;
+        //     PlayerStatus.currHealth = 0;
+        //     Data.GameResult = false;
+        //     Data.LevelDeaths = -1;
+        //     // Send();
+        // }
  
         // else if (collision.gameObject.name.Contains("Spike")  || collision.gameObject.name.Contains("Saw"))
         // {
