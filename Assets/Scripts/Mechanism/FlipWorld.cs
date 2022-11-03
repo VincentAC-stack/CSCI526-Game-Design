@@ -6,10 +6,10 @@ using UnityEngine.UIElements;
 
 public class FlipWorld : MonoBehaviour
 {
-    private GameObject[] RotateXArr;
-    private GameObject[] RotateYArr;
-    private GameObject[] RotateXAndYArr;
-    private GameObject[] FinishFlag;
+    private static GameObject[] RotateXArr;
+    private static GameObject[] RotateYArr;
+    private static GameObject[] RotateXAndYArr;
+    private static GameObject[] FinishFlag;
 
     void Start()
     {
@@ -58,9 +58,10 @@ public class FlipWorld : MonoBehaviour
         {
             Data.FlipCounts++;
             Flip();
+            GameController.isWorldFlipped = !GameController.isWorldFlipped;
         }
     }
-    void FlipY(GameObject obj)
+    static void FlipY(GameObject obj)
     {
       if(obj != null){
         Vector3 pos = obj.transform.position;
@@ -69,25 +70,24 @@ public class FlipWorld : MonoBehaviour
       }
 
     }
-    void RotateX(GameObject obj)
+    static void RotateX(GameObject obj)
     {
       if(obj != null){
         obj.transform.rotation *= Quaternion.Euler(180, 0, 0);
       }
 
     }
-    void RotateY(GameObject obj)
+    static void RotateY(GameObject obj)
     {
         obj.transform.rotation *= Quaternion.Euler(0, 180, 0);
     }
 
-    void RotateXAndY(GameObject obj)
+    static void RotateXAndY(GameObject obj)
     {
 
         obj.transform.rotation *= Quaternion.Euler(180, 180, 0);
     }
-
-    void ChangeOpacity(GameObject obj)
+    static void ChangeOpacity(GameObject obj)
     {
         if (obj != null && obj.transform.position.y > 0)
         {
@@ -104,9 +104,8 @@ public class FlipWorld : MonoBehaviour
     //     float rotationZ = obj.transform.eulerAngles.z;
     //     obj.transform.rotation *= Quaternion.Euler(0, 180, rotationZ * 2);
     // }
-    void Flip()
+    public static void Flip()
     {
-
         MovingPlatforms.speed *= (-1);
         MovingPlatforms.edgey *= (-1);
         RotatingPlatforms.rpm *= (-1);

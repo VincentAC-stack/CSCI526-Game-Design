@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,9 +16,13 @@ public class FanSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (GameController.flipFan || Input.GetKeyDown(KeyCode.Space))
         {
             _areaEffector2D.forceAngle = (_areaEffector2D.forceAngle + 180) % 360;
         }
+    }
+
+    private void LateUpdate(){
+        GameController.flipFan = false;
     }
 }

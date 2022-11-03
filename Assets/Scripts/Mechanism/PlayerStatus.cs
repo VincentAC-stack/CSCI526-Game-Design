@@ -6,7 +6,7 @@ public class PlayerStatus : MonoBehaviour
 {
     public static Vector3 respawnPos;
     public static int currHealth;
-    public static int maxHealth = 3;
+    public static int maxHealth = 100;
     
     private GameObject Player;
     

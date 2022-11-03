@@ -16,6 +16,7 @@ public class Move2D : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
+    public static Vector3 respawnPoint;
     
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class Move2D : MonoBehaviour
         Time.timeScale = 1f;
         rigidbody2d = GetComponent<Rigidbody2D>();
         Data.LevelName = SceneManager.GetActiveScene().name;
+        respawnPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -103,6 +105,10 @@ public class Move2D : MonoBehaviour
         if (collision.gameObject.name == "Checkpoint")
         {
             PlayerStatus.respawnPos = collision.transform.position;
+        }
+
+        if (collision.gameObject.CompareTag("Checkpoint")) {
+            respawnPoint = collision.transform.position;
         }
 
         if (collision.gameObject.name.Contains("Bullet"))

@@ -15,7 +15,7 @@ public class FanParticleSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (GameController.flipFan || Input.GetKeyDown(KeyCode.Space))
         {
             var main = _particleSystem.main;
             main.gravityModifierMultiplier *= -1;
