@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 
     // public static bool ifTriggerSpider;
     public TextMeshProUGUI DeathText;
-    private static int END_SCENE_INDEX = 31;
+    private static int END_SCENE_INDEX = 33;
 
     public static bool isWorldFlipped;
     public static bool flipFan;
