@@ -40,23 +40,16 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.name.Contains("Enemy"))
+        if ((!other.gameObject.name.Contains("Enemy")) && (other.CompareTag("FanParticle")))
         {
-            if(!other.gameObject.name.Contains("BulletForPlayer") ){
+        if(!other.gameObject.name.Contains("BulletForPlayer") ){
 
-                if(!other.CompareTag("FanParticle")){
-
-                    if(other.gameObject.name.Contains("Platform")){
-                        DestroyProjectile();
-                    }
-                }
-
-
-            }
-
+          DestroyProjectile();
         }
 
 
+
+        }
     }
 
     void DestroyProjectile()
