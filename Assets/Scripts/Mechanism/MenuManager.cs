@@ -5,11 +5,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.SceneManagement.SceneManager;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
 
     public static long _userId;
+    public GameObject ResetWindow;
+    public static bool canMove;
+    public static bool GameFinish;
+    public static bool PlayerDead;
+    private static int END_SCENE_INDEX = 33;
 
     void Start()
     {
@@ -36,6 +42,34 @@ public class MenuManager : MonoBehaviour
         LoadScene(index);
         GameController.deathCount = 0;
     }
+    
+    public void EnterNextLevel()
+    {
+        Time.timeScale = 1f;
+        // ResetWindow.SetActive(false);
+        PlayerDead = false;
+        GameFinish = false;
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentSceneIndex != END_SCENE_INDEX)
+        {
+            SceneManager.LoadScene(currentSceneIndex + 1);
+        }
+        
+        canMove = true;
+    }
+    
+    public void ReplayLevel()
+    {
+        if (PlayerDead);
+        Time.timeScale = 1f;
+        // ResetWindow.SetActive(false);
+        PlayerDead = false;
+        GameFinish = false;
+            
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        canMove = true;
+    }
+    
     public void QuitGame()
     {
         Application.Quit();
