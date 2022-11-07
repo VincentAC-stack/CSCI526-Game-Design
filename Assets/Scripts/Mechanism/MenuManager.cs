@@ -6,15 +6,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.SceneManagement.SceneManager;
 using UnityEngine.SceneManagement;
+using static GameController;
 
 public class MenuManager : MonoBehaviour
 {
 
     public static long _userId;
-    public GameObject ResetWindow;
-    public static bool canMove;
-    public static bool GameFinish;
-    public static bool PlayerDead;
     private static int END_SCENE_INDEX = 33;
 
     void Start()
