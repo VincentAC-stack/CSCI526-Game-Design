@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     public void Pause() {
         pauseMenu.SetActive(true);
+        GameController.canMove=false;
         Time.timeScale = 0f;
     }
     public void Reload() {
@@ -27,6 +28,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Resume() {
         pauseMenu.SetActive(false);
+        GameController.canMove=true;
         Time.timeScale = 1f;
     }
     public void Next() {
