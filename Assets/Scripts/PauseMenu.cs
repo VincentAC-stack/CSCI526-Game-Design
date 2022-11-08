@@ -40,12 +40,13 @@ public class PauseMenu : MonoBehaviour
         {
             SceneManager.LoadScene(idx + 1);
         }
-
+        GameController.deathCount = 0;
         GameController.canMove = true;
     }
     public void Home(int index) {
         Time.timeScale = 1f;
         SceneManager.LoadScene(index);
+        GameController.deathCount = 0;
     }
 
 }
