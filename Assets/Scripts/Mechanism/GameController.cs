@@ -11,6 +11,9 @@ public class GameController : MonoBehaviour
     public GameObject ResetWindow;
     public GameObject FinishWindow;
     // public GameObject SpiderWindow;
+    public GameObject one;
+    public GameObject two;
+    public GameObject three;
 
     public static int deathCount;
     public static bool canMove;
@@ -23,6 +26,8 @@ public class GameController : MonoBehaviour
 
     public static bool isWorldFlipped;
     public static bool flipFan;
+    
+    public Transform player;
     
     // Start is called before the first frame update
     void Start()
@@ -40,6 +45,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+       
         DeathText.text = "Death: " + deathCount;
 
         if (PlayerDead)
@@ -51,6 +57,22 @@ public class GameController : MonoBehaviour
         {
             FinishWindow.SetActive(true);
             Time.timeScale = 0f;
+            
+            // three.SetActive(true);
+            int playerHealth = GameObject.FindWithTag("Player").GetComponent<HealthBarForPlayer>().health;
+            Debug.Log(playerHealth);
+            if (playerHealth >= 50)
+            {
+                three.SetActive(true);
+            }
+            if (playerHealth < 50 &&  playerHealth > 20)
+            {
+                two.SetActive(true);
+            }
+            if (playerHealth <= 20)
+            {
+                one.SetActive(true);
+            }
         }
         // if (ifTriggerSpider){
         //    Time.timeScale = 0f;
