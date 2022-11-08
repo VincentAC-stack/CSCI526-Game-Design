@@ -79,7 +79,7 @@ public class ColorMatch : MonoBehaviour
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         // print("isTouchingGround: " + isTouchingGround);
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
             isReversed = !isReversed;
         }
     }

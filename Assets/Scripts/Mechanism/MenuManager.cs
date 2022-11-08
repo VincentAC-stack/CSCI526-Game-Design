@@ -23,7 +23,6 @@ public class MenuManager : MonoBehaviour
             ReduceHealthData.deathCount = 0;
         }
         
-
         // int levelAt = PlayerPrefs.GetInt("levelAt", 2);
         //
         // for (int i = 0; i < levelBtns.Length; i++)

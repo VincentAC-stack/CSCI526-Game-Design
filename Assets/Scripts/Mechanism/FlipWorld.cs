@@ -18,43 +18,43 @@ public class FlipWorld : MonoBehaviour
         RotateXAndYArr = GameObject.FindGameObjectsWithTag("RotateXAndY");
         FinishFlag = GameObject.FindGameObjectsWithTag("FinishFlag");
 
-        if (RotateXArr.Length != 0)
-        {
-            for (int i = 0; i < RotateXArr.Length; i++)
-            {
-                if (RotateXArr[i].GetComponent<Renderer>() != null && RotateXArr[i].transform.position.y > 0)
-                {
-                    RotateXArr[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f,0.2f);
-                }
-            }
-        }
-        if (RotateXAndYArr.Length != 0)
-        {
-            for (int i = 0; i < RotateXAndYArr.Length; i++)
-            {
-                if (RotateXAndYArr[i].GetComponent<Renderer>() != null && RotateXAndYArr[i].transform.position.y > 0)
-                {
-                    RotateXAndYArr[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f,0.2f);
-                }
-            }
-        }
-
-        if (RotateYArr.Length != 0)
-        {
-            for (int i = 0; i < RotateYArr.Length; i++)
-            {
-                if (RotateYArr[i].GetComponent<Renderer>() != null && RotateYArr[i].transform.position.y > 0)
-                {
-                    RotateYArr[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f,0.2f);
-                }
-            }
-        }
+        // if (RotateXArr.Length != 0)
+        // {
+        //     for (int i = 0; i < RotateXArr.Length; i++)
+        //     {
+        //         if (RotateXArr[i].GetComponent<Renderer>() != null && RotateXArr[i].transform.position.y > 0)
+        //         {
+        //             RotateXArr[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f,0.2f);
+        //         }
+        //     }
+        // }
+        // if (RotateXAndYArr.Length != 0)
+        // {
+        //     for (int i = 0; i < RotateXAndYArr.Length; i++)
+        //     {
+        //         if (RotateXAndYArr[i].GetComponent<Renderer>() != null && RotateXAndYArr[i].transform.position.y > 0)
+        //         {
+        //             RotateXAndYArr[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f,0.2f);
+        //         }
+        //     }
+        // }
+        //
+        // if (RotateYArr.Length != 0)
+        // {
+        //     for (int i = 0; i < RotateYArr.Length; i++)
+        //     {
+        //         if (RotateYArr[i].GetComponent<Renderer>() != null && RotateYArr[i].transform.position.y > 0)
+        //         {
+        //             RotateYArr[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f,0.2f);
+        //         }
+        //     }
+        // }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && GameController.canMove)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && GameController.canMove)
         {
             Data.FlipCounts++;
             Flip();
@@ -120,7 +120,7 @@ public class FlipWorld : MonoBehaviour
             {
                     FlipY(RotateXArr[i]);
                     RotateX(RotateXArr[i]);
-                    ChangeOpacity(RotateXArr[i]);
+                    // ChangeOpacity(RotateXArr[i]);
             }
         }
         if (RotateXAndYArr.Length != 0)
@@ -129,7 +129,7 @@ public class FlipWorld : MonoBehaviour
             {
                 FlipY(RotateXAndYArr[i]);
                 RotateXAndY(RotateXAndYArr[i]);
-                ChangeOpacity(RotateXAndYArr[i]);
+                // ChangeOpacity(RotateXAndYArr[i]);
             }
         }
 
@@ -139,7 +139,7 @@ public class FlipWorld : MonoBehaviour
             {
                 FlipY(RotateYArr[i]);
                 RotateY(RotateYArr[i]);
-                ChangeOpacity(RotateYArr[i]);
+                // ChangeOpacity(RotateYArr[i]);
             }
         }
 

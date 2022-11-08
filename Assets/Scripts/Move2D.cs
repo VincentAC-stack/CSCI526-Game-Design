@@ -58,7 +58,7 @@ public class Move2D : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.W) && isTouchingGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isTouchingGround)
         {
             // gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f,5f),ForceMode2D.Impulse);
             float jumpVelocity = 5.3f;
