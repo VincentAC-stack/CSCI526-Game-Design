@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelSelect : MonoBehaviour
 {
-    public int levelPage = 1;
+    public static int levelPage = 1;
     public GameObject prevButton;
     public GameObject nextButton;
 
@@ -20,6 +20,8 @@ public class LevelSelect : MonoBehaviour
     {
         // prevButton = GameObject.Find("prev_btn");
         prevButton.SetActive(false);
+        LoadLevel();
+        LoadButton();
     }
 
     // Update is called once per frame
@@ -55,6 +57,24 @@ public class LevelSelect : MonoBehaviour
         LoadLevel();
     }
 
+    public void LoadButton()
+    {
+        if (levelPage == 1)
+        {
+            prevButton.SetActive(false);
+            nextButton.SetActive(true);
+        }
+        else if (levelPage == 5)
+        {
+            prevButton.SetActive(true);
+            nextButton.SetActive(false);
+        }
+        else
+        {
+            prevButton.SetActive(true);
+            nextButton.SetActive(true);
+        }
+    }
     public void LoadLevel()
     {
         switch (levelPage)
@@ -62,25 +82,37 @@ public class LevelSelect : MonoBehaviour
             case 1:
                 page2.SetActive(false);
                 page1.SetActive(true);
+                page3.SetActive(false);
+                page4.SetActive(false);
+                page5.SetActive(false);
                 break;
             case 2:
                 page2.SetActive(true);
                 page1.SetActive(false);
                 page3.SetActive(false);
+                page4.SetActive(false);
+                page5.SetActive(false);
                 break;
             case 3:
                 page3.SetActive(true);
                 page2.SetActive(false);
                 page4.SetActive(false);
+                page1.SetActive(false);
+                page5.SetActive(false);
                 break;
             case 4:
                 page4.SetActive(true);
                 page3.SetActive(false);
                 page5.SetActive(false);
+                page1.SetActive(false);
+                page2.SetActive(false);
                 break;
             case 5:
                 page5.SetActive(true);
                 page4.SetActive(false);
+                page1.SetActive(false);
+                page2.SetActive(false);
+                page3.SetActive(false);
                 break;
             default:
                 page1.SetActive(true);

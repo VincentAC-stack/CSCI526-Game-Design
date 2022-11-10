@@ -22,6 +22,11 @@ public class MenuManager : MonoBehaviour
         {
             ReduceHealthData.deathCount = 0;
         }
+
+        if (GetActiveScene().buildIndex == 0)
+        {
+            LevelSelect.levelPage = 1;
+        }
         
         // int levelAt = PlayerPrefs.GetInt("levelAt", 2);
         //
