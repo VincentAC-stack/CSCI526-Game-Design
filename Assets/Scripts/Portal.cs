@@ -23,7 +23,7 @@ public class Portal : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(!col.gameObject.name.Contains("Bullet")){
-          if (isTeleport == false)
+          if (isTeleport == false && goToPos != null)
           {
               isTeleport = true;
               if (playerTransform.rotation.y == 0)

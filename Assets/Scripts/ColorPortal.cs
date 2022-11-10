@@ -5,7 +5,7 @@ using UnityEngine;
 public class ColorPortal : MonoBehaviour
 {
     public Transform RedOut;
-    public Transform BlueOut;
+    public Transform GreenOut;
     public Transform YellowOut;
     private GameObject Player;
     private Transform playerPos;
@@ -23,9 +23,10 @@ public class ColorPortal : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
+        print(ColorMatch.currColor);
         if (isTeleport == false)
         {
-            if (ColorMatch.currColor == "Red")
+            if (ColorMatch.currColor == "Red" && RedOut != null)
             {
                 isTeleport = true;
                 Player.gameObject.transform.position = RedOut.transform.position;
@@ -40,21 +41,21 @@ public class ColorPortal : MonoBehaviour
                 }
                 StartCoroutine(TeleportCountDownRoutine());
             }
-            else if (ColorMatch.currColor == "Blue"){
+            else if (ColorMatch.currColor == "Green" && GreenOut != null){
                 isTeleport = true;
                 Player.gameObject.transform.position = RedOut.transform.position;
                 
                 if (Player.gameObject.transform.rotation.y == 0)
                 {
-                    Player.transform.position = BlueOut.transform.position + new Vector3(0.35f, 0, 0);
+                    Player.transform.position = GreenOut.transform.position + new Vector3(0.35f, 0, 0);
                 }
                 else
                 {
-                    Player.transform.position = BlueOut.transform.position + new Vector3(-0.35f, 0, 0);
+                    Player.transform.position = GreenOut.transform.position + new Vector3(-0.35f, 0, 0);
                 }
                 StartCoroutine(TeleportCountDownRoutine());
             }
-            else if (ColorMatch.currColor == "Yellow")
+            else if (ColorMatch.currColor == "Yellow" && YellowOut != null)
             {
                 isTeleport = true;
                 Player.gameObject.transform.position = RedOut.transform.position;

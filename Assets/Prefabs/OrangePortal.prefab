@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 776301799347053717}
   - component: {fileID: 776301799347053718}
   - component: {fileID: 776301799347053723}
+  - component: {fileID: -7103654753077938444}
   m_Layer: 0
   m_Name: OrangePortal
   m_TagString: RotateX
@@ -101,3 +102,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0.05239956, y: 0.017466705}
   m_Size: {x: 1.5874629, y: 3.8851714}
   m_Direction: 0
+--- !u!114 &-7103654753077938444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776301799347053719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8429153f7dc4ddb4c87deb658232d7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goToPos: {fileID: 0}
+  isTeleport: 0
