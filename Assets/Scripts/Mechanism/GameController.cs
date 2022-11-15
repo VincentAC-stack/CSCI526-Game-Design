@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject one;
     public GameObject two;
     public GameObject three;
+    public GameObject textWindow;
 
     public static int deathCount;
     public static bool canMove;
@@ -74,43 +75,57 @@ public class GameController : MonoBehaviour
                 one.SetActive(true);
             }
         }
+        
+         if (Input.GetKeyDown(KeyCode.Return))
+         {
+             Time.timeScale = 1f;
+             GameObject[] tutorialsWindows;
+             tutorialsWindows = GameObject.FindGameObjectsWithTag("tutorialCheckpoint");
+             foreach (GameObject tw in tutorialsWindows)
+             {
+                 tw.SetActive(false);
+             }
+             canMove = true;
+         }
+       
+        
         // if (ifTriggerSpider){
         //    Time.timeScale = 0f;
         //    SpiderWindow.SetActive(true);
         // }
-        if (Input.GetKeyDown(KeyCode.R)) //Change to button click
-        {
-            if (PlayerDead)deathCount++;
-            Time.timeScale = 1f;
-            ResetWindow.SetActive(false);
-            PlayerDead = false;
-            GameFinish = false;
-            
-            // Player.GetComponent<HealthBarForPlayer>().addHealth(100);
-            // PlayerStatus.currHealth = PlayerStatus.maxHealth;
-            // Reset the world if the world has been flipped
-            
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            canMove = true;
-        }
-        if (Input.GetKeyDown(KeyCode.N)) //Change to button click
-        {
-            Time.timeScale = 1f;
-            ResetWindow.SetActive(false);
-            PlayerDead = false;
-            GameFinish = false;
-            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            if (currentSceneIndex != END_SCENE_INDEX)
-            {
-                SceneManager.LoadScene(currentSceneIndex + 1);
-            }
-
-            // if (currentSceneIndex + 1 > PlayerPrefs.GetInt("levelAt"))
-            // {
-            //     PlayerPrefs.SetInt("levelAt", currentSceneIndex + 1);
-            // }
-            canMove = true;
-        }
+        // if (Input.GetKeyDown(KeyCode.R)) //Change to button click
+        // {
+        //     if (PlayerDead)deathCount++;
+        //     Time.timeScale = 1f;
+        //     ResetWindow.SetActive(false);
+        //     PlayerDead = false;
+        //     GameFinish = false;
+        //     
+        //     // Player.GetComponent<HealthBarForPlayer>().addHealth(100);
+        //     // PlayerStatus.currHealth = PlayerStatus.maxHealth;
+        //     // Reset the world if the world has been flipped
+        //     
+        //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //     canMove = true;
+        // }
+        // if (Input.GetKeyDown(KeyCode.N)) //Change to button click
+        // {
+        //     Time.timeScale = 1f;
+        //     ResetWindow.SetActive(false);
+        //     PlayerDead = false;
+        //     GameFinish = false;
+        //     int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        //     if (currentSceneIndex != END_SCENE_INDEX)
+        //     {
+        //         SceneManager.LoadScene(currentSceneIndex + 1);
+        //     }
+        //
+        //     // if (currentSceneIndex + 1 > PlayerPrefs.GetInt("levelAt"))
+        //     // {
+        //     //     PlayerPrefs.SetInt("levelAt", currentSceneIndex + 1);
+        //     // }
+        //     canMove = true;
+        // }
     }
 }
 // Update is called once per frame
