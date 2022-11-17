@@ -5,12 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-   
+    AudioSource myAudio;
     [SerializeField] GameObject pauseMenu;
+    
+    void Start() {
+        myAudio = Camera.main.GetComponent<AudioSource>();
+
+    }
     public void Pause() {
         pauseMenu.SetActive(true);
         GameController.canMove=false;
         Time.timeScale = 0f;
+        if(myAudio) {
+            myAudio.Pause();
+        }
     }
     public void Reload() {
 
@@ -30,6 +38,9 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         GameController.canMove=true;
         Time.timeScale = 1f;
+        if(myAudio) {
+            myAudio.Play();
+        }
     }
     public void Next() {
         Time.timeScale = 1f;
