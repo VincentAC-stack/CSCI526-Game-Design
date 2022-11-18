@@ -12,7 +12,7 @@ public class MenuManager : MonoBehaviour
 {
 
     public static long _userId;
-    private static int END_SCENE_INDEX = 33;
+    private static int END_SCENE_INDEX = 23;
 
     void Start()
     {

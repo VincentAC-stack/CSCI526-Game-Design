@@ -104,7 +104,7 @@ public class SendToGoogle : MonoBehaviour
         // 初始化数据
         initializeData();
         InitializePublicData();
-        GetLevelInfo();
+        // GetLevelInfo();
         _attempt = 1;
 
         // 创建起始时间
@@ -238,37 +238,37 @@ public class SendToGoogle : MonoBehaviour
     }
 
     //hyq
-    private void GetLevelInfo()
-    {
-        Scene scene = SceneManager.GetActiveScene();
-        _level = scene.name;
-        int sceneID = scene.buildIndex;
-        if (sceneID >= 7 && sceneID <= 12)
-        {
-            _mechanismSection = 1;
-            LevelSelect.levelPage = 2;
-        }
-        else if (sceneID >= 13 && sceneID <= 20)
-        {
-            _mechanismSection = 2;
-            LevelSelect.levelPage = 3;
-        }
-        else if (sceneID >= 21 && sceneID <= 26)
-        {
-            _mechanismSection = 3;
-            LevelSelect.levelPage = 4;
-        }
-        else if (sceneID >= 27)
-        {
-            _mechanismSection = 4;
-            LevelSelect.levelPage = 5;
-        } 
-        else if (sceneID >= 2 && sceneID <= 6)
-        {
-            _mechanismSection = 0;
-            LevelSelect.levelPage = 1;
-        }
-    }
+    // private void GetLevelInfo()
+    // {
+    //     Scene scene = SceneManager.GetActiveScene();
+    //     _level = scene.name;
+    //     int sceneID = scene.buildIndex;
+    //     if (sceneID >= 7 && sceneID <= 12)
+    //     {
+    //         _mechanismSection = 1;
+    //         LevelSelect.levelPage = 2;
+    //     }
+    //     else if (sceneID >= 13 && sceneID <= 20)
+    //     {
+    //         _mechanismSection = 2;
+    //         LevelSelect.levelPage = 3;
+    //     }
+    //     else if (sceneID >= 21 && sceneID <= 26)
+    //     {
+    //         _mechanismSection = 3;
+    //         LevelSelect.levelPage = 4;
+    //     }
+    //     else if (sceneID >= 27)
+    //     {
+    //         _mechanismSection = 4;
+    //         LevelSelect.levelPage = 5;
+    //     } 
+    //     else if (sceneID >= 2 && sceneID <= 6)
+    //     {
+    //         _mechanismSection = 0;
+    //         LevelSelect.levelPage = 1;
+    //     }
+    // }
     
     private void DataAtFinishFlag()
     {

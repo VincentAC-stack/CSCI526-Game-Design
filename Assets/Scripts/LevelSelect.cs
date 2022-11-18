@@ -12,7 +12,7 @@ public class LevelSelect : MonoBehaviour
     public GameObject page2;
     public GameObject page3;
     public GameObject page4;
-    public GameObject page5;
+    // public GameObject page5;
     
     
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class LevelSelect : MonoBehaviour
     {
         prevButton.SetActive(true);
         levelPage += 1;
-        if (levelPage == 5)
+        if (levelPage == 4)
         {
             nextButton.SetActive(false);
             // levelPage = 1;
@@ -64,7 +64,7 @@ public class LevelSelect : MonoBehaviour
             prevButton.SetActive(false);
             nextButton.SetActive(true);
         }
-        else if (levelPage == 5)
+        else if (levelPage == 4)
         {
             prevButton.SetActive(true);
             nextButton.SetActive(false);
@@ -84,43 +84,43 @@ public class LevelSelect : MonoBehaviour
                 page1.SetActive(true);
                 page3.SetActive(false);
                 page4.SetActive(false);
-                page5.SetActive(false);
+                // page5.SetActive(false);
                 break;
             case 2:
                 page2.SetActive(true);
                 page1.SetActive(false);
                 page3.SetActive(false);
                 page4.SetActive(false);
-                page5.SetActive(false);
+                // page5.SetActive(false);
                 break;
             case 3:
                 page3.SetActive(true);
                 page2.SetActive(false);
                 page4.SetActive(false);
                 page1.SetActive(false);
-                page5.SetActive(false);
+                // page5.SetActive(false);
                 break;
             case 4:
                 page4.SetActive(true);
                 page3.SetActive(false);
-                page5.SetActive(false);
+                // page5.SetActive(false);
                 page1.SetActive(false);
                 page2.SetActive(false);
                 break;
-            case 5:
-                page5.SetActive(true);
-                page4.SetActive(false);
-                page1.SetActive(false);
-                page2.SetActive(false);
-                page3.SetActive(false);
-                break;
-            default:
-                page1.SetActive(true);
-                page2.SetActive(false);
-                page3.SetActive(false);
-                page4.SetActive(false);
-                page5.SetActive(false);
-                break;
+            // case 5:
+            //     page5.SetActive(true);
+            //     page4.SetActive(false);
+            //     page1.SetActive(false);
+            //     page2.SetActive(false);
+            //     page3.SetActive(false);
+            //     break;
+            // default:
+            //     page1.SetActive(true);
+            //     page2.SetActive(false);
+            //     page3.SetActive(false);
+            //     page4.SetActive(false);
+            //     page5.SetActive(false);
+            //     break;
         }
         
     }
