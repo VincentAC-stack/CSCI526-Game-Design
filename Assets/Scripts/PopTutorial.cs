@@ -19,7 +19,7 @@ public class PopTutorial : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         
-        if  (istriggered == false){
+        if  (istriggered == false  && col.name.Contains("AstroStay")){
             istriggered = true;
             textWindow.SetActive(true);
             Time.timeScale = 0f;
