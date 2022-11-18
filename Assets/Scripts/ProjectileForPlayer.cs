@@ -52,6 +52,11 @@ public class ProjectileForPlayer : MonoBehaviour
 
                 if(other.gameObject.name.Contains("Platform")){
                      DestroyProjectile();
+                }else if(other.gameObject.name.Contains("Enemy")){
+                    DestroyProjectile();
+
+                }else if(other.gameObject.name.Contains("SpiderMan")){
+                  DestroyProjectile();
                 }
               }
 
