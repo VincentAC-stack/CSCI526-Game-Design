@@ -19,8 +19,9 @@ public class HealthBarForPlayer : MonoBehaviour
 
     void Start()
     {
-        health = maxHealth;
+        //health = maxHealth;
         healthBarBackup.SetMaxHealth(maxHealth);
+        healthBarBackup.SetHealth(health);
     }
 
     void Update()
