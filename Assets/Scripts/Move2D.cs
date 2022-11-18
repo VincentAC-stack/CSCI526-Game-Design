@@ -47,6 +47,7 @@ public class Move2D : MonoBehaviour
             rigidbody2d.velocity = new Vector2(xInput * moveSpeed, rigidbody2d.velocity.y);
             // rigidbody2d.AddForce(new Vector2(xInput * moveSpeed, 0), ForceMode2D.Force);
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+            
             // transform.position += movement * Time.DeltaTime * moveSpeed;
             if (movement != Vector3.zero)
             {
