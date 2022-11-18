@@ -29,7 +29,7 @@ public class MovingPlatformsWood : MonoBehaviour
 
      // Update is called once per frame
      void Update () {
-        if (Input.GetKeyDown(KeyCode.Space) && GameController.canMove)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && GameController.canMove)
         {
             if(childTransform != null)
             {

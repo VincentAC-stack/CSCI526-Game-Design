@@ -58,7 +58,7 @@ public class SpiderL : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             transform.Rotate(180f, 0f, 0f, Space.Self);
         }
@@ -88,10 +88,10 @@ public class SpiderL : MonoBehaviour
 
     void Flip(){
       mustPatrol = false;
-      transform.localScale = new Vector2(transform.localScale.x * -1,transform.localScale.y );
+      transform.forward = new Vector3(0f, 0f, -transform.forward.z);
+      //transform.localScale = new Vector2(transform.localScale.x * -1,transform.localScale.y );
       walkSpeed *= -1;
-
-          mustPatrol = true;
+      mustPatrol = true;
     }
 
 

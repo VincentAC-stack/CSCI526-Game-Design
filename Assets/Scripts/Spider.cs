@@ -61,7 +61,7 @@ public class Spider : MonoBehaviour
         GameController.canMove = true;
       }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             transform.Rotate(180f, 0f, 0f, Space.Self);
         }
@@ -95,7 +95,8 @@ public class Spider : MonoBehaviour
     void Flip()
     {
         mustPatrol = false;
-        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        transform.forward = new Vector3(0f, 0f, -transform.forward.z);
+        //transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         walkSpeed *= -1;
         mustPatrol = true;
     }
