@@ -47,7 +47,7 @@ public class PauseMenu : MonoBehaviour
         GameController.PlayerDead = false;
         GameController.GameFinish = false;
         int idx = SceneManager.GetActiveScene().buildIndex;
-        if (idx != 33)
+        if (idx != 23)
         {
             SceneManager.LoadScene(idx + 1);
         }
