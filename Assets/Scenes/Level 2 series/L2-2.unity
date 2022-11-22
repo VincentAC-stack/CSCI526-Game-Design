@@ -420,7 +420,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenPortal (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7103654753077938444, guid: 3e42622a23153d649801d0a7376f18f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3e42622a23153d649801d0a7376f18f1, type: 3}
 --- !u!1 &101932475
 GameObject:
@@ -4340,7 +4341,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 776301799347053717, guid: 3e42622a23153d649801d0a7376f18f1, type: 3}
   m_PrefabInstance: {fileID: 71988543}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &938659060
+--- !u!114 &938659064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4349,10 +4350,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 938659055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8429153f7dc4ddb4c87deb658232d7d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 10625a5c0ee96194b95275a2ec2a4576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goToPos: {fileID: 1705635285}
+  RedOut: {fileID: 0}
+  GreenOut: {fileID: 1705635285}
+  YellowOut: {fileID: 0}
   isTeleport: 0
 --- !u!1 &948217655
 GameObject:
@@ -4757,7 +4760,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenPortal (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7103654753077938444, guid: 3e42622a23153d649801d0a7376f18f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3e42622a23153d649801d0a7376f18f1, type: 3}
 --- !u!4 &1128533456 stripped
 Transform:
@@ -7288,7 +7292,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 776301799347053717, guid: 3e42622a23153d649801d0a7376f18f1, type: 3}
   m_PrefabInstance: {fileID: 1115999448}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1705635286
+--- !u!114 &1705635290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7297,10 +7301,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1705635282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8429153f7dc4ddb4c87deb658232d7d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 10625a5c0ee96194b95275a2ec2a4576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goToPos: {fileID: 938659059}
+  RedOut: {fileID: 0}
+  GreenOut: {fileID: 938659059}
+  YellowOut: {fileID: 0}
   isTeleport: 0
 --- !u!1 &1712057590
 GameObject:
@@ -7628,11 +7634,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5163657656137268345, guid: 159549b08072bdb4aa62cd75b59648df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.81
+      value: -3.78
       objectReference: {fileID: 0}
     - target: {fileID: 5163657656137268345, guid: 159549b08072bdb4aa62cd75b59648df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -1.19
       objectReference: {fileID: 0}
     - target: {fileID: 5163657656137268345, guid: 159549b08072bdb4aa62cd75b59648df, type: 3}
       propertyPath: m_LocalPosition.z
