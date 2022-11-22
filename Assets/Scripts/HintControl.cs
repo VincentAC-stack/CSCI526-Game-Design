@@ -11,6 +11,7 @@ public class HintControl : MonoBehaviour
     TextMeshProUGUI tmptext;
 
     public float Delay;
+    public float Disappear;
     public string HintText = "This is a sample Hint.";
 
     // Start is called before the first frame update
@@ -27,18 +28,21 @@ public class HintControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Delay > timesincestart && showtext == false)
-         {
-             timesincestart += Time.time;
-         }
+
+        timesincestart = (Time.time - currenttime);
+
  
-         if(timesincestart >= Delay)
+         if(timesincestart >= Delay && timesincestart < Disappear)
          {
              showtext = true;
+         } else if (timesincestart >= Disappear) {
+            showtext = false;
          }
 
          if (showtext == true) {
             tmptext.text = HintText;
+         } else {
+            tmptext.text = "";
          }
     }
 }
