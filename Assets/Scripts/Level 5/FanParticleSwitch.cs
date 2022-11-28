@@ -19,7 +19,6 @@ public class FanParticleSwitch : MonoBehaviour
         {
             var main = _particleSystem.main;
             main.gravityModifierMultiplier *= -1;
-            
         }
     }
 }
