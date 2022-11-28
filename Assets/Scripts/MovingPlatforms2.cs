@@ -5,6 +5,7 @@ using System;
 
 public class MovingPlatforms2 : MonoBehaviour
 {
+    
     private float[] ABC;
     public static float edgey = 0;
     public static float speed = 0;
@@ -21,7 +22,7 @@ public class MovingPlatforms2 : MonoBehaviour
         ABC = new float[transform.childCount];
         foreach (Transform tran in transform)
         {
-            ABC[i] = 2.5f - (5f / transform.childCount) * i;
+            ABC[i] = 2.499f - (5f / transform.childCount) * i;
             
             Vector3 pos = tran.position;
             pos.y = ABC[i];
