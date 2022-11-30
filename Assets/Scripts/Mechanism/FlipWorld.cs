@@ -58,6 +58,7 @@ public class FlipWorld : MonoBehaviour
         {
             Data.FlipCounts++;
             Flip();
+            GameController.flipFan = !GameController.flipFan;
             GameController.isWorldFlipped = !GameController.isWorldFlipped;
         }
     }
