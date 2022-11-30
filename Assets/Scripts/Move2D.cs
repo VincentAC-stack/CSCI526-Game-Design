@@ -47,7 +47,7 @@ public class Move2D : MonoBehaviour
             rigidbody2d.velocity = new Vector2(xInput * moveSpeed, rigidbody2d.velocity.y);
             // rigidbody2d.AddForce(new Vector2(xInput * moveSpeed, 0), ForceMode2D.Force);
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-            
+
             // transform.position += movement * Time.DeltaTime * moveSpeed;
             if (movement != Vector3.zero)
             {
@@ -55,6 +55,7 @@ public class Move2D : MonoBehaviour
             }
             UpdateState();
         }
+
     }
 
     void Jump()
@@ -77,9 +78,12 @@ public class Move2D : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+
+
+     }
         // this.SetActive(false);
-        
-        // if (collision.gameObject.name == "DownFailChecker" || collision.gameObject.name == "DownFailChecker2") 
+
+        // if (collision.gameObject.name == "DownFailChecker" || collision.gameObject.name == "DownFailChecker2")
         // {
         //     GameController.canMove = false;
         //     GameController.PlayerDead = true;
@@ -88,12 +92,12 @@ public class Move2D : MonoBehaviour
         //     Data.LevelDeaths = -1;
         //     // Send();
         // }
- 
+
         // else if (collision.gameObject.name.Contains("Spike")  || collision.gameObject.name.Contains("Saw"))
         // {
         //     PlayerStatus.currHealth--;
         // }
-    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -123,7 +127,7 @@ public class Move2D : MonoBehaviour
 
     public void Send()
     {
-        StartCoroutine(Post(Data.LevelName, Data.SessionID.ToString(), Data.GameResult.ToString(), 
+        StartCoroutine(Post(Data.LevelName, Data.SessionID.ToString(), Data.GameResult.ToString(),
             Data.LevelDeaths.ToString(), Data.FlipCounts.ToString()));
     }
 
@@ -141,13 +145,13 @@ public class Move2D : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post(Data.URL, form);
         yield return www.SendWebRequest();
         www.Dispose();
-        // using (UnityWebRequest www = UnityWebRequest.Post(URL, form)) 
+        // using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         // {
         //     yield return www.SendWebRequest();
         //     if (www.result != UnityWebRequest.Result.Success) {
         //         Debug.Log(www.error); }
         //     else{
-        //         Debug.Log("Form upload complete!");} 
+        //         Debug.Log("Form upload complete!");}
         // }
     }
 
@@ -161,11 +165,11 @@ public class Move2D : MonoBehaviour
         {
             anim.SetBool("isRunning",true);
         }
-        if (isTouchingGround) 
+        if (isTouchingGround)
         {
             anim.SetBool("isJumping",false);
         }
-        if (!isTouchingGround) 
+        if (!isTouchingGround)
         {
             anim.SetBool("isJumping",true);
         }
