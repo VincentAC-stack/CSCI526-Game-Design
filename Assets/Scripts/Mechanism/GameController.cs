@@ -53,6 +53,8 @@ public class GameController : MonoBehaviour
         {
             Time.timeScale = 0f;//Pause
             ResetWindow.SetActive(true);
+            isWorldFlipped = false;
+            flipFan = false;
         }
         if (GameFinish)
         {
@@ -74,6 +76,8 @@ public class GameController : MonoBehaviour
             {
                 one.SetActive(true);
             }
+            isWorldFlipped = false;
+            flipFan = false;
         }
         
          if (Input.GetKeyDown(KeyCode.Return))
