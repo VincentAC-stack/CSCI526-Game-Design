@@ -6,28 +6,26 @@ using UnityEngine;
 public class LaserControlNew : MonoBehaviour
 {
     private GameObject laser;
-    public bool isAppear = false;
+    public static bool isAppear = false;
 
     void Start()
     {
         laser = GameObject.FindGameObjectWithTag("LaserWithParticleNew");
-        laser.SetActive(false);
+        laser.SetActive(isAppear);
+        // Debug.Log("start"+ isAppear);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && GameController.canMove)
+
+        if (isAppear)
         {
-            if (isAppear)
-            {
-                laser.SetActive(false);
-                isAppear = false;
-            }
-            else if (!isAppear)
-            {
-                laser.SetActive(true);
-                isAppear = true;
-            }
+            laser.SetActive(true);
         }
+        else if (!isAppear)
+        {
+            laser.SetActive(false);
+        }
+
     }
 }

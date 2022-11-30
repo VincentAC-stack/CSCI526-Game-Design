@@ -28,10 +28,16 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameController.PlayerDead = false;
         GameController.GameFinish = false;
+
+        GameController.isWorldFlipped = false;
+        GameController.flipFan = false;
+        LaserControl.isAppear = true;
+        LaserControlNew.isAppear = false;
+        GameController.canMove = true;
         
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        GameController.canMove = true;
+        
 
     }
     public void Resume() {
@@ -47,15 +53,31 @@ public class PauseMenu : MonoBehaviour
         GameController.PlayerDead = false;
         GameController.GameFinish = false;
         int idx = SceneManager.GetActiveScene().buildIndex;
+        
+        GameController.isWorldFlipped = false;
+        GameController.flipFan = false;
+        LaserControl.isAppear = true;
+        LaserControlNew.isAppear = false;
+        GameController.deathCount = 0;
+        GameController.canMove = true;
         if (idx != 23)
         {
             SceneManager.LoadScene(idx + 1);
         }
-        GameController.deathCount = 0;
-        GameController.canMove = true;
+
     }
     public void Home(int index) {
         Time.timeScale = 1f;
+
+        GameController.PlayerDead = false;
+        GameController.GameFinish = false;
+
+        GameController.isWorldFlipped = false;
+        GameController.flipFan = false;
+        LaserControl.isAppear = true;
+        LaserControlNew.isAppear = false;
+        GameController.canMove = true;
+        
         SceneManager.LoadScene(index);
         GameController.deathCount = 0;
     }

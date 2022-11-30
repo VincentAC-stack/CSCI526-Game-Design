@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour
             isWorldFlipped = false;
             flipFan = false;
             LaserControl.isAppear = true;
+            LaserControlNew.isAppear = false;
         }
         if (GameFinish)
         {
@@ -80,6 +81,7 @@ public class GameController : MonoBehaviour
             isWorldFlipped = false;
             flipFan = false;
             LaserControl.isAppear = true;
+            LaserControlNew.isAppear = false;
         }
         
          if (Input.GetKeyDown(KeyCode.Return))
