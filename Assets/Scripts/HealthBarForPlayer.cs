@@ -105,6 +105,7 @@ public class HealthBarForPlayer : MonoBehaviour
                 if (GameController.isWorldFlipped) {
                     FlipWorld.Flip();
                     GameController.flipFan = !GameController.flipFan;
+                    LaserControl.isAppear = !LaserControl.isAppear;
                     GameController.isWorldFlipped = !GameController.isWorldFlipped;
                 }
                 GameObject Player = GameObject.Find("AstroStay");

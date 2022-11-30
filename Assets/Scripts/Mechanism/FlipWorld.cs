@@ -58,6 +58,7 @@ public class FlipWorld : MonoBehaviour
         {
             Data.FlipCounts++;
             Flip();
+            LaserControl.isAppear = !LaserControl.isAppear;
             GameController.flipFan = !GameController.flipFan;
             GameController.isWorldFlipped = !GameController.isWorldFlipped;
         }

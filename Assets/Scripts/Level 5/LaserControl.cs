@@ -11,28 +11,26 @@ public class LaserControl : MonoBehaviour
     void Start()
     {
         laser = GameObject.FindGameObjectsWithTag("LaserWithParticle");
+
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && GameController.canMove)
+
+        if (isAppear)
         {
-            if (isAppear)
+            for (int i = 0; i < laser.Length; i++)
             {
-                for (int i = 0; i < laser.Length; i++)
-                {
-                    laser[i].SetActive(false);
-                    isAppear = false;
-                }
-            }
-            else if (!isAppear)
-            {
-                for (int i = 0; i < laser.Length; i++)
-                {
-                    laser[i].SetActive(true);
-                    isAppear = true;
-                }
+                laser[i].SetActive(true);
             }
         }
+        else if (!isAppear)
+        {
+            for (int i = 0; i < laser.Length; i++)
+            {
+                laser[i].SetActive(false);
+            }
+        }
+
     }
 }
