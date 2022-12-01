@@ -31,10 +31,10 @@ public class MovingPlatformsWoodPlayer : MonoBehaviour
      void Update () {
         if (Input.GetKeyDown(KeyCode.LeftShift) && GameController.canMove)
         {
-            if(childTransform != null)
-            {
-                childTransform.rotation *= Quaternion.Euler(180, 0, 0);
-            }
+            // if(childTransform != null)
+            // {
+            //     childTransform.rotation *= Quaternion.Euler(180, 0, 0);
+            // }
 
             Vector3 pos = childTransform.position;
             pos.y = -pos.y;
@@ -63,17 +63,12 @@ public class MovingPlatformsWoodPlayer : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         col.gameObject.transform.SetParent(gameObject.transform, true);
-        //Debug.Log(col.gameObject.name);
         //col.gameObject.transform.position = childTransform.position;
-
     }
 
     void OnCollisionExit2D(Collision2D col)
     {
-
         col.gameObject.transform.parent = null;
-
     }
-
-
+    
 }
