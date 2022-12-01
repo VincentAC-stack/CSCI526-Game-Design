@@ -18,7 +18,7 @@ public class Move2D : MonoBehaviour
     private bool isTouchingGround;
     public static Vector3 respawnPoint;
     private Animator anim;
-    public static float xInput;
+    private float xInput;
 
     private void Awake()
     {

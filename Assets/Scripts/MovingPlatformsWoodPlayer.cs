@@ -3,72 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
 public class MovingPlatformsWoodPlayer : MonoBehaviour
 {
+    public float speed;
+    public int startingPoint;
+    public Transform[] points;
+    public Transform playerDefTransform;
 
-    private Vector3 posA;
-    private Vector3 posB;
-    private Vector3 nexPos;
-
-    [SerializeField]
-    private float speed;
-
-    [SerializeField]
-    private Transform childTransform;
-
-    [SerializeField]
-    private Transform transformB;
-
-    // Use this for initialization
-    void Start () {
-        posA = childTransform.localPosition;
-        posB = transformB.localPosition;
-        nexPos = posB;
+    private int i;
+    private bool moving;
+    private void Start()
+    {
+        transform.position = points[startingPoint].position;
+        playerDefTransform = GameObject.FindGameObjectWithTag("Player").transform.parent;
     }
 
-     // Update is called once per frame
-     void Update () {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && GameController.canMove)
+    private void Update()
+    {
+        if (Vector2.Distance(transform.position, points[i].position) < 0.02f)
         {
-            // if(childTransform != null)
-            // {
-            //     childTransform.rotation *= Quaternion.Euler(180, 0, 0);
-            // }
-
-            Vector3 pos = childTransform.position;
-            pos.y = -pos.y;
-            childTransform.position = pos;
-        }
-        else
-        {
-            move();
-        }
-     }
-
-     private void move(){
-        if(childTransform != null)
-        {
-            childTransform.localPosition = Vector3.MoveTowards(childTransform.localPosition, nexPos, speed * Time.deltaTime);
-            if (Vector3.Distance(childTransform.localPosition, nexPos) <= 0.1){
-                ChangeDestination();
+            i++;
+            if (i == points.Length)
+            {
+                i = 0;
             }
         }
-     }
-
-     private void ChangeDestination(){
-        nexPos = nexPos != posA ? posA : posB;
-     }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        col.gameObject.transform.SetParent(gameObject.transform, true);
-        //col.gameObject.transform.position = childTransform.position;
-    }
-
-    void OnCollisionExit2D(Collision2D col)
-    {
-        col.gameObject.transform.parent = null;
+        
+        transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime);
+        
     }
     
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        col.gameObject.transform.parent = gameObject.transform;
+    }
+    
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        col.gameObject.transform.parent = playerDefTransform;
+    }
 }
