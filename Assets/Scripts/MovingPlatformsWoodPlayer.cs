@@ -60,18 +60,20 @@ public class MovingPlatformsWoodPlayer : MonoBehaviour
         nexPos = nexPos != posA ? posA : posB;
      }
 
-     void OnCollisionEnter2D(Collision2D col)
-        {
-    col.gameObject.transform.SetParent(gameObject.transform,true);
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        col.gameObject.transform.SetParent(gameObject.transform, true);
+        //Debug.Log(col.gameObject.name);
+        //col.gameObject.transform.position = childTransform.position;
 
-     }
+    }
 
-     void OnCollisionExit2D(Collision2D col)
+    void OnCollisionExit2D(Collision2D col)
     {
 
-    col.gameObject.transform.parent = null;
+        col.gameObject.transform.parent = null;
 
-   }
+    }
 
 
- }
+}
