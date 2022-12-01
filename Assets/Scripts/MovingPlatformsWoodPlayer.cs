@@ -7,22 +7,71 @@ using System;
 public class MovingPlatformsWoodPlayer : MonoBehaviour
 {
 
-    private GameObject target=null;
- private Vector3 offset;
- void Start(){
-     target = null;
- }
- void OnTriggerStay2D(Collider2D col){
-     target = col.gameObject;
-     offset = target.transform.position - transform.position;
- }
- void OnTriggerExit2D(Collider2D col){
-     target = null;
- }
- void LateUpdate(){
-     if (target != null) {
-         target.transform.position = transform.position+offset;
+    private Vector3 posA;
+    private Vector3 posB;
+    private Vector3 nexPos;
+
+    [SerializeField]
+    private float speed;
+
+    [SerializeField]
+    private Transform childTransform;
+
+    [SerializeField]
+    private Transform transformB;
+
+    // Use this for initialization
+    void Start () {
+        posA = childTransform.localPosition;
+        posB = transformB.localPosition;
+        nexPos = posB;
+    }
+
+     // Update is called once per frame
+     void Update () {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && GameController.canMove)
+        {
+            if(childTransform != null)
+            {
+                childTransform.rotation *= Quaternion.Euler(180, 0, 0);
+            }
+
+            Vector3 pos = childTransform.position;
+            pos.y = -pos.y;
+            childTransform.position = pos;
+        }
+        else
+        {
+            move();
+        }
      }
- }
+
+     private void move(){
+        if(childTransform != null)
+        {
+            childTransform.localPosition = Vector3.MoveTowards(childTransform.localPosition, nexPos, speed * Time.deltaTime);
+            if (Vector3.Distance(childTransform.localPosition, nexPos) <= 0.1){
+                ChangeDestination();
+            }
+        }
+     }
+
+     private void ChangeDestination(){
+        nexPos = nexPos != posA ? posA : posB;
+     }
+
+     void OnCollisionEnter2D(Collision2D col)
+        {
+    col.gameObject.transform.SetParent(gameObject.transform,true);
+
+     }
+
+     void OnCollisionExit2D(Collision2D col)
+    {
+
+    col.gameObject.transform.parent = null;
+
+   }
+
 
  }
